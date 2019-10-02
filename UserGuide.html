@@ -95,86 +95,80 @@ e.g. typing <code>help</code> and pressing <kbd>Enter</kbd> will open the help w
 </div>
 </div>
 <div class="sect2">
-<h3 id="lecture-notes"><a class="link" href="#lecture-notes">3.1. Lecture notes</a></h3>
-<div class="sect3">
-<h4 id="adding-lecture-notes-code-addnote-code"><a class="link" href="#adding-lecture-notes-code-addnote-code">3.1.1. Adding lecture notes: <code>addnote</code></a></h4>
+<h3 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.1. Get statistics for subjects : <code>stats</code></a></h3>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Adds a lecture note. The <code>i/</code> field, if provided, brings up a dialogue where an image can be chosen from
+<p>=== Lecture notes</p>
+</div>
+<div class="paragraph">
+<p>==== Adding lecture notes: <code>addnote</code>
+Adds a lecture note. The <code>i/</code> field, if provided, brings up a dialogue where an image can be chosen from
 the file system; such an image will be displayed beside the note.<br>
 Format: <code>addnote t/TITLE c/CONTENT [i/]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="editing-lecture-notes-code-editnote-code"><a class="link" href="#editing-lecture-notes-code-editnote-code">3.1.2. Editing lecture notes: <code>editnote</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing lecture note. Providing <code>i/</code> brings up the image selection dialogue, like <code>addnote</code>;
+<p>==== Editing lecture notes: <code>editnote</code>
+Edits an existing lecture note. Providing <code>i/</code> brings up the image selection dialogue, like <code>addnote</code>;
 this can be used to change the image. At least one of <code>t/</code>, <code>c/</code> and <code>i/</code> must be provided.</p>
 </div>
 <div class="paragraph">
 <p>The index must be between 1 and the number of notes and flashcards combined, inclusive.<br>
 Format: <code>editnote INDEX [t/TITLE] [c/CONTENT] [i/]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="viewing-lecture-notes-code-shownote-code"><a class="link" href="#viewing-lecture-notes-code-shownote-code">3.1.3. Viewing lecture notes: <code>shownote</code></a></h4>
 <div class="paragraph">
-<p>If an index is provided, a number prefixed with a # (e.g. #1), show the lecture note with that index.
+<p>==== Viewing lecture notes: <code>shownote</code>
+If an index is provided, a number prefixed with a # (e.g. #1), show the lecture note with that index.
 Otherwise, search for lecture notes whose title contains every given word (space-separated, ignoring case),
 and display them.<br>
 Format: <code>shownote [#INDEX | WORDS]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="deleting-lecture-notes-code-deletenote-code"><a class="link" href="#deleting-lecture-notes-code-deletenote-code">3.1.4. Deleting lecture notes: <code>deletenote</code></a></h4>
 <div class="paragraph">
-<p>Delete the lecture note with the given index, which follows the same restrictions as with <code>editnote</code>.<br>
+<p>==== Deleting lecture notes: <code>deletenote</code>
+Delete the lecture note with the given index, which follows the same restrictions as with <code>editnote</code>.<br>
 Format: <code>deletenote INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="exporting-all-entries-code-export-code"><a class="link" href="#exporting-all-entries-code-export-code">3.1.5. Exporting all entries: <code>export</code></a></h4>
 <div class="paragraph">
-<p>Export all items in NUStudy, both flash cards and lecture notes, into a file with the given name.<br>
+<p>==== Exporting all entries: <code>export</code>
+Export all items in NUStudy, both flash cards and lecture notes, into a file with the given name.<br>
 Format: <code>export FILENAME</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="importing-all-entries-code-import-code"><a class="link" href="#importing-all-entries-code-import-code">3.1.6. Importing all entries: <code>import</code></a></h4>
 <div class="paragraph">
-<p>Import all items in the given file into NUStudy. This overwrites any items already in the app.<br>
+<p>==== Importing all entries: <code>import</code>
+Import all items in the given file into NUStudy. This overwrites any items already in the app.<br>
 Format: <code>import FILENAME</code></p>
 </div>
+<div class="paragraph">
+<p>=== Questions</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="questions"><a class="link" href="#questions">3.2. Questions</a></h3>
 <div class="paragraph">
 <p>NUStudy can also store different sets of questions and answers;
 at your command, the system will prompt you to answer those questions.</p>
 </div>
-<div class="sect3">
-<h4 id="adding-questions-code-add-code"><a class="link" href="#adding-questions-code-add-code">3.2.1. Adding Questions : <code>add</code></a></h4>
+<div class="paragraph">
+<p>==== Adding Questions : <code>add</code></p>
+</div>
 <div class="paragraph">
 <p>Adds a question and its answer.<br>
 Format: <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 </div>
+<div class="paragraph">
+<p>==== Listing all questions: <code>list</code></p>
 </div>
-<div class="sect3">
-<h4 id="listing-all-questions-code-list-code"><a class="link" href="#listing-all-questions-code-list-code">3.2.2. Listing all questions: <code>list</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of questions.<br>
 Format: <code>list</code></p>
 </div>
+<div class="paragraph">
+<p>==== Listing all questions with answers: <code>list -all</code></p>
 </div>
-<div class="sect3">
-<h4 id="listing-all-questions-with-answers-code-list-all-code"><a class="link" href="#listing-all-questions-with-answers-code-list-all-code">3.2.3. Listing all questions with answers: <code>list -all</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of questions and their corresponding answers.<br>
 Format: <code>list -all</code></p>
 </div>
+<div class="paragraph">
+<p>==== Editing a question: <code>edit</code></p>
 </div>
-<div class="sect3">
-<h4 id="editing-a-question-code-edit-code"><a class="link" href="#editing-a-question-code-edit-code">3.2.4. Editing a question: <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the fields of an existing question.<br>
 Format: <code>edit INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</code></p>
@@ -199,16 +193,16 @@ Format: <code>edit INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</cod
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>==== Locating questions by keyword: <code>find</code></p>
 </div>
-<div class="sect3">
-<h4 id="locating-questions-by-keyword-code-find-code"><a class="link" href="#locating-questions-by-keyword-code-find-code">3.2.5. Locating questions by keyword: <code>find</code></a></h4>
 <div class="paragraph">
 <p>Finds questions containing the keyword.<br>
 Format: <code>find KEYWORD [MORE KEYWORDS]</code></p>
 </div>
+<div class="paragraph">
+<p>==== Deleting a question: <code>delete</code></p>
 </div>
-<div class="sect3">
-<h4 id="deleting-a-question-code-delete-code"><a class="link" href="#deleting-a-question-code-delete-code">3.2.6. Deleting a question: <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specific question at the specified INDEX and its answer from the list.<br>
 Format: <code>delete INDEX</code></p>
@@ -230,205 +224,170 @@ Format: <code>delete INDEX</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>==== Find difficulty: <code>difficulty</code></p>
 </div>
-<div class="sect3">
-<h4 id="find-difficulty-code-difficulty-code"><a class="link" href="#find-difficulty-code-difficulty-code">3.2.7. Find difficulty: <code>difficulty</code></a></h4>
 <div class="paragraph">
 <p>Views the list of all questions with a specific difficulty.<br>
 Format: <code>difficulty d/DIFFICULTY</code></p>
 </div>
+<div class="paragraph">
+<p>==== Find difficulty within a subject: <code>difficulty -s</code></p>
 </div>
-<div class="sect3">
-<h4 id="find-difficulty-within-a-subject-code-difficulty-s-code"><a class="link" href="#find-difficulty-within-a-subject-code-difficulty-s-code">3.2.8. Find difficulty within a subject: <code>difficulty -s</code></a></h4>
 <div class="paragraph">
 <p>Views the list of questions of a specified subject with a specific difficulty.<br>
 Format: <code>difficulty -s s/SUBJECT d/DIFFICULTY</code></p>
 </div>
+<div class="paragraph">
+<p>==== Get statistics for subjects : <code>stats</code>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; a5f74812e42e9d6d36685ae7a7bfc661bc183f0a</p>
 </div>
-<div class="sect3">
-<h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.2.9. Get statistics for subjects : <code>stats</code></a></h4>
 <div class="paragraph">
 <p>Gets statistics of how well you answered the questions for a subject.
 A pie chart of the number of questions that have been answered correctly and incorrectly will be returned.
 You can even get the combined statistics of more than one subject.<br>
 Format: <code>stats s/SUBJECT [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-questions-with-correct-answers-correct"><a class="link" href="#get-questions-with-correct-answers-correct">3.2.10. Get questions with correct answers: correct</a></h4>
 <div class="paragraph">
-<p>Gets all questions that have been answered correctly for a particular subject.
+<p>==== Get questions with correct answers: correct
+Gets all questions that have been answered correctly for a particular subject.
 You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
 Format: <code>correct s/SUBJECT [-a]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-questions-with-incorrect-answers-incorrect"><a class="link" href="#get-questions-with-incorrect-answers-incorrect">3.2.11. Get questions with incorrect answers: incorrect</a></h4>
 <div class="paragraph">
-<p>Gets all questions that have been answered incorrectly for a particular subject.
+<p>==== Get questions with incorrect answers: incorrect
+Gets all questions that have been answered incorrectly for a particular subject.
 You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
 Format: <code>incorrect s/SUBJECT [-a]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-statistics-for-individual-questions-stats"><a class="link" href="#get-statistics-for-individual-questions-stats">3.2.12. Get statistics for individual questions: stats</a></h4>
 <div class="paragraph">
-<p>Gets statistics of how well you answered a particular question,
+<p>==== Get statistics for individual questions: stats
+Gets statistics of how well you answered a particular question,
 the number of times the question has been attempted and the past answers to the question.<br>
 Format: <code>stats INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="statistics-for-difficulty-level-stats-dif"><a class="link" href="#statistics-for-difficulty-level-stats-dif">3.2.13. Statistics for difficulty level: stats -dif</a></h4>
 <div class="paragraph">
-<p>Gets statistics of the number of questions within a subject attempted at the specified difficulty level.<br>
+<p>==== Statistics for difficulty level: stats -dif
+Gets statistics of the number of questions within a subject attempted at the specified difficulty level.<br>
 Format: <code>stats -dif d/DIFFICULTY s/SUBJECT</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="statistics-for-difficulty-level-accuracy-accur-dif"><a class="link" href="#statistics-for-difficulty-level-accuracy-accur-dif">3.2.14. Statistics for difficulty level accuracy: accur -dif</a></h4>
 <div class="paragraph">
-<p>Gets statistics of the questions answered correctly and incorrectly within a subject of a specific difficulty level.<br>
+<p>==== Statistics for difficulty level accuracy: accur -dif
+Gets statistics of the questions answered correctly and incorrectly within a subject of a specific difficulty level.<br>
 Format: <code>accur -dif d/DIFFICULTY s/SUBJECT</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-overview-of-lecture-notes-overview-ln"><a class="link" href="#get-overview-of-lecture-notes-overview-ln">3.2.15. Get overview of lecture notes: overview -ln</a></h4>
 <div class="paragraph">
-<p>Gets an overview of the types of notes that have been added into the app.
+<p>==== Get overview of lecture notes: overview -ln
+Gets an overview of the types of notes that have been added into the app.
 A stacked bar graph, sorted by subjects will be returned.<br>
 Format: <code>overview -ln</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-overview-of-questions-attempted-overview-q"><a class="link" href="#get-overview-of-questions-attempted-overview-q">3.2.16. Get overview of questions attempted: overview -q</a></h4>
 <div class="paragraph">
-<p>Gets an overview of the types of questions that have been attempted overall.
+<p>==== Get overview of questions attempted: overview -q
+Gets an overview of the types of questions that have been attempted overall.
 A stacked bar graph, sorted by subjects will be returned.
-You can choose to add in a time period, <code>dt/</code>, to see which questions have been attempted then.<br>
 Format: <code>overview -q [dt/START_DATE] [dt/END_DATE]</code></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">3.3. Auto-complete feature <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Returns suggestions when you are typing commands.</p>
+<p>=== Auto-complete feature <code>[coming in v2.0]</code>
+Returns suggestions when you are typing commands.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="other-commands"><a class="link" href="#other-commands">3.4. Other commands</a></h3>
-<div class="sect3">
-<h4 id="view-revision-tasks-code-rv-list-code"><a class="link" href="#view-revision-tasks-code-rv-list-code">3.4.1. View revision tasks: <code>rv list</code></a></h4>
 <div class="paragraph">
-<p>Displays the revision task list<br>
+<p>=== Other commands</p>
+</div>
+<div class="paragraph">
+<p>==== View revision tasks: <code>rv list</code>
+Displays the revision task list<br>
 Format: <code>rv list [n/NOTE_SET] [dt/DATE]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="add-revision-task-code-rv-add-code"><a class="link" href="#add-revision-task-code-rv-add-code">3.4.2. Add revision task: <code>rv add</code></a></h4>
 <div class="paragraph">
-<p>Adds an item (to-do) to the current revision task list<br>
+<p>==== Add revision task: <code>rv add</code>
+Adds an item (to-do) to the current revision task list<br>
 Format:<br>
 <code>rv add ns/NOTE_SET dt/START_DATE dt/START_TIME</code><br>
 <code>rv add qs/QUESTION_SET dt/START_DATE dt/START_TIME</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="remove-revision-task-code-rv-delete-code"><a class="link" href="#remove-revision-task-code-rv-delete-code">3.4.3. Remove revision task: <code>rv delete</code></a></h4>
 <div class="paragraph">
-<p>Removes the specified revision task from current list<br>
+<p>==== Remove revision task: <code>rv delete</code>
+Removes the specified revision task from current list<br>
 Format: <code>rv delete INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="clear-current-revision-plan-code-rv-clear-code"><a class="link" href="#clear-current-revision-plan-code-rv-clear-code">3.4.4. Clear current revision plan: <code>rv clear</code></a></h4>
 <div class="paragraph">
-<p>Deletes all revision tasks
+<p>==== Clear current revision plan: <code>rv clear</code>
+Deletes all revision tasks
 Format: <code>rv clear</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="edit-revision-task-code-rv-edit-code"><a class="link" href="#edit-revision-task-code-rv-edit-code">3.4.5. Edit revision task: <code>rv edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified revision task
+<p>==== Edit revision task: <code>rv edit</code>
+Edits the specified revision task
 Format: <code>rv edit INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="label-the-revision-task-as-important-code-rv-impt-code"><a class="link" href="#label-the-revision-task-as-important-code-rv-impt-code">3.4.6. Label the revision task as important: <code>rv impt</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv impt INDEX</code></p>
+<p>==== Label the revision task as important: <code>rv impt</code>
+Format: <code>rv impt INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="mark-the-revision-task-as-done-code-rv-done-code"><a class="link" href="#mark-the-revision-task-as-done-code-rv-done-code">3.4.7. Mark the revision task as done: <code>rv done</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv done INDEX</code></p>
+<p>==== Mark the revision task as done: <code>rv done</code>
+Format: <code>rv done INDEX</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="view-incomplete-revision-task-code-rv-ndone-code"><a class="link" href="#view-incomplete-revision-task-code-rv-ndone-code">3.4.8. View incomplete revision task: <code>rv ndone</code></a></h4>
 <div class="paragraph">
-<p>Displays the list of revision tasks that are yet to be completed
+<p>==== View incomplete revision task: <code>rv ndone</code>
+Displays the list of revision tasks that are yet to be completed
 Format: <code>rv ndone</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-rv-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-rv-overdue-code">3.4.9. View overdue revision tasks: <code>rv overdue</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv overdue</code></p>
+<p>==== View overdue revision tasks: <code>rv overdue</code>
+Format: <code>rv overdue</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="enable-push-notification-code-notify-e-code"><a class="link" href="#enable-push-notification-code-notify-e-code">3.4.10. Enable push notification: <code>notify -e</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>notify -e [-A] [INDEX]</code></p>
+<p>==== Enable push notification: <code>notify -e</code>
+Format: <code>notify -e [-A] [INDEX]</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="disable-push-notification-code-notify-d-code"><a class="link" href="#disable-push-notification-code-notify-d-code">3.4.11. Disable push notification: <code>notify -d</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>notify -d [-A] [INDEX]</code></p>
+<p>==== Disable push notification: <code>notify -d</code>
+Format: <code>notify -d [-A] [INDEX]</code></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with
-the file that contains the data of your previous folder.</p>
+<p>== FAQ</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add lecture note</strong>: <code>addnote t/TITLE c/CONTENT [i/]</code></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
-<p><strong>Edit lecture note</strong>: <code>editnote INDEX [t/TITLE] [c/CONTENT] [i/]</code></p>
+<p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Show or find lecture note</strong>: <code>shownote [#INDEX | WORDS]</code></p>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Delete lecture note</strong>: <code>deletenote INDEX</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Export all</strong>: <code>export FILENAME</code></p>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find James Jake</code></p>
 </li>
 <li>
-<p><strong>Import all</strong>: <code>import FILENAME</code></p>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 09:37:05 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 09:41:39 UTC</div></div></div></body></html>
