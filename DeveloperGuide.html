@@ -818,6 +818,41 @@ compared to a typical note-taking app</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can see which topic/subject I need to make more notes on</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Irene</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mark and store the questions I have made mistakes on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can get a better understanding of which part I need to put more time to study</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dongjun</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">take a series questions as a mock test before exam</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can refresh my memory on different modules before exam</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dongjun</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find specific questions according to the keywords</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can filter the questions I want for different purposes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dongjun</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change the difficulty of my test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can be better prepared for actual exam</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dongjun</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view all questions and answers stored</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can refer them as revision guide according to different subjects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dongjun</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1415,6 +1450,172 @@ Use case ends.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-delete-an-existing-question-dongjun" class="discrete">Use case: Delete an existing question (Dongjun)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to delete an existing question <code>delete INDEX</code></p>
+</li>
+<li>
+<p>Application shows the question being deleted</p>
+</li>
+<li>
+<p>Application deletes the question indicated by the student from the database</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a. The index given by student is out of the range</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application shows the error and displays the number of questions stored</p>
+</li>
+<li>
+<p>1a2. Student enters the valid index</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 1</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-take-a-test-dongjun" class="discrete">Use case: Take a test (Dongjun)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to enter the test mode <code>test [n/NUMBER_OF_QUESTIONS] [d/DIFFICULTY] [s/SUBJECT]</code></p>
+</li>
+<li>
+<p>Application shows a question with difficulty and subject indicated</p>
+</li>
+<li>
+<p>Application waits for the student to key in the answer</p>
+</li>
+<li>
+<p>Student enters the answer</p>
+</li>
+<li>
+<p>Application displays whether the input answer is correct or wrong</p>
+</li>
+<li>
+<p>Repeat 2 - 5 until all questions are answered</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>1a. Student inputs the invalid test commands</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application returns the correct format for test command</p>
+</li>
+<li>
+<p>1a2. Students enter the correct test command</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 1</p>
+</li>
+</ul>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>2a. Student chooses to change the difficulty of questions by giving <code>change -dif DIFFICULTY</code></p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. The question set will change to a new difficulty</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist None">
+<ul class="None">
+<li>
+<p>3a. Student chooses to skip current questions by giving <code>skip</code></p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>Application skips this question and display the next question</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. Student chooses to get the answer for current question by giving <code>show</code></p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. Application displays the answer and go to next question</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>*a. At any time, Student chooses to exit from the test</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>*a1. Student gives the command <code>quit</code></p>
+</li>
+<li>
+<p>*a2. Application exits from the test mode</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case ends</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1596,4 +1797,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 10:30:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 14:26:42 UTC</div></div></div></body></html>
