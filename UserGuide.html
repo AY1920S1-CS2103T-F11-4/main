@@ -245,6 +245,76 @@ Format: <code>difficulty d/DIFFICULTY</code></p>
 Format: <code>difficulty -s s/SUBJECT d/DIFFICULTY</code></p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.2.9. Get statistics for subjects : <code>stats</code></a></h4>
+<div class="paragraph">
+<p>Gets statistics of how well you answered the questions for a subject.
+A pie chart of the number of questions that have been answered correctly and incorrectly will be returned.
+You can even get the combined statistics of more than one subject.<br>
+Format: <code>stats s/SUBJECT [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-questions-with-correct-answers-correct"><a class="link" href="#get-questions-with-correct-answers-correct">3.2.10. Get questions with correct answers: correct</a></h4>
+<div class="paragraph">
+<p>Gets all questions that have been answered correctly for a particular subject.
+You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
+Format: <code>correct s/SUBJECT [-a]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-questions-with-incorrect-answers-incorrect"><a class="link" href="#get-questions-with-incorrect-answers-incorrect">3.2.11. Get questions with incorrect answers: incorrect</a></h4>
+<div class="paragraph">
+<p>Gets all questions that have been answered incorrectly for a particular subject.
+You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
+Format: <code>incorrect s/SUBJECT [-a]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-statistics-for-individual-questions-stats"><a class="link" href="#get-statistics-for-individual-questions-stats">3.2.12. Get statistics for individual questions: stats</a></h4>
+<div class="paragraph">
+<p>Gets statistics of how well you answered a particular question,
+the number of times the question has been attempted and the past answers to the question.<br>
+Format: <code>stats INDEX</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="statistics-for-difficulty-level-stats-dif"><a class="link" href="#statistics-for-difficulty-level-stats-dif">3.2.13. Statistics for difficulty level: stats -dif</a></h4>
+<div class="paragraph">
+<p>Gets statistics of the number of questions within a subject attempted at the specified difficulty level.<br>
+Format: <code>stats -dif d/DIFFICULTY s/SUBJECT</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="statistics-for-difficulty-level-accuracy-accur-dif"><a class="link" href="#statistics-for-difficulty-level-accuracy-accur-dif">3.2.14. Statistics for difficulty level accuracy: accur -dif</a></h4>
+<div class="paragraph">
+<p>Gets statistics of the questions answered correctly and incorrectly within a subject of a specific difficulty level.<br>
+Format: <code>accur -dif d/DIFFICULTY s/SUBJECT</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-overview-of-lecture-notes-overview-ln"><a class="link" href="#get-overview-of-lecture-notes-overview-ln">3.2.15. Get overview of lecture notes: overview -ln</a></h4>
+<div class="paragraph">
+<p>Gets an overview of the types of notes that have been added into the app.
+A stacked bar graph, sorted by subjects will be returned.<br>
+Format: <code>overview -ln</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-overview-of-questions-attempted-overview-q"><a class="link" href="#get-overview-of-questions-attempted-overview-q">3.2.16. Get overview of questions attempted: overview -q</a></h4>
+<div class="paragraph">
+<p>Gets an overview of the types of questions that have been attempted overall.
+A stacked bar graph, sorted by subjects will be returned.
+You can choose to add in a time period, <code>dt/</code>, to see which questions have been attempted then.<br>
+Format: <code>overview -q [dt/START_DATE] [dt/END_DATE]</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">3.3. Auto-complete feature <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Returns suggestions when you are typing commands.</p>
+</div>
 </div>
 </div>
 </div>
@@ -284,4 +354,4 @@ the file that contains the data of your previous folder.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 08:19:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 08:23:42 UTC</div></div></div></body></html>
