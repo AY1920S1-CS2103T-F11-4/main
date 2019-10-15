@@ -6,7 +6,8 @@
 <div class="paragraph">
 <p>As part of the CS2103 Software Engineering module at the National University of Singapore,
 I was part of a team of five tasked to develop an application from <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">a given Java
-address book application</a>. We chose to morph it into NUStudy, an application for
+address book application</a>, which will be called AB3 in the rest of the portfolio.
+We chose to morph it into NUStudy, an application for
 managing lecture notes, questions and revision tasks&#8201;&#8212;&#8201;all three things pertinent to the
 average university student, regardless of location. Like the original, it has a command line
 as its main method of interaction and a JavaFX GUI for display. It has around 5000 lines of code.</p>
@@ -19,7 +20,9 @@ and my ability to explain complicated enhancements or modifications to the unini
 </div>
 <div class="paragraph">
 <p>In this portfolio <code>monospace</code> indicates command-line input (commands, parameters, etc.)
-and <em>italics</em> mark class names.</p>
+and <em>italics</em> mark class names. Pull requests and issues will be marked solely
+by their numbers and a # sign (e.g. <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/issues/1">#1</a>);
+unless otherwise specified they refer to NUStudy.</p>
 </div>
 </div>
 </div>
@@ -27,127 +30,88 @@ and <em>italics</em> mark class names.</p>
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>retool this to the actual contributions</em></p>
+<p>This is a brief description of my contributions to NUStudy, to code, documentation
+and project management. These contributions show my ability to not only write good code,
+but also manage and synthesise team members' varying output into a coherent whole.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p>I was responsible for <strong>implementing lecture notes</strong> (starting from <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/34">#34</a>).
+These are simple items with a title, some content and optionally an image. For this I modified the existing
+<em>Person</em> class in the original address book application and its associated commands (<em>AddCommand</em>, <em>EditCommand</em>, etc.)&#8201;&#8212;&#8201;I did not have to make any new classes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>Lecture notes are the primary source of a student&#8217;s acquired knowledge in university, yet they come in many formats.
+Having a unified appearance helps the student understand the content of lecture notes better, by removing
+unnecessary markup and distracting styles.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>While adding this feature I also refactored all other code throughout the application to use names relevant to
+lecture notes. This helped my teammates add their own features, setting an example for them to follow.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p>Minor enhancements, enhancements to existing features: <em>fill in here</em></p>
+</li>
+<li>
+<p>I enforced a style for the user and developer guides and wrote several of their key sections,
+such as the user guide&#8217;s introduction and the developer guide&#8217;s non-functional requirements.
+See <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/21">#21</a> and <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/22">#22</a>
+for examples.</p>
+</li>
+<li>
+<p>I was the <strong>main integrator</strong> for NUStudy:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed all four releases (v1.1 to v1.4) on GitHub</p>
+</li>
+<li>
+<p>Set up Travis and Netlify for the project, enabling continuous integration and previews of documentation</p>
+</li>
+<li>
+<p>Resolved merge conflicts for teammates' pull requests (see <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/44">#44</a> for an example)</p>
+</li>
+<li>
+<p>Attached milestones and labels to issues and pull requests where the original authors failed to specify them</p>
+</li>
+<li>
+<p>Before v1.2, the only person who could merge pull requests</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>I contributed to <a href="https://github.com/nus-cs2103-AY1920S1/forum">forum</a> discussions, both as an answerer
+(<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/88">#88</a>, <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/106">#106</a>) and asker
+(<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/68">#68</a>, <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/100">#100</a>).</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
 </li>
 <li>
-<p><strong>Other contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#A</a>, <a href="https://github.com">#B</a>, <a href="https://github.com">#C</a>, <a href="https://github.com">#D</a></p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
 </ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User guide contributions</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the user guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Our application&#8217;s user guide had to be updated with the new features we added in code.
+The sections below are what I wrote for my features, demonstrating my ability to write
+clear, concise end-user documentation.</p>
+</div>
+<hr>
 <div class="sect2">
 <h3 id="lecture-notes"><a class="link" href="#lecture-notes">Lecture notes</a></h3>
 <div class="sect3">
@@ -199,248 +163,169 @@ Format: <code>import FILENAME</code></p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="lecture-note-grouping-suggestions-code-coming-in-v2-0-code"><a class="link" href="#lecture-note-grouping-suggestions-code-coming-in-v2-0-code">Lecture note grouping suggestions <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>NUStudy will intelligently suggest groupings of lecture notes based on their content.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>In addition, I also harmonised the layout of the user guide and
+formatted other team members' contributions to said guide in a common manner.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the developer guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">[Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>Like other projects in CS2103, there is the expectation that future developers could
+build on NUStudy. Thus we also updated the developer guide; below are my principal contributions to it,
+showcasing three aspects: my ability to write technical documentation, the complexity of what
+I contributed in code and my proficiency in using diagrams to explain my work.</p>
 </div>
-<div class="ulist">
-<ul>
+<hr>
+<h3 id="use-case-create-lecture-note-jeremy" class="discrete">Use case: Create lecture note (Jeremy)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p>Student gives the command to add a lecture note – <code>addnote -t TITLE -c CONTENT</code></p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p>Application shows a lecture note with the given title and contents to the user</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p>Application also updates the lecture note list with the new note</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>Use case ends</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p><strong>Extensions</strong></p>
 </div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
+<p>1a. Student also gives <code>-i</code> in the command</p>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>Pros: Easy to implement.</p>
+<p>1a1. Application brings up a file selection dialogue</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>1a2. Student selects the image they wish to include in the lecture note</p>
+</li>
+<li>
+<p>1a3. Application accepts the image</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Use case resumes from step 2</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
+<p>1a2a. The selected file is not an image (.png, .jpg, .gif)</p>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>1a2a1. Application displays message about the supported file formats</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>1a2a2. Student selects a file again</p>
+</li>
+<li>
+<p>Repeat 1a2a1, 1a2a2 until a supported file format is selected</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Use case resumes from step 1a3</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="use-case-delete-lecture-note-jeremy" class="discrete">Use case: Delete lecture note (Jeremy)</h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><strong>MSS</strong></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to delete a lecture note – <code>deletenote INDEX</code></p>
+</li>
+<li>
+<p>Application deletes the note from the note list</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student gives an out-of-range or non-numeric index</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application displays message showing in-range indices</p>
+</li>
+<li>
+<p>1a2. Student re-enters the command</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until a valid index is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="other-projects"><a class="link" href="#other-projects">Other projects</a></h2>
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix A: Non-functional requirements</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Images must be copied into the application data, residing in a dedicated folder,
+rather than merely linking to somewhere on the filesystem</p>
+</li>
+<li>
+<p>Export format of lecture notes and flash cards must be human-readable text</p>
+</li>
+<li>
+<p>Images must be referenced by pathnames with respect to the image folder</p>
+</li>
+</ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 07:54:36 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix B: Glossary</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="lecture-note"></a> Lecture note</dt>
+<dd>
+<p>An object stored in the application model that includes a title, text content and optionally an image.
+It is not quizzable.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 09:47:39 UTC</div></div></div></body></html>
