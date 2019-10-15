@@ -310,52 +310,31 @@ Format: <code>quit</code></p>
 <div class="sect3">
 <h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.4.1. Get statistics for subjects : <code>stats</code></a></h4>
 <div class="paragraph">
-<p>Gets statistics of how well you answered the questions for a subject.
-A pie chart of the number of questions that have been answered correctly and incorrectly will be returned.
+<p>Returns a pie chart of the number of questions that have been answered correctly and incorrectly.
+You can choose to only get the statistics for a difficulty level by adding an optional <code>d/</code>.
 You can even get the combined statistics of more than one subject.<br>
-Format: <code>stats s/SUBJECT [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
+Format: <code>stats s/SUBJECT [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-questions-with-correct-answers-correct"><a class="link" href="#get-questions-with-correct-answers-correct">3.4.2. Get questions with correct answers: correct</a></h4>
+<h4 id="get-questions-with-correct-incorrect-answers-code-questions-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-questions-code">3.4.2. Get questions with correct/incorrect answers: <code>questions</code></a></h4>
 <div class="paragraph">
-<p>Gets all questions that have been answered correctly for a particular subject.
-You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
-Format: <code>correct s/SUBJECT [-a]</code></p>
+<p>Gets all questions that have been answered correctly/incorrectly for a particular subject by using <code>-c/-i</code> respectively.
+Either one of <code>-c</code> or <code>-i</code> must be used.
+You can also choose to see past answers to the questions by adding an optional <code>-a</code>.<br>
+Format: <code>questions s/SUBJECT [-c] [-i] [-a]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-questions-with-incorrect-answers-incorrect"><a class="link" href="#get-questions-with-incorrect-answers-incorrect">3.4.3. Get questions with incorrect answers: incorrect</a></h4>
+<h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">3.4.3. Get a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
-<p>Gets all questions that have been answered incorrectly for a particular subject.
-You can also choose to see past answers to the questions by adding the <code>-a</code>.<br>
-Format: <code>incorrect s/SUBJECT [-a]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="get-statistics-for-individual-questions-stats"><a class="link" href="#get-statistics-for-individual-questions-stats">3.4.4. Get statistics for individual questions: stats</a></h4>
-<div class="paragraph">
-<p>Gets statistics of how well you answered a particular question,
+<p>Returns a report of how well you have answered a particular question,
 the number of times the question has been attempted and the past answers to the question.<br>
-Format: <code>stats INDEX</code></p>
+Format: <code>report INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="statistics-for-difficulty-level-stats-dif"><a class="link" href="#statistics-for-difficulty-level-stats-dif">3.4.5. Statistics for difficulty level: stats -dif</a></h4>
-<div class="paragraph">
-<p>Gets statistics of the number of questions within a subject attempted at the specified difficulty level.<br>
-Format: <code>stats -dif d/DIFFICULTY s/SUBJECT</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="statistics-for-difficulty-level-accuracy-accur-dif"><a class="link" href="#statistics-for-difficulty-level-accuracy-accur-dif">3.4.6. Statistics for difficulty level accuracy: accur -dif</a></h4>
-<div class="paragraph">
-<p>Gets statistics of the questions answered correctly and incorrectly within a subject of a specific difficulty level.<br>
-Format: <code>accur -dif d/DIFFICULTY s/SUBJECT</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="get-overview-of-lecture-notes-overview-ln"><a class="link" href="#get-overview-of-lecture-notes-overview-ln">3.4.7. Get overview of lecture notes: overview -ln</a></h4>
+<h4 id="get-overview-of-lecture-notes-code-overview-ln-code"><a class="link" href="#get-overview-of-lecture-notes-code-overview-ln-code">3.4.4. Get overview of lecture notes: <code>overview -ln</code></a></h4>
 <div class="paragraph">
 <p>Gets an overview of the types of notes that have been added into the app.
 A stacked bar graph, sorted by subjects will be returned.<br>
@@ -363,7 +342,7 @@ Format: <code>overview -ln</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-overview-of-questions-attempted-overview-q"><a class="link" href="#get-overview-of-questions-attempted-overview-q">3.4.8. Get overview of questions attempted: overview -q</a></h4>
+<h4 id="get-overview-of-questions-attempted-code-overview-q-code"><a class="link" href="#get-overview-of-questions-attempted-code-overview-q-code">3.4.5. Get overview of questions attempted: <code>overview -q</code></a></h4>
 <div class="paragraph">
 <p>Gets an overview of the types of questions that have been attempted overall.
 A stacked bar graph, sorted by subjects will be returned.<br>
@@ -488,4 +467,4 @@ Format: <code>rv ndone</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 09:47:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 10:01:07 UTC</div></div></div></body></html>
