@@ -353,65 +353,64 @@ Format: <code>overview -q [dt/START_DATE] [dt/END_DATE]</code></p>
 <div class="sect2">
 <h3 id="revision-tasks"><a class="link" href="#revision-tasks">3.5. Revision tasks</a></h3>
 <div class="sect3">
-<h4 id="view-revision-tasks-code-rv-list-code"><a class="link" href="#view-revision-tasks-code-rv-list-code">3.5.1. View revision tasks: <code>rv list</code></a></h4>
+<h4 id="view-revision-tasks-code-rlist-code"><a class="link" href="#view-revision-tasks-code-rlist-code">3.5.1. View revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
 <p>Displays the revision task list<br>
-Format: <code>rv list [n/NOTE_SET] [dt/DATE]</code></p>
+Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-revision-task-code-rv-add-code"><a class="link" href="#add-revision-task-code-rv-add-code">3.5.2. Add revision task: <code>rv add</code></a></h4>
+<h4 id="add-revision-task-code-radd-code"><a class="link" href="#add-revision-task-code-radd-code">3.5.2. Add revision task: <code>radd</code></a></h4>
 <div class="paragraph">
 <p>Adds an item (to-do) to the current revision task list<br>
 Format:<br>
-<code>rv add ns/NOTE_SET dt/START_DATE dt/START_TIME</code><br>
-<code>rv add qs/QUESTION_SET dt/START_DATE dt/START_TIME</code></p>
+<code>radd t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-revision-task-code-rv-delete-code"><a class="link" href="#remove-revision-task-code-rv-delete-code">3.5.3. Remove revision task: <code>rv delete</code></a></h4>
+<h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.5.3. Remove revision task: <code>rdelete</code></a></h4>
 <div class="paragraph">
 <p>Removes the specified revision task from current list<br>
-Format: <code>rv delete INDEX</code></p>
+Format: <code>rdelete INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-current-revision-plan-code-rv-clear-code"><a class="link" href="#clear-current-revision-plan-code-rv-clear-code">3.5.4. Clear current revision plan: <code>rv clear</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.4. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
 <p>Deletes all revision tasks
-Format: <code>rv clear</code></p>
+Format: <code>rclear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-revision-task-code-rv-edit-code"><a class="link" href="#edit-revision-task-code-rv-edit-code">3.5.5. Edit revision task: <code>rv edit</code></a></h4>
+<h4 id="edit-revision-task-code-redit-code"><a class="link" href="#edit-revision-task-code-redit-code">3.5.5. Edit revision task: <code>redit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified revision task
-Format: <code>rv edit INDEX</code></p>
+Format: <code>redit INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="label-the-revision-task-as-important-code-rv-impt-code"><a class="link" href="#label-the-revision-task-as-important-code-rv-impt-code">3.5.6. Label the revision task as important: <code>rv impt</code></a></h4>
+<h4 id="label-the-revision-task-as-important-code-rimpt-code"><a class="link" href="#label-the-revision-task-as-important-code-rimpt-code">3.5.6. Label the revision task as important: <code>rimpt</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv impt INDEX</code></p>
+<p>Format: <code>rimpt INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-the-revision-task-as-done-code-rv-done-code"><a class="link" href="#mark-the-revision-task-as-done-code-rv-done-code">3.5.7. Mark the revision task as done: <code>rv done</code></a></h4>
+<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.5.7. Mark the revision task as done: <code>rdone</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv done INDEX</code></p>
+<p>Format: <code>rdone INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-incomplete-revision-task-code-rv-ndone-code"><a class="link" href="#view-incomplete-revision-task-code-rv-ndone-code">3.5.8. View incomplete revision task: <code>rv ndone</code></a></h4>
+<h4 id="view-incomplete-revision-task-code-rndone-code"><a class="link" href="#view-incomplete-revision-task-code-rndone-code">3.5.8. View incomplete revision task: <code>rndone</code></a></h4>
 <div class="paragraph">
 <p>Displays the list of revision tasks that are yet to be completed
-Format: <code>rv ndone</code></p>
+Format: <code>rndone</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-rv-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-rv-overdue-code">3.5.9. View overdue revision tasks: <code>rv overdue</code></a></h4>
+<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>rv overdue</code></p>
+<p>Format: <code>roverdue</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -467,4 +466,4 @@ Format: <code>rv ndone</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-16 01:03:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-16 03:19:12 UTC</div></div></div></body></html>
