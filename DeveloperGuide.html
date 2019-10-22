@@ -531,14 +531,101 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="add-revision-task"><a class="link" href="#add-revision-task">3.4. Add revision task</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<div class="paragraph">
+<p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>radd</code>. It extends <code>Command</code> class and adds a
+<code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data.</p>
+</div>
+<div class="paragraph">
+<p>The <code>TaskList</code> is essentially a list of <code>Task</code>. <code>TaskList</code> supports the <code>add(Task)</code> operation and this operation is
+exposed to <code>AppData#addTask(Task)</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how <code>radd</code> command is executed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTaskSequenceDiagram.png" alt="AddTaskSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-design-of-code-task-code"><a class="link" href="#aspect-design-of-code-task-code">Aspect: Design of <code>Task</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> implement <code>Task</code> as abstract class with two subclasses to support task for
+notes and questions respectively.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It allows polymorphism to support different behaviours of task for <code>Note</code> and task for <code>Question</code>. Fields and
+methods in common are concretely implemented to reduce duplicate code snippets.</p>
+</li>
+<li>
+<p>Cons: We need to implement two different <code>AddTask</code> commands to support addition of the two different types of tasks.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below illustrates how <code>Task</code> class is designed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TaskClassDiagram.png" alt="TaskClassDiagram">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> design <code>Task</code> as an interface to be implemented by two different classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexible design. Less exposure of internal properties of Task to client.</p>
+</li>
+<li>
+<p>Cons: We need to implement all methods in the interface and hence more code snippets are needed. Both implementing
+classes have to include the field in common such as <code>isDone</code>, which results in duplicate code snippets.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> wrap everything in one concrete <code>Task</code> class to support both lecture notes and questions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less code to write.</p>
+</li>
+<li>
+<p>Cons: It violates the principle of Separation of Concern. Hard to maintain or extend in the future if more types of
+tasks are needed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We use <code>java.util.logging</code> for logging. The <code>LogsCenter</code> class is used to manage the logging levels and destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>).</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>,
@@ -570,7 +657,7 @@ which will log messages according to the specified logging level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>The user preferences file location and logging level can be set through the configuration file,
 by default <code>config.json</code>.</p>
@@ -1786,4 +1873,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 07:11:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 13:23:30 UTC</div></div></div></body></html>
