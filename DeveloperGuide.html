@@ -382,14 +382,163 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="quiz-mode-for-revision"><a class="link" href="#quiz-mode-for-revision">3.3. Quiz mode for revision</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The quiz mode feature is facilitated by <code>Model</code>.
+The quiz-related commands extend <code>Command</code> with specific question object.
+The commands update the <code>Model</code> which is implemented by <code>ModelManager</code>.
+This in turn updates <code>AppData</code> which stores filtered specific questions internally as <code>QuizQuestionList</code>.
+Local data will be updated in the end by <code>LogicManager</code>.
+The commands include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>QuizModeCommand</code>&#8201;&#8212;&#8201;Enters the quiz mode with questions selected by user.</p>
+</li>
+<li>
+<p><code>QuizCheckAnswer</code>&#8201;&#8212;&#8201;Checks the correctness of answer entered by user.</p>
+</li>
+<li>
+<p><code>QuizShowAnswerCommand</code>&#8201;&#8212;&#8201;Shows the answer for current question.</p>
+</li>
+<li>
+<p><code>QuitQuizModeCommand</code>&#8201;&#8212;&#8201;Quits the quiz mode.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getQuizQuestions(int numOfQuestions, Subject subject
+Difficulty difficulty)</code>, <code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>,
+<code>Model#showQuizAnswer(int index)</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#getFilteredQuizResultList()</code>,
+<code>Model#checkQuizAnswer(int index, Answer answer)</code>, <code>Model#addQuizResult(QuizResult quizResult)</code>,
+<code>Model#getFilteredQuizResultList()</code> and <code>Model#clearQuizQuestionList()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The app will load all existing information from storage.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>quiz n/NUMBER OF QUESTIONS d/DIFFICULTY s/SUBJECT</code> command to enter quiz mode of the app.
+The <code>quiz</code> command calls <code>Model#getQuizQuestions(int numOfQuestions, Subject subject Difficulty difficulty)</code> and
+<code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>, causing the <code>AppData</code> to be updated with
+a list of specific question selected by user for quiz.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>INDEX:ANSWER</code> to answer the question. It calls <code>Model#checkQuizAnswer(int index,
+Answer answer)</code> and <code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result
+of the answer.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes <code>show 2</code> command to show the answer of 2nd quiz question in the app. The <code>show</code> command calls
+<code>Model#showQuizAnswer(int index)</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The user executes <code>quit</code> command to exit from the quiz mode. The <code>quit</code> command calls
+<code>Model#clearQuizQuestionList()</code>, causing the <code>AppData</code> to clear all quiz question list and return to normal mode.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>quiz</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/QuizModeSequenceDiagram.png" alt="QuizModeSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command for quiz:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/QuizModeActivityDiagram.png" alt="QuizModeActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-the-quiz-results"><a class="link" href="#aspect-how-to-store-the-quiz-results">Aspect: How to store the quiz results</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Update the internal storage <code>QuizResultList</code> in <code>AppData</code> first, then save the
+updated appData in local storage when the command finishes executing.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Need the extra step to ensure that the internal list is correctly maintained.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Update the local storage directly when the command is executing.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to implement the internal list.</p>
+</li>
+<li>
+<p>Cons: Will access local memory more frequently. May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-quiz-commands"><a class="link" href="#aspect-data-structure-to-support-the-quiz-commands">Aspect: Data structure to support the quiz commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>QuizQuestionList</code> and <code>QuizResultList</code> to store data in <code>AppData</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Cater to the quiz model specifically. Quiz question and result list operations are encapsulated in one class.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated as other models also implement similar list structure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use Java list to store the quiz questions and results.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not need to maintain a separate list class.</p>
+</li>
+<li>
+<p>Cons: Violates Single Responsibility Principle and Separation of Concerns as the model needs to maintain various
+list operations.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We use <code>java.util.logging</code> for logging. The <code>LogsCenter</code> class is used to manage the logging levels and destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>).</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>,
@@ -421,7 +570,7 @@ which will log messages according to the specified logging level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>The user preferences file location and logging level can be set through the configuration file,
 by default <code>config.json</code>.</p>
@@ -1637,4 +1786,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 06:53:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 07:11:02 UTC</div></div></div></body></html>
