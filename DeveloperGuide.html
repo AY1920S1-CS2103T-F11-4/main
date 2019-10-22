@@ -564,24 +564,36 @@ The app will attempt to read past data from any quizzes done and store it intern
 The <code>stats</code> command creates a new <code>commandResult</code> setting the type of command to <code>CHART</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram shows how the <code>GetStatisticsCommand</code> and <code>CommandResult</code> class are related.
-image::StatisticsClassDiagram.png[]</p>
+<p>The following class diagram shows how the <code>GetStatisticsCommand</code> and <code>CommandResult</code> class are related.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
+</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>commandResult</code> will call the relevant methods to filter the <code>quizResults</code> list and create the relevant outputs.
 It will then show a statistics panel, hiding all notes and tasks.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the statistics operation works:
-image::StatisticsSequenceDiagram.png[]</p>
+<p>The following sequence diagram shows how the statistics operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
+</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user now decides to stop viewing statistics and decides to view all notes and tasks again using the <code>listnote</code> command.
 The statistics panel will now be hidden.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes the statistics command:
-image::StatisticsActivityDiagram.png[]</p>
+<p>The following activity diagram summarizes what happens when a user executes the statistics command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1965,4 +1977,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 13:46:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 14:16:18 UTC</div></div></div></body></html>
