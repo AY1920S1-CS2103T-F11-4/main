@@ -191,12 +191,30 @@ so any data changes are immediately user-visible.</p>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>(Implementation of image support for lecture notes)</p>
+<p>Instead of a custom class to represent an image, JavaFX&#8217;s <code>scene.image.Image</code> is used instead.
+This is out of necessity, since an <code>ImageView</code> is needed to display an image in the GUI and it requires
+an <code>Image</code> object, not just a <code>String</code> path to the image. No significant coupling is introduced
+by this choice because <code>Image</code> objects can exist without a GUI to display them.</p>
+</div>
+<div class="paragraph">
+<p>The dialog brought up to let the user choose a file returns <code>null</code> if the dialog is closed
+<em>without</em> choosing a file (i.e. clicking the close button). Treating <code>null</code> as "no image" would surprise the user who
+decides to edit a lecture note&#8217;s image but then decides not to – the image would simply disappear without
+warning. Therefore the value <code>i/none</code> has to be explicitly provided to remove the image, and <code>EditNoteDescriptor</code>
+has an additional field <code>isImageRemoved</code> to track this. If the image comes out as <code>null</code> but <code>i/none</code> was
+not provided, the image is unchanged.</p>
+</div>
+<div class="paragraph">
+<p>To avoid a dependency of the <code>Logic</code> module on the <code>UI</code> module when selecting an image, there is the interface
+<code>NoteImageSelector</code> exclusive to the <code>parser.note</code> package whose <code>selectImage</code> method provides the necessary image.
+This is possible because <code>FileChooser.showOpenDialog()</code>, which shows the dialog, can be fed an argument of <code>null</code>
+instead of having to rely on a <code>Window</code> object, which is the domain of the <code>UI</code> module.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="images/ImageSelectionSequenceDiagram.png" alt="ImageSelectionSequenceDiagram">
 </div>
+<div class="title">Figure 9. Sequence diagram for the execution of <code>EditNoteCommandParser</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -204,7 +222,7 @@ so any data changes are immediately user-visible.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Alternative 1:</em> Images are shown within each lecture note in the first column, and each lecture note
+<p><em>Alternative 1 (current choice):</em> Images are shown within each lecture note in the first column, and each lecture note
 shows all of its title, content and image</p>
 <div class="ulist">
 <ul>
@@ -212,21 +230,23 @@ shows all of its title, content and image</p>
 <p>Pros: Easier to implement (FXML does not have to reach into other places)</p>
 </li>
 <li>
-<p>Cons: Scrolling through lecture notes, all with images, takes time</p>
+<p>Cons: Scrolling through lecture notes, all with images, takes time, but this downside is alleviated
+by the <code>findnote</code> command</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Alternative 2:</em> Place the images in the second column, below their corresponding title and content.</p>
+<p><em>Alternative 2:</em> Place the images in the second column, below their corresponding title and content</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More visually appealing, and by keeping just one note in the second column it becomes a
-kind of flash card</p>
+<p>Pros: More visually appealing, since by keeping just one note in the second column it becomes a kind of flash card</p>
 </li>
 <li>
-<p>Cons: Harder to implement (FXML must reach into the object representing the second column)</p>
+<p>Cons: Harder to implement (FXML must reach into the object representing the second column),
+need to have a separate <code>NotePreview</code> JavaFX object since images are only going to be displayed
+in the second column</p>
 </li>
 </ul>
 </div>
@@ -238,7 +258,7 @@ kind of flash card</p>
 <div class="sect2">
 <h3 id="question-management-feature"><a class="link" href="#question-management-feature">3.2. Question management feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The question management feature is facilitated by <code>Model</code>.
 The question-related commands extend <code>Command</code> with the question object if necessary.
@@ -308,15 +328,12 @@ question being replaced by the edited question.</p>
 <img src="images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram">
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-addq-deleteq-editq-commmands-execute"><a class="link" href="#aspect-how-addq-deleteq-editq-commmands-execute">Aspect: How addq/deleteq/editq commmands execute</a></h5>
+<h5 id="design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute"><a class="link" href="#design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute">Design considerations: How <code>addq</code>/<code>deleteq</code>/<code>editq</code> commands execute</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Update the internal storage <code>UniqueQuestionList</code> in <code>AppData</code> first, then save the updated appData
+<p><em>Alternative 1 (current choice):</em> Update the internal storage <code>UniqueQuestionList</code> in <code>AppData</code> first, then save the updated appData
 in local storage when the command finishes executing.</p>
 <div class="ulist">
 <ul>
@@ -330,7 +347,7 @@ in local storage when the command finishes executing.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Update the local storage directly when the command is executing.</p>
+<p><em>Alternative 2:</em> Update the local storage directly when the command is executing.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -346,11 +363,11 @@ in local storage when the command finishes executing.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-question-commands"><a class="link" href="#aspect-data-structure-to-support-the-question-commands">Aspect: Data structure to support the question commands</a></h5>
+<h5 id="design-considerations-data-structure-to-support-the-question-commands"><a class="link" href="#design-considerations-data-structure-to-support-the-question-commands">Design considerations: Data structure to support the question commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a <code>UniqueQuestionList</code> to store questions in <code>AppData</code>.</p>
+<p><em>Alternative 1 (current choice):</em> Use a <code>UniqueQuestionList</code> to store questions in <code>AppData</code>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -363,7 +380,7 @@ in local storage when the command finishes executing.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use Java list to store the questions.</p>
+<p><em>Alternative 2:</em> Use Java list to store the questions.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -459,7 +476,7 @@ of the answer.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-store-the-quiz-results"><a class="link" href="#aspect-how-to-store-the-quiz-results">Aspect: How to store the quiz results</a></h5>
 <div class="ulist">
@@ -597,7 +614,7 @@ The statistics panel will now be hidden.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-statistics-are-shown"><a class="link" href="#aspect-how-statistics-are-shown">Aspect: How statistics are shown</a></h5>
 <div class="ulist">
@@ -656,7 +673,7 @@ exposed to <code>AppData#addTask(Task)</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-design-of-code-task-code"><a class="link" href="#aspect-design-of-code-task-code">Aspect: Design of <code>Task</code></a></h5>
 <div class="ulist">
@@ -1114,7 +1131,7 @@ compared to a typical note-taking app</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Application brings up a file selection dialogue</p>
+<p>1a1. Application brings up a file selection dialog</p>
 </li>
 <li>
 <p>1a2. Student selects the image they wish to include in the lecture note</p>
@@ -1977,4 +1994,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 14:16:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 17:16:53 UTC</div></div></div></body></html>
