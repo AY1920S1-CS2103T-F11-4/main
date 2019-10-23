@@ -53,8 +53,21 @@ lecture notes. This helped my teammates add their own features, setting an examp
 </li>
 <li>
 <p>Image support was implemented in <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/67">#67</a>. Instead of a custom class,
-I used JavaFX&#8217;s <code>scene.image.Image</code>, which reduced the additional code I had to write on top of the
-<code>Title</code> and <code>Content</code> classes by avoiding an unnecessary wrapper.</p>
+I used JavaFX&#8217;s <em>scene.image.Image</em>, which reduced the additional code I had to write on top of the
+<em>Title</em> and <em>Content</em> classes by avoiding an unnecessary wrapper.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>As my fellow team members added their features to the code, one of the constructors of <em>CommandResult</em>
+grew to have four boolean variables representing command side effects. I replaced the boolean arguments of
+this constructor with a single integer argument acting as a bit field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This serves two purposes: to avoid unnecessary use of the boolean literals and to allow easy extension
+to more side effects by increasing the range of the integer argument.</p>
 </li>
 </ul>
 </div>
@@ -94,12 +107,14 @@ for examples.</p>
 </li>
 <li>
 <p>I reviewed the following pull requests non-trivially, among others: <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/40">#40</a>,
-<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/49">#49</a>, <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a></p>
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/49">#49</a>, <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/70">#70</a>.</p>
+</li>
+<li>
+<p>A detailed exposition of all code I contributed to NUStudy can be found
+<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Parcly-Taxel&amp;tabRepo=AY1920S1-CS2103T-F11-4%2Fmain%5Bmaster%5D">here</a>.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
 </div>
 </div>
 </div>
@@ -401,4 +416,4 @@ It is not quizzable.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 07:13:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 08:15:26 UTC</div></div></div></body></html>
