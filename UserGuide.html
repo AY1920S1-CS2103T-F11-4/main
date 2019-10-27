@@ -46,7 +46,7 @@ the results. The overall appearance is similar to a simple note-taking client.</
 <p><code>listnote</code>: lists all lecture notes</p>
 </li>
 <li>
-<p><code>addnote t/Title c/Content</code>: adds a lecture note with title "Title" and contents "Content".</p>
+<p><code>addnote t/Title c/Content</code>: adds a lecture note with title "Title" and content "Content".</p>
 </li>
 <li>
 <p><code>deletenote 1</code>: deletes the first lecture note</p>
@@ -75,16 +75,14 @@ the results. The overall appearance is similar to a simple note-taking client.</
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPERCASE</code> are parameters you supply e.g. in <code>addnote t/TITLE</code>, <code>TITLE</code> is a parameter
+which can be used as <code>addnote t/TITLE</code>. Parameters can be provided in any order.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Items with <code>…</code>​ after them can be used zero or more times.</p>
 </li>
 </ul>
 </div>
@@ -95,51 +93,84 @@ the results. The overall appearance is similar to a simple note-taking client.</
 <div class="sect3">
 <h4 id="adding-lecture-notes-code-addnote-code"><a class="link" href="#adding-lecture-notes-code-addnote-code">3.1.1. Adding lecture notes: <code>addnote</code></a></h4>
 <div class="paragraph">
-<p>Adds a lecture note. The <code>i/</code> field, if provided, brings up a dialogue where an image can be chosen from
-the file system; such an image will be displayed beside the note.<br>
+<p>This is the basic command for getting your lecture notes into NUStudy. The <code>i/</code> field, if provided, brings up a
+dialog where you can choose an image from your computer&#8217;s file system; such an image will be displayed at the
+bottom of the note.<br>
 Format: <code>addnote t/TITLE c/CONTENT [i/]</code></p>
+</div>
+<div class="paragraph">
+<p>Suppose you want to remember what the order-7 triangular tiling looks like and its Schläfli symbol.
+Type <code>addnote t/Order-7 triangular tiling c/{3,7} i/</code> into the command line. The file selection dialog
+will pop up, and you can select the image from your file system. Once done, you will see the lecture note:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/screenshots/addnote.png" alt="addnote">
+</div>
+</div>
+<div class="paragraph">
+<p>Your images are copied into the local application data folder of NUStudy, so don&#8217;t worry about losing track of
+your images – you can always take them along with the application.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-lecture-notes-code-editnote-code"><a class="link" href="#editing-lecture-notes-code-editnote-code">3.1.2. Editing lecture notes: <code>editnote</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing lecture note. Providing <code>i/</code> brings up the image selection dialogue, like <code>addnote</code>;
-this can be used to change the image. At least one of <code>t/</code>, <code>c/</code> and <code>i/</code> must be provided,
-or <code>i/</code> must have the argument <code>none</code> to remove the image. If the image dialogue is closed
-without selecting an image, the image remains unchanged.</p>
+<p>If your lecture notes need updating, use this command, providing arguments <code>t/</code>, <code>c/</code> and <code>i/</code> (at least one)
+as you would do with <code>addnote</code>, but only those arguments you want to change. Providing <code>i/</code> brings up the same image
+selection dialog like in <code>addnote</code>.</p>
 </div>
 <div class="paragraph">
-<p>The index must be between 1 and the number of notes inclusive.<br>
-Format: <code>editnote INDEX [t/TITLE] [c/CONTENT] [i/[none]]</code></p>
+<p>Images can explain a lot, but if you want to remove them, use <code>i/none</code> in your command, and the dialog
+will not appear. Otherwise, if you back off from choosing an image (e.g. by clicking the dialog&#8217;s
+close button), nothing will happen and your images will remain safe and sound.</p>
+</div>
+<div class="paragraph">
+<p>Multiple notes can share the same image, and you can overwrite existing images currently
+in NUStudy with new ones sharing the same filename.</p>
+</div>
+<div class="paragraph">
+<p>The index must be between 1 and the number of lecture notes inclusive. It is listed before the title of
+each lecture note:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/screenshots/index.png" alt="index">
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>editnote INDEX [t/TITLE] [c/CONTENT] [i/[none]]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="viewing-lecture-notes-code-findnote-code"><a class="link" href="#viewing-lecture-notes-code-findnote-code">3.1.3. Viewing lecture notes: <code>findnote</code></a></h4>
 <div class="paragraph">
-<p>Find lecture notes whose title contains every given word (space-separated, ignoring case),
-and display them.<br>
+<p>Of course, what use are virtual lecture notes if you can&#8217;t search through them? This command
+displays those notes whose titles contain every word (space-separated, ignoring case) you provide
+as arguments.<br>
 Format: <code>findnote WORD [WORD]…</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="listing-all-lecture-notes-code-listnote-code"><a class="link" href="#listing-all-lecture-notes-code-listnote-code">3.1.4. Listing all lecture notes: <code>listnote</code></a></h4>
 <div class="paragraph">
-<p>Simply show all lecture notes.<br>
+<p>This is like running <code>findnote</code> but with no arguments. It shows all your lecture notes in their unabashed glory.<br>
 Format: <code>listnote</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-lecture-notes-code-deletenote-code"><a class="link" href="#deleting-lecture-notes-code-deletenote-code">3.1.5. Deleting lecture notes: <code>deletenote</code></a></h4>
 <div class="paragraph">
-<p>Delete the lecture note with the given index, which follows the same restrictions as with <code>editnote</code>.<br>
+<p>When your semester ends, surely you want to free up space on your computer so you can accept new notes
+for the coming semester? This command deletes the lecture note with the index you provide.<br>
 Format: <code>deletenote INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="clearing-all-lecture-notes-code-clearnote-code"><a class="link" href="#clearing-all-lecture-notes-code-clearnote-code">3.1.6. Clearing all lecture notes: <code>clearnote</code></a></h4>
 <div class="paragraph">
-<p>Clear all lecture notes. This does not affect quiz questions, but may affect revision tasks linked
-to the cleared notes.<br>
+<p>Finally, if you ever find a better application than NUStudy for your lecture notes, you can clear
+them all. Your quiz questions and revision tasks will not be affected.<br>
 Format: <code>clearnote</code></p>
 </div>
 </div>
@@ -455,4 +486,4 @@ Format: <code>rndone</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 16:01:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 06:06:45 UTC</div></div></div></body></html>
