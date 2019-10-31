@@ -271,45 +271,43 @@ Format: <code>subject SUBJECT</code></p>
 <h4 id="clear-all-questions-code-clearq-code"><a class="link" href="#clear-all-questions-code-clearq-code">3.2.8. Clear all questions: <code>clearq</code></a></h4>
 <div class="paragraph">
 <p>You can delete all questions from the app.<br>
-Format: <code>clearq</code></p>
+Format: <code>clearq</code>
+=== Quiz mode</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="quiz-mode"><a class="link" href="#quiz-mode">3.3. Quiz mode</a></h3>
 <div class="paragraph">
 <p>There is a built-in quiz mode in NUStudy for you to take a revision quiz.</p>
 </div>
+</div>
 <div class="sect3">
-<h4 id="enter-quiz-mode-code-quiz-code"><a class="link" href="#enter-quiz-mode-code-quiz-code">3.3.1. Enter quiz mode : <code>quiz</code></a></h4>
+<h4 id="enter-quiz-mode-code-quiz-code"><a class="link" href="#enter-quiz-mode-code-quiz-code">3.2.9. Enter quiz mode : <code>quiz</code></a></h4>
 <div class="paragraph">
 <p>Enters quiz mode for you to answer questions.<br>
 Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="answer-the-quiz-question-code-type-answer-code-br"><a class="link" href="#answer-the-quiz-question-code-type-answer-code-br">3.3.2. Answer the quiz question : <code>type answer</code><br></a></h4>
+<h4 id="answer-the-quiz-question-code-type-answer-code-br"><a class="link" href="#answer-the-quiz-question-code-type-answer-code-br">3.2.10. Answer the quiz question : <code>type answer</code><br></a></h4>
 <div class="paragraph">
 <p>Answers the displayed question.<br>
 Format: <code>ANSWER</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-an-answer-code-show-code"><a class="link" href="#show-an-answer-code-show-code">3.3.3. Show an answer : <code>show</code></a></h4>
+<h4 id="show-an-answer-code-show-code"><a class="link" href="#show-an-answer-code-show-code">3.2.11. Show an answer : <code>show</code></a></h4>
 <div class="paragraph">
 <p>Shows an answer for the displayed quiz question.<br>
 Format: <code>show</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="skip-a-question-code-skip-code"><a class="link" href="#skip-a-question-code-skip-code">3.3.4. Skip a question : <code>skip</code></a></h4>
+<h4 id="skip-a-question-code-skip-code"><a class="link" href="#skip-a-question-code-skip-code">3.2.12. Skip a question : <code>skip</code></a></h4>
 <div class="paragraph">
 <p>Skips current question and displays the next one.<br>
 Format: <code>skip</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exit-test-mode-code-quit-code"><a class="link" href="#exit-test-mode-code-quit-code">3.3.5. Exit test mode : <code>quit</code></a></h4>
+<h4 id="exit-test-mode-code-quit-code"><a class="link" href="#exit-test-mode-code-quit-code">3.2.13. Exit test mode : <code>quit</code></a></h4>
 <div class="paragraph">
 <p>Exits from the quiz mode.<br>
 Format: <code>quit</code></p>
@@ -317,9 +315,9 @@ Format: <code>quit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-statistics"><a class="link" href="#get-statistics">3.4. Get statistics</a></h3>
+<h3 id="get-statistics"><a class="link" href="#get-statistics">3.3. Get statistics</a></h3>
 <div class="sect3">
-<h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.4.1. Get statistics for subjects : <code>stats</code></a></h4>
+<h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">3.3.1. Get statistics for subjects : <code>stats</code></a></h4>
 <div class="paragraph">
 <p>Returns a panel containing a break down of the questions by its results.
 You can choose to get the statistics for a difficulty level by adding <code>d/</code> or
@@ -329,7 +327,7 @@ Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-question-code">3.4.2. Get questions with correct/incorrect answers: <code>question</code></a></h4>
+<h4 id="get-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-question-code">3.3.2. Get questions with correct/incorrect answers: <code>question</code></a></h4>
 <div class="paragraph">
 <p>Get a panel containing all questions that have been answered correctly/incorrectly by using <code>-c/-i</code> respectively.
 Either one of <code>-c</code> or <code>-i</code> must be used. You can also filter by subjects by adding <code>s/</code>.
@@ -338,7 +336,7 @@ Format: <code>question [-c] [-i] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code><
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">3.4.3. Get a report for individual questions: <code>report</code></a></h4>
+<h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">3.3.3. Get a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
 <p>Returns a panel containing a report of how well you have answered a particular question,
 the number of times the question has been attempted and the past answers to the question.
@@ -347,7 +345,7 @@ Format: <code>report INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-overview-of-questions-attempted-code-overview-code"><a class="link" href="#get-overview-of-questions-attempted-code-overview-code">3.4.4. Get overview of questions attempted: <code>overview</code></a></h4>
+<h4 id="get-overview-of-questions-attempted-code-overview-code"><a class="link" href="#get-overview-of-questions-attempted-code-overview-code">3.3.4. Get overview of questions attempted: <code>overview</code></a></h4>
 <div class="paragraph">
 <p>Get an overview of the types of questions that have been attempted overall.
 A panel containing a stacked bar graph, sorted by subjects will be returned.
@@ -358,16 +356,16 @@ Format: <code>overview [dt/START_DATE] [dt/END_DATE]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="revision-tasks"><a class="link" href="#revision-tasks">3.5. Revision tasks</a></h3>
+<h3 id="revision-tasks"><a class="link" href="#revision-tasks">3.4. Revision tasks</a></h3>
 <div class="sect3">
-<h4 id="view-revision-tasks-code-rlist-code"><a class="link" href="#view-revision-tasks-code-rlist-code">3.5.1. View revision tasks: <code>rlist</code></a></h4>
+<h4 id="view-revision-tasks-code-rlist-code"><a class="link" href="#view-revision-tasks-code-rlist-code">3.4.1. View revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
 <p>Displays the revision task list<br>
 Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.5.2. Add a revision task for a note: <code>rn</code></a></h4>
+<h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.4.2. Add a revision task for a note: <code>rn</code></a></h4>
 <div class="paragraph">
 <p>Adds a revision task for a note to the current revision task list<br>
 The GUI will display all tasks upon completing the command<br>
@@ -375,7 +373,7 @@ Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#add-a-revision-task-for-a-question-code-rq-code">3.5.3. Add a revision task for a question: <code>rq</code></a></h4>
+<h4 id="add-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#add-a-revision-task-for-a-question-code-rq-code">3.4.3. Add a revision task for a question: <code>rq</code></a></h4>
 <div class="paragraph">
 <p>Adds a revision task for a question to the current revision task list<br>
 The GUI will display all tasks upon completing the command<br>
@@ -383,7 +381,7 @@ Format: <code>rq i/INDEX_OF_QUESTION dt/START_DATE tm/START_TIME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.5.4. Remove revision task: <code>rdelete</code></a></h4>
+<h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.4.4. Remove revision task: <code>rdelete</code></a></h4>
 <div class="paragraph">
 <p>Removes the specified revision task from current list<br>
 The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view<br>
@@ -391,79 +389,79 @@ Format: <code>rdelete INDEX_OF_TASK</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.5. Clear current revision plan: <code>rclear</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.4.5. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
 <p>Deletes all revision tasks
 Format: <code>rclear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.5.6. Mark the revision task as done: <code>rdone</code></a></h4>
+<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.4.6. Mark the revision task as done: <code>rdone</code></a></h4>
 <div class="paragraph">
 <p>The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view<br>
 Format: <code>rdone INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.7. View completed revision tasks: <code>finished</code></a></h4>
+<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.4.7. View completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
 <p>Displays the list of revision tasks which are completed<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.8. View uncompleted revision task: <code>unfinished</code></a></h4>
+<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.4.8. View uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
 <p>Displays the list of revision tasks that are yet to be completed<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
+<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.4.9. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
 <p>Displays the revision tasks that are yet to be done but having passed the deadline
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.5.10. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.4.10. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>notify -e [-A] [INDEX]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.5.11. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.4.11. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>notify -d [-A] [INDEX]</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">3.6. Auto-complete feature <code>[coming in v2.0]</code></a></h3>
+<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">3.5. Auto-complete feature <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Returns suggestions when you are typing commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-a-timer-for-test-mode-code-coming-in-v2-0-code"><a class="link" href="#set-a-timer-for-test-mode-code-coming-in-v2-0-code">3.7. Set a timer for test mode <code>[coming in v2.0]</code></a></h3>
+<h3 id="set-a-timer-for-test-mode-code-coming-in-v2-0-code"><a class="link" href="#set-a-timer-for-test-mode-code-coming-in-v2-0-code">3.6. Set a timer for test mode <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>The student sets a time limit for the test mode. The app will exit test mode once the time ends.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="share-notes-and-questions-with-other-users-code-coming-in-v2-0-code"><a class="link" href="#share-notes-and-questions-with-other-users-code-coming-in-v2-0-code">3.8. Share notes and questions with other users <code>[coming in v2.0]</code></a></h3>
+<h3 id="share-notes-and-questions-with-other-users-code-coming-in-v2-0-code"><a class="link" href="#share-notes-and-questions-with-other-users-code-coming-in-v2-0-code">3.7. Share notes and questions with other users <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>The student shares notes and questions with other students with Internet connection.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-using-email-and-password-code-coming-in-v2-0-code"><a class="link" href="#login-using-email-and-password-code-coming-in-v2-0-code">3.9. Login using email and password <code>[coming in v2.0]</code></a></h3>
+<h3 id="login-using-email-and-password-code-coming-in-v2-0-code"><a class="link" href="#login-using-email-and-password-code-coming-in-v2-0-code">3.8. Login using email and password <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>The student can register and login to the application using their email and password.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="lecture-note-grouping-suggestions-code-coming-in-v2-0-code"><a class="link" href="#lecture-note-grouping-suggestions-code-coming-in-v2-0-code">3.10. Lecture note grouping suggestions <code>[coming in v2.0]</code></a></h3>
+<h3 id="lecture-note-grouping-suggestions-code-coming-in-v2-0-code"><a class="link" href="#lecture-note-grouping-suggestions-code-coming-in-v2-0-code">3.9. Lecture note grouping suggestions <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>NUStudy will intelligently suggest groupings of lecture notes based on their content.</p>
 </div>
@@ -478,4 +476,4 @@ Format: <code>overdue</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 03:34:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 03:38:46 UTC</div></div></div></body></html>
