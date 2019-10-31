@@ -1975,25 +1975,14 @@ It is not quizzable.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<h2 id="manual-testing"><a class="link" href="#manual-testing">Appendix F: Manual testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
+<p>A few ways of manually testing NUStudy are listed below. Of course, any tester
+should explore more than just these.</p>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<h3 id="opening-and-closing"><a class="link" href="#opening-and-closing">F.1. Opening and closing</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2001,11 +1990,10 @@ These instructions only provide a starting point for testers to work on; testers
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Download the jar file and copy into an empty folder</p>
+<p>Download the JAR file and copy into an empty folder.</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+<p>Open the jar file. <em>The GUI with some initial application data should be visible.</em></p>
 </li>
 </ol>
 </div>
@@ -2015,11 +2003,10 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Change the position and size of the window and close it.</p>
 </li>
 <li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+<p>Re-launch NUStudy. <em>It should look just like when it was closed.</em></p>
 </li>
 </ol>
 </div>
@@ -2028,27 +2015,63 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
+<h3 id="image-support"><a class="link" href="#image-support">F.2. Image support</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Adding a lecture note with an image</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Type <code>addnote t/t c/c i/</code> in the command line. <em>An image dialog should be brought up.</em></p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Select any image. <em>It should appear in the lecture note panel, as a new lecture note with
+title "t" and content "c".</em></p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Modifying an image</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>After adding one lecture note with an image, type <code>editnote i i/</code> where <code>i</code> is its index.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p><em>The same image dialog should be brought up</em>; select a different image.
+<em>This image should appear in place of the old image, if any, even if the filename is the same.</em></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Local copy of images</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Close the application and move the JAR file and its associated application data to another location.</p>
+</li>
+<li>
+<p>Relaunch the application. _Images should display as before.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Silent ignoring of broken images</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Once lecture notes with images have been added, close NUStudy and delete all images
+in its data folder.</p>
+</li>
+<li>
+<p>Relaunch the application. <em>The app should not throw an exception, merely not display any images.</em></p>
+</li>
+<li>
+<p>Add back the images to the lecture notes using <code>editnote</code>. <em>This operation should succeed.</em></p>
 </li>
 </ol>
 </div>
@@ -2057,4 +2080,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 00:37:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 03:31:34 UTC</div></div></div></body></html>
