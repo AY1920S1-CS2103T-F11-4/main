@@ -125,12 +125,56 @@ at your command, the system will prompt you to answer those questions.</p>
 <p>You can add a question and its answer together with the necessary fields to the app.<br>
 Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can define any type of difficulty level that is customized to your understanding of the question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addq q/How to represent 85 in binary? a/1010101 s/CS2100 d/medium</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/addqcommand.png" alt="addqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The new question will be added to your question bank.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/addqresult.png" alt="addqresult" width="600">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">Listing all questions: <code>listq</code></a></h4>
 <div class="paragraph">
-<p>You can view the list of all questions.<br>
+<p>This command allows you to view the list of all questions.<br>
 Format: <code>listq</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/listqcommand.png" alt="listqcommand" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/listqresult.png" alt="listqresult" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -159,18 +203,81 @@ Format: <code>editq INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</co
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editq 7 a/16 d/easy</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/editqcommand.png" alt="editqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Edits the answer and difficulty of the 2nd question to be <code>16</code> and <code>easy</code> respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/editqresult.png" alt="editqresult" width="600">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">Locating questions by keyword: <code>findq</code></a></h4>
 <div class="paragraph">
-<p>You can view the list of questions containing the keyword(s).<br>
+<p>This command will give you a list of questions containing the keyword(s) you specified.<br>
 Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter.</p>
+</li>
+<li>
+<p>Only full words will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findq UDP</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/findqcommand.png" alt="findqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Finds the question whose body contains the keyword <code>UDP</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/findqresult.png" alt="findqresult" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">Deleting a question: <code>deleteq</code></a></h4>
 <div class="paragraph">
-<p>You can delete the specific question at the specified INDEX with its relevant fields from the list.<br>
+<p>You can delete a question at its specified INDEX together with its relevant fields from the list.<br>
 Format: <code>deleteq INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -190,12 +297,84 @@ Format: <code>deleteq INDEX</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listq</code><br>
+<code>deleteq 3</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/deleteqcommand.png" alt="deleteqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Deletes the 2nd question from the question list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/deleteqresult.png" alt="deleteqresult" width="600">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findq character</code><br>
+<code>deleteq 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deletes the 1st question in the results of <code>findq</code> command.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="filter-by-difficulty-code-difficulty-code"><a class="link" href="#filter-by-difficulty-code-difficulty-code">Filter by difficulty: <code>difficulty</code></a></h4>
 <div class="paragraph">
-<p>You can view the list of all questions with a specific difficulty.<br>
+<p>You can view the list of all questions filtered by the specific difficulty.<br>
 Format: <code>difficulty DIFFICULTY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>Only full difficulty will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>difficulty hard</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/difficultycommand.png" alt="difficultycommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Returns a list of <code>hard</code> questions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/difficultyresult.png" alt="difficultyresult" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -204,12 +383,59 @@ Format: <code>difficulty DIFFICULTY</code></p>
 <p>You can view the list of all questions from a specific subject.<br>
 Format: <code>subject SUBJECT</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>Only full subject will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>subject CS2103T</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/subjectcommand.png" alt="subjectcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Returns a list of questions of <code>CS2103T</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/subjectresult.png" alt="subjectresult" width="600">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clear-all-questions-code-clearq-code"><a class="link" href="#clear-all-questions-code-clearq-code">Clear all questions: <code>clearq</code></a></h4>
 <div class="paragraph">
 <p>You can delete all questions from the app.<br>
 Format: <code>clearq</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/clearcommand.png" alt="clearcommand" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/clearresult.png" alt="clearresult" width="600">
+</div>
 </div>
 </div>
 </div>
@@ -586,4 +812,4 @@ list operations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 03:56:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 11:24:48 UTC</div></div></div></body></html>
