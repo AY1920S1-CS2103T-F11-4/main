@@ -1,0 +1,589 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy project portfolio for Wang Xueting (ShirleyWangxt)</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy project portfolio for Wang Xueting (ShirleyWangxt)</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio serves the purpose to showcase my contribution to NUStudy as our software engineering project
+and the various skills I have acquired and utilised in the process of development.</p>
+</div>
+<div class="sect2">
+<h3 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h3>
+<div class="paragraph">
+<p>My team of 4 software engineering students and I were tasked with enhancing a basic command line interface desktop
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">address book application</a> for our Software Engineering project.
+We chose to morph it into a revision flashcard desktop application called <strong>NUStudy</strong>.
+This enhanced application enables NUS students to store and manage lecture notes,
+practice questions under exam conditions and plan revision tasks effectively.</p>
+</div>
+<div class="paragraph">
+<p>This is what our project looks like: (todo: graphical user interface)</p>
+</div>
+<div class="paragraph">
+<p>My role is to design and write the code for question management features. The following sections illustrate
+these enhancements in more detail, as well as the relevant documentation I have added to the user and developer guides
+in relation to these enhancements.</p>
+</div>
+<div class="paragraph">
+<p>In this portfolio <code>monospace</code> indicates command-line input (commands, parameters, etc.)
+and <em>italics</em> mark class names.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my coding, documentation, and other helpful contributions to the team project.</p>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added"><a class="link" href="#enhancement-added">Enhancement added:</a></h3>
+<div class="sect3">
+<h4 id="what-it-does"><a class="link" href="#what-it-does">What it does</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>I was responsible for <strong>implementing question management features</strong>. A question includes a question body, an answer,
+a subject and a difficulty level. I have modified the existing <em>Person</em> model to <em>Question</em> model, as well as
+some of its relevant fields in the original address book application.</p>
+</li>
+<li>
+<p>The question management commands are modified by the original person management commands as well.
+The commands include: <em>AddQuestionCommand</em>, <em>EditQuestionCommand</em>, <em>DeleteQuestionCommand</em>, <em>ClearQuestionCommand</em>,
+<em>FindQuestionCommand</em>, <em>FindDifficultyCommand</em>, <em>FindSubjectCommand</em>, <em>ListQuestionCommand</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>It is important for students to constantly practice questions to test their understanding as well as get familiarize
+with the concepts they have learned. This question management system allows students to store questions easily.
+They are able to use this app as a question bank for them to revise. Furthermore, by defining difficulty levels for
+each question, student can have a better sense of how well they have learned from this topic or this subject in general.
+The question bank can also support other features such as quiz mode and various statistics for attempts.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">Code Contributed</a></h3>
+<div class="paragraph">
+<p>Please click this link to see a sample of my code:
+<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=ShirleyWangxt&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">link</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Testing: As I am responsible for testing, I have added a significant number of test classes which increased
+coverage to a large extent.</p>
+</li>
+<li>
+<p>Documentation: I modified the user guide from a draft version to the standardised formal version. I have also
+standardised the command format for most of the features.</p>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed Pull Requests</p>
+</li>
+<li>
+<p>Reported bugs and offered suggestions for other teams in the class</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User guide contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We had to update the original addressbook User Guide with instructions for the enhancements that we had added.
+The following is an excerpt from our NUStudy User Guide, showing additions that I have made for the
+question management features.</p>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="questions"><a class="link" href="#questions">Questions</a></h3>
+<div class="paragraph">
+<p>NUStudy can also store different sets of questions and answers;
+at your command, the system will prompt you to answer those questions.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-questions-code-addq-code"><a class="link" href="#adding-questions-code-addq-code">Adding Questions : <code>addq</code></a></h4>
+<div class="paragraph">
+<p>You can add a question and its answer together with the necessary fields to the app.<br>
+Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">Listing all questions: <code>listq</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of all questions.<br>
+Format: <code>listq</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-question-code-editq-code"><a class="link" href="#editing-a-question-code-editq-code">Editing a question: <code>editq</code></a></h4>
+<div class="paragraph">
+<p>You can edit the fields of an existing question by providing the fields you want to change.<br>
+Format: <code>editq INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the question at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the question will be removed i.e adding of tags is not cumulative.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">Locating questions by keyword: <code>findq</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of questions containing the keyword(s).<br>
+Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">Deleting a question: <code>deleteq</code></a></h4>
+<div class="paragraph">
+<p>You can delete the specific question at the specified INDEX with its relevant fields from the list.<br>
+Format: <code>deleteq INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the question at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed question list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-by-difficulty-code-difficulty-code"><a class="link" href="#filter-by-difficulty-code-difficulty-code">Filter by difficulty: <code>difficulty</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of all questions with a specific difficulty.<br>
+Format: <code>difficulty DIFFICULTY</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-by-subject-code-subject-code"><a class="link" href="#filter-by-subject-code-subject-code">Filter by subject: <code>subject</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of all questions from a specific subject.<br>
+Format: <code>subject SUBJECT</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-questions-code-clearq-code"><a class="link" href="#clear-all-questions-code-clearq-code">Clear all questions: <code>clearq</code></a></h4>
+<div class="paragraph">
+<p>You can delete all questions from the app.<br>
+Format: <code>clearq</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">Auto-complete feature <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Returns suggestions when you are typing commands.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-a-timer-for-test-mode-code-coming-in-v2-0-code"><a class="link" href="#set-a-timer-for-test-mode-code-coming-in-v2-0-code">Set a timer for test mode <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>The student sets a time limit for the test mode. The app will exit test mode once the time ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="share-notes-and-questions-with-other-users-code-coming-in-v2-0-code"><a class="link" href="#share-notes-and-questions-with-other-users-code-coming-in-v2-0-code">Share notes and questions with other users <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>The student shares notes and questions with other students with Internet connection.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="login-using-email-and-password-code-coming-in-v2-0-code"><a class="link" href="#login-using-email-and-password-code-coming-in-v2-0-code">Login using email and password <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>The student can register and login to the application using their email and password.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section shows my additions to the NUStudy Developer Guide for the question management features.</p>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="question-management-feature"><a class="link" href="#question-management-feature">Question management feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p>The question management feature is facilitated by <code>Model</code>.
+The question-related commands extend <code>Command</code> with the question object if necessary.
+The commands update the <code>Model</code> which is implemented by <code>ModelManager</code>.
+This in turn updates <code>AppData</code> which stores all the questions internally as <code>UniqueQuestionList</code>.
+Local data will be updated in the end by <code>LogicManager</code>.
+The commands include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddQuestionCommand</code>&#8201;&#8212;&#8201;Adds a new question to the app.</p>
+</li>
+<li>
+<p><code>DeleteQuestionCommand</code>&#8201;&#8212;&#8201;Deletes an existing question in the app.</p>
+</li>
+<li>
+<p><code>ListQuestionCommand</code>&#8201;&#8212;&#8201;Views the list of all questions available.</p>
+</li>
+<li>
+<p><code>EditQuestionCommand</code>&#8201;&#8212;&#8201;Edits an existing question in the app. (to be implemented)</p>
+</li>
+<li>
+<p><code>FindQuestionCommand</code>&#8201;&#8212;&#8201;Finds a question with a specified keyword. (to be implemented)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addQuestion(Question question)</code>,
+<code>Model#deleteQuestion(Question question)</code>, <code>Model#getFilteredQuestionList()</code> and
+<code>Model#setQuestion(Question target, Question editedQuestion)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The app will load all existing information from storage.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code> command to add a new question to the app.
+The <code>addq</code> command calls <code>Model#addQuestion(Question question)</code>, causing the <code>AppData</code> to be updated with the new question.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>deleteq 5</code> command to delete the 5th question in the app. The <code>deleteq</code> command calls <code>Model#deleteQuestion(Question target)</code>
+and <code>Model#updateFilteredQuestionList(Predicate&lt;Question&gt; predicate)</code>, causing the <code>AppData</code> to be updated with the
+target question removed.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes <code>editq 2 a/NEW_ANSWER</code> command to edit the answer of the 2nd question in the app.
+The <code>editq</code> command calls <code>Model#setQuestion(Question target, Question editedQuestion)</code> and
+<code>Model#updateFilteredQuestionList(Predicate&lt;Question&gt; predicate)</code>, causing the <code>AppData</code> to be updated with the original
+question being replaced by the edited question.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>addq</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddQuestionSequenceDiagram.png" alt="AddQuestionSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram">
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute"><a class="link" href="#design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute">Design considerations: How <code>addq</code>/<code>deleteq</code>/<code>editq</code> commands execute</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Alternative 1 (current choice):</em> Update the internal storage <code>UniqueQuestionList</code> in <code>AppData</code> first, then save the updated appData
+in local storage when the command finishes executing.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Need the extra step to ensure that the internal list is correctly maintained.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Alternative 2:</em> Update the local storage directly when the command is executing.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to implement the internal list.</p>
+</li>
+<li>
+<p>Cons: Will access local memory more frequently. May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-data-structure-to-support-the-question-commands"><a class="link" href="#design-considerations-data-structure-to-support-the-question-commands">Design considerations: Data structure to support the question commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Alternative 1 (current choice):</em> Use a <code>UniqueQuestionList</code> to store questions in <code>AppData</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Cater to the question model specifically. Question list operations are encapsulated in one class.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated as other models also implement similar list structure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Alternative 2:</em> Use Java list to store the questions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not need to maintain a separate list class.</p>
+</li>
+<li>
+<p>Cons: Violates Single Responsibility Principle and Separation of Concerns as the model needs to maintain various
+list operations.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<h3 id="use-case-specify-difficulty-level-of-questions-xueting" class="discrete">Use case: Specify difficulty level of questions (Xueting)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student specifies the difficulty level as the last tag while adding a questions - <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
+</li>
+<li>
+<p>Application shows and stores the question with its difficulty level</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student does not specify the difficulty level</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application shows an error message to require difficulty level input</p>
+</li>
+<li>
+<p>1a2. Student inputs the difficulty level following the previous tags</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until a difficulty level is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-edit-difficulty-level-of-a-specific-question-xueting" class="discrete">Use case: Edit difficulty level of a specific question (Xueting)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student changes the difficulty level of a question - edit <code>-dif id/INDEX d/DIFFICULTY</code></p>
+</li>
+<li>
+<p>Application shows and stores the question with the updated difficulty level</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student does not provide the updated difficulty level</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application shows an error message to require difficulty level update</p>
+</li>
+<li>
+<p>1a2. Student inputs the new difficulty level</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until a difficulty level is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Student provides the same difficulty level as the previous one</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Application shows a warning message indicating that the difficulty level is not updated and ask whether the user would like to proceed</p>
+</li>
+<li>
+<p>1b2. Student chooses either to proceed with the original difficulty level or re-edit the difficulty level</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. Student inputs an invalid (out of range or non-numeric) questions index</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. Application displays the range of valid question indices</p>
+</li>
+<li>
+<p>1c2. Student re-enters the question index</p>
+</li>
+<li>
+<p>Repeat 1c1 and 1c2 until a valid index is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 1</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-get-statistics-for-a-difficulty-level-xueting" class="discrete">Use case: Get statistics for a difficulty level (Xueting)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to get the statistics of the number of questions attempted at the specific difficulty level for a subject stats - <code>-dif d/DIFFICULTY s/SUBJECT</code></p>
+</li>
+<li>
+<p>Application returns a bar chart which consists of the questions index and the number of attempts for this difficulty level</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student does not provide the difficulty level or the subject after the -dif flag</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application shows an error message requesting the corresponding inputs</p>
+</li>
+<li>
+<p>1a2. Student re-enter the necessary fields</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until valid inputs are provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Student inputs invalid difficulty level or subject</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Application displays a list of difficulty levels and subjects available</p>
+</li>
+<li>
+<p>1b2. Student re-enter the necessary fields by choosing from the list</p>
+</li>
+<li>
+<p>Repeat 1b1 and 1b2 until valid inputs are provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 2</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 03:34:10 UTC</div></div></div></body></html>
