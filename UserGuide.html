@@ -1,6 +1,31 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy user guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy user guide</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy User Guide</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>AY1920S1-CS2103T-F11-4</code>  Since: <code>September 2019</code>  Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#quickstart">2. Quickstart</a></li>
+<li><a href="#Features">3. Features</a>
+<ul class="sectlevel2">
+<li><a href="#lecture-notes">3.1. Lecture notes</a></li>
+<li><a href="#questions">3.2. Questions</a></li>
+<li><a href="#quiz-mode">3.3. Quiz mode</a></li>
+<li><a href="#get-statistics">3.4. Get statistics</a></li>
+<li><a href="#revision-tasks">3.5. Revision tasks</a></li>
+<li><a href="#other-features-coming-in-v2-0">3.6. Other features coming in v2.0</a></li>
+</ul>
+</li>
+<li><a href="#faq">4. FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -67,6 +92,9 @@ the results. The overall appearance is similar to a simple note-taking client.</
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section helps you navigate through the features and commands.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -585,113 +613,190 @@ Format: <code>overview [dt/START_DATE] [dt/END_DATE]</code></p>
 </div>
 <div class="sect2">
 <h3 id="revision-tasks"><a class="link" href="#revision-tasks">3.5. Revision tasks</a></h3>
-<div class="sect3">
-<h4 id="view-revision-tasks-code-rlist-code"><a class="link" href="#view-revision-tasks-code-rlist-code">3.5.1. View revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
-<p>Displays the revision task list<br>
+<p>This section provides instructions to manipulate revision tasks. The revision tasks help you plan your revision of notes
+and questions.</p>
+</div>
+<div class="paragraph">
+<p>The diagram below shows how a revision task looks like:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskUI.png" alt="TaskUI">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The revision tasks are not synchronised with the note and the question. Once created, the task content will not
+change if you modify the corresponding note or question. For example, if you have added a task for note "An AVL Tree"
+and then you delete the note or change the title of the note, the task still exist with the heading unchanged. We adopt
+this approach because we would like to allow you to customise the task headings in <strong>version v2.0</strong> of the app. Therefore,
+we disassociate the task from notes and questions once created.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.5.1. Add a revision task for a note: <code>rn</code></a></h4>
+<div class="paragraph">
+<p>You can add a revision task for a note to the current revision task list with this command.<br>
+The heading will copy the title.<br>
+The GUI will display all tasks upon completing the command.<br>
+Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br>
+Example:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/AddTaskForNote_command.png" alt="AddTaskForNote command">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message "Revision task added: [N] NOTE : CS2103T UML diagram by: 01 November 2019 09:00".
+The task is added to the task list shown in the middle panel.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/AddTaskForNote_success.png" alt="AddTaskForNote success">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need to follow the format "dd/MM/yyyy" for START_DATE input and "HHmm" with 24-hour format for START_TIME
+input. For example: "31/12/2019" to represent "31st December 2019", "0900" to represent "9am", "1400" to represent "2pm".
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#add-a-revision-task-for-a-question-code-rq-code">3.5.2. Add a revision task for a question: <code>rq</code></a></h4>
+<div class="paragraph">
+<p>You can add a revision task for a question to the current revision task list with this command.<br>
+The heading will copy the question body.<br>
+The GUI will display all tasks upon completing the command.<br>
+Format: <code>rq i/INDEX_OF_QUESTION dt/START_DATE tm/START_TIME</code><br>
+Example:<br>
+<code>rq 1 dt/11/11/2019 tm/1500</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.5.3. Remove revision task: <code>rdelete</code></a></h4>
+<div class="paragraph">
+<p>You can remove a particular revision task from current list with this command.<br>
+The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
+Format: <code>rdelete INDEX_OF_TASK</code><br>
+Example:<br>
+<code>rdelete 2</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.5.4. Mark the revision task as done: <code>rdone</code></a></h4>
+<div class="paragraph">
+<p>You can mark a task as done once you finished it.
+The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
+Format: <code>rdone INDEX</code><br>
+Example:<br>
+<code>rdone 1</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-revision-tasks-code-rlist-code"><a class="link" href="#view-revision-tasks-code-rlist-code">3.5.5. View revision tasks: <code>rlist</code></a></h4>
+<div class="paragraph">
+<p>This command displays the whole revision task list.<br>
 Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.5.2. Add a revision task for a note: <code>rn</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.6. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
-<p>Adds a revision task for a note to the current revision task list<br>
-The GUI will display all tasks upon completing the command<br>
-Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#add-a-revision-task-for-a-question-code-rq-code">3.5.3. Add a revision task for a question: <code>rq</code></a></h4>
-<div class="paragraph">
-<p>Adds a revision task for a question to the current revision task list<br>
-The GUI will display all tasks upon completing the command<br>
-Format: <code>rq i/INDEX_OF_QUESTION dt/START_DATE tm/START_TIME</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.5.4. Remove revision task: <code>rdelete</code></a></h4>
-<div class="paragraph">
-<p>Removes the specified revision task from current list<br>
-The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view<br>
-Format: <code>rdelete INDEX_OF_TASK</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.5. Clear current revision plan: <code>rclear</code></a></h4>
-<div class="paragraph">
-<p>Deletes all revision tasks
+<p>You can remove all revision tasks with this command.<br>
 Format: <code>rclear</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.5.6. Mark the revision task as done: <code>rdone</code></a></h4>
-<div class="paragraph">
-<p>The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view<br>
-Format: <code>rdone INDEX</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.7. View completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
-<p>Displays the list of revision tasks which are completed<br>
+<p>This command displays the list of revision tasks that you have completed.<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.8. View uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
-<p>Displays the list of revision tasks that are yet to be completed<br>
+<p>This command displays the list of revision tasks that you have not completed.<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
-<p>Displays the revision tasks that are yet to be done but having passed the deadline
+<p>This task displays the revision tasks which you have not done but having passed the start time.<br>
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.5.10. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>notify -e [-A] [INDEX]</code></p>
+<p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
+Format: <code>notify -e [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.5.11. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>notify -d [-A] [INDEX]</code></p>
+<p>You can disable the push notification with this command.<br>
+Format: <code>notify -d [-A]</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature-code-coming-in-v2-0-code"><a class="link" href="#auto-complete-feature-code-coming-in-v2-0-code">3.6. Auto-complete feature <code>[coming in v2.0]</code></a></h3>
+<h3 id="other-features-coming-in-v2-0"><a class="link" href="#other-features-coming-in-v2-0">3.6. Other features coming in v2.0</a></h3>
+<div class="sect3">
+<h4 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">3.6.1. Auto-complete feature</a></h4>
 <div class="paragraph">
 <p>Returns suggestions when you are typing commands.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="set-a-timer-for-test-mode-code-coming-in-v2-0-code"><a class="link" href="#set-a-timer-for-test-mode-code-coming-in-v2-0-code">3.7. Set a timer for test mode <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="set-a-timer-for-test-mode"><a class="link" href="#set-a-timer-for-test-mode">3.6.2. Set a timer for test mode</a></h4>
 <div class="paragraph">
 <p>The student sets a time limit for the test mode. The app will exit test mode once the time ends.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="share-notes-and-questions-with-other-users-code-coming-in-v2-0-code"><a class="link" href="#share-notes-and-questions-with-other-users-code-coming-in-v2-0-code">3.8. Share notes and questions with other users <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="share-notes-and-questions-with-other-users"><a class="link" href="#share-notes-and-questions-with-other-users">3.6.3. Share notes and questions with other users</a></h4>
 <div class="paragraph">
 <p>The student shares notes and questions with other students with Internet connection.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="login-using-email-and-password-code-coming-in-v2-0-code"><a class="link" href="#login-using-email-and-password-code-coming-in-v2-0-code">3.9. Login using email and password <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="login-using-email-and-password"><a class="link" href="#login-using-email-and-password">3.6.4. Login using email and password</a></h4>
 <div class="paragraph">
 <p>The student can register and login to the application using their email and password.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="lecture-note-grouping-suggestions-code-coming-in-v2-0-code"><a class="link" href="#lecture-note-grouping-suggestions-code-coming-in-v2-0-code">3.10. Lecture note grouping suggestions <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="lecture-note-grouping-suggestions"><a class="link" href="#lecture-note-grouping-suggestions">3.6.5. Lecture note grouping suggestions</a></h4>
 <div class="paragraph">
 <p>NUStudy will intelligently suggest groupings of lecture notes based on their content.</p>
+</div>
 </div>
 </div>
 </div>
@@ -704,4 +809,4 @@ Format: <code>overdue</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 11:24:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 07:51:21 UTC</div></div></div></body></html>
