@@ -509,9 +509,8 @@ The commands include:</p>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#getQuizQuestions(int numOfQuestions, Subject subject
 Difficulty difficulty)</code>, <code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>,
-<code>Model#showQuizAnswer(int index)</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#getFilteredQuizResultList()</code>,
-<code>Model#checkQuizAnswer(int index, Answer answer)</code>, <code>Model#addQuizResult(QuizResult quizResult)</code>,
-<code>Model#getFilteredQuizResultList()</code> and <code>Model#clearQuizQuestionList()</code> respectively.</p>
+<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>
+and <code>Model#clearQuizQuestionList()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
@@ -526,13 +525,12 @@ The <code>quiz</code> command calls <code>Model#getQuizQuestions(int numOfQuesti
 a list of specific question selected by user for quiz.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>INDEX:ANSWER</code> to answer the question. It calls <code>Model#checkQuizAnswer(int index,
-Answer answer)</code> and <code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result
-of the answer.</p>
+<p>Step 3. The user types answer to answer the question. It calls <code>Model#checkQuizAnswer(Answer answer)</code> and
+<code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result of the answer.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The user executes <code>show 2</code> command to show the answer of 2nd quiz question in the app. The <code>show</code> command calls
-<code>Model#showQuizAnswer(int index)</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
+<p>Step 4. The user executes <code>show</code> command to show the answer of current quiz question in the app. The <code>show</code> command calls
+<code>Model#showQuizAnswer()</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
 </div>
 <div class="paragraph">
 <p>Step 5. The user executes <code>quit</code> command to exit from the quiz mode. The <code>quit</code> command calls
@@ -545,6 +543,7 @@ of the answer.</p>
 <div class="content">
 <img src="images/QuizModeSequenceDiagram.png" alt="QuizModeSequenceDiagram">
 </div>
+<div class="title">Figure 11. QuizModeSequenceDiagram</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command for quiz:</p>
@@ -553,6 +552,7 @@ of the answer.</p>
 <div class="content">
 <img src="images/QuizModeActivityDiagram.png" alt="QuizModeActivityDiagram" width="400">
 </div>
+<div class="title">Figure 12. QuizModeActivityDiagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -2097,4 +2097,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:27:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:33:22 UTC</div></div></div></body></html>

@@ -4,28 +4,45 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My team of 5 software engineering students and I were tasked with enhancing a basic command line interface desktop
-Addressbook application for our Software Engineering project. We chose to morph it into a learning management
-application called NUStudy which is targeted to university students. This enhanced applications allows students to
-easily manage their lecture notes, test questions and revision tasks; and take a mock quiz as revision if they need.</p>
+<p>This portfolio is used to showcase my contribution to the CS2103T project in National University of Singapore. There
+are five students in our group, all majoring in Computer Science. We are given a task to enhance a desktop application
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">Address book 3</a> with JavaFX GUI. It supports the command line
+interface for use input.We decided to morph it in to a study management application called NUStudy which is targeted to
+university students. NUStudy is used to manage students' lecture notes, test questions and revision tasks. It also
+allows students to do mock quiz and view the statistics for better revision.</p>
 </div>
 <div class="paragraph">
-<p>This is what our project looks like:</p>
+<p>This is the interface of our project.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/Ui.png" alt="Ui">
 </div>
+<div class="title">Figure 1. The interface of NUStudy</div>
 </div>
 <div class="paragraph">
-<p>This portfolio showcases my contributions to the development of NUStudy. My role was to design and write codes for
-the <code>quiz</code> features. The following sections illustrate these enhancements in more details, as well as the relevant
-documentation I have added to the user and developer guides in relation to these enhancements.</p>
+<p>I am responsible for designing and writing codes for quiz feature. The following sections will describe my contributions
+to the feature and relevant documentations in detail.</p>
 </div>
 <div class="paragraph">
-<p>In this portfolio, a grey highlight <code>term</code> indicates that this is a command that can be inputted into the command line
-and executed by the application and <em>italics</em> implies a component, class or object in the architecture of the application.
-The pull requests and issues are represented by a # and its number (e.g. [#1])</p>
+<p>Here are some explanations of the icons and formatting used in this portfolio.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A grey highlight <code>monospace</code> implies that this is a command that can be inputted and executed by the application.</p>
+</li>
+<li>
+<p><em>Italics</em> implies a component, class or object in the architecture of the application.</p>
+</li>
+<li>
+<p>The pull requests and issues are represented by a # and its number (e.g. [#1])</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -33,8 +50,8 @@ The pull requests and issues are represented by a # and its number (e.g. [#1])</
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This sections shows a brief summary of my contributions to NUStudy, including coding, documentation and other relevant
-helpful contributions to the team project.</p>
+<p>This section briefly describes my contributions to the implementation of quiz feature and other helpful contributions to
+the group.</p>
 </div>
 <div class="paragraph">
 <p><strong>Enhancement added:</strong> I added the quiz feature of the application (Starting from
@@ -43,26 +60,29 @@ helpful contributions to the team project.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: The <code>quiz</code> command allows the users to enter the quiz mode of the application. Users can type answer
-on command line and the correctness will be checked to display the result. The result of each quiz will be stored and
-used to supports the report feature.</p>
+<p>What it does: This feature allows the users to do a mock quiz. The <code>quiz</code> command allows the users to enter the quiz
+mode of the application. Users can type answer on command line and the correctness will be checked to show the result.
+The result of each quiz will be stored as <em>QuizResult</em> and used to support the report feature.</p>
 </li>
 <li>
-<p>Justification: In the event that users want to choose a set of questions from the application, the <code>quiz</code> command
-will randomly select questions from the storage according to the difficulty and subject specified by users. It will
-act like an actual online quiz which the question will be displayed one at a time and users need to type answer to
-receive the feedback from the application to know whether it is correct or wrong.</p>
+<p>Justification:  The <code>quiz</code> command will randomly select questions from the database according to the difficulty and
+subject specified by users and stored in <em>QuizQuestionList</em>. It will act like an actual online quiz which the question
+will be displayed one at a time and users need to type answer to receive the feedback from the application to know
+whether it is correct or wrong.</p>
 </li>
 <li>
-<p>Highlights: This enhancement works with commands implemented with my teammates. The result of each question from a
-quiz will be store and my teammate will use it for another feature. The implementation was challenging on how to
-override the question panel and displaying quiz questions one after another. I solve it by using a boolean to set the
-<em>QuestionListPanel</em> in the <em>MainWindow</em> class and adding a list containing one quiz question in <em>QuizQuestionList</em>
-class (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/49">#49</a>
+<p>Highlights: This feature cooperates with another feature implemented by my teammate. The result of each question from
+the quiz will be stored and my teammate will use it for report feature. The implementation was tricky in the beginning
+on how to override the question panel and displaying quiz questions one after another. I solve it by using a boolean
+to set the <em>QuestionListPanel</em> in the <em>MainWindow</em> class and adding a list containing one quiz question in
+<em>QuizQuestionList</em> class to display question one by one(<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/49">#49</a>
 <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/70">#70</a>
 <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/76">#76</a>).</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed:</strong> You may review the report of my code contribution to the project <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=Auxinnn&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Auxinnn&amp;tabRepo=AY1920S1-CS2103T-F11-4%2Fmain%5Bmaster%5D">here</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Other contributions:</strong></p>
@@ -80,6 +100,18 @@ could refer to the template for modification and further development (<a href="h
 </ul>
 </div>
 </li>
+<li>
+<p>Implement Quiz Result to support report feature:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I designed and implemented the basic architecture of quiz result so that my teammate could use it to support the
+report feature (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a>
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/74">#74</a>).</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -88,8 +120,8 @@ could refer to the template for modification and further development (<a href="h
 <h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We had to update the original addressbook User Guide with instructions for the enhancements that we had added. The
-following is an excerpt from our <strong>NUStudy User Guide</strong>, showing additions that I have made for the quiz features.</p>
+<p>We have updated the User Guide of Address Book to fit the commands of our project. The following part shows my contribution
+to the modification of <strong>NUStudy User Guide</strong> for quiz feature.</p>
 </div>
 <hr>
 <div class="sect2">
@@ -129,6 +161,7 @@ Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT</code></p>
 <div class="content">
 <img src="../images/quiz/QuizModeCommand.png" alt="QuizModeCommand">
 </div>
+<div class="title">Figure 2. Typing <code>quiz</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result will show the message of successfully entering the quiz mode. The first quiz question will appear
@@ -138,6 +171,7 @@ on the third column.<br></p>
 <div class="content">
 <img src="../images/quiz/QuizModeCommandResult.png" alt="QuizModeCommandResult">
 </div>
+<div class="title">Figure 3. Result of <code>quiz</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -166,6 +200,7 @@ on the third column.<br></p>
 <div class="content">
 <img src="../images/quiz/QuizAnswer.png" alt="QuizAnswer">
 </div>
+<div class="title">Figure 4. Typing answer in the command line</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result of your answer will reflect your correctness and the next question will be displayed.</p>
@@ -174,6 +209,7 @@ on the third column.<br></p>
 <div class="content">
 <img src="../images/quiz/QuizAnswerResult.png" alt="QuizAnswerResult">
 </div>
+<div class="title">Figure 5. The result after answer</div>
 </div>
 </div>
 <div class="sect3">
@@ -196,6 +232,7 @@ Format: <code>show</code></p>
 <div class="content">
 <img src="../images/quiz/ShowAnswerCommand.png" alt="ShowAnswerCommand">
 </div>
+<div class="title">Figure 6. Typing <code>show</code> command and its result</div>
 </div>
 </div>
 <div class="sect3">
@@ -225,6 +262,7 @@ Format: <code>skip</code></p>
 <div class="content">
 <img src="../images/quiz/SkipCommand.png" alt="SkipCommand">
 </div>
+<div class="title">Figure 7. Typing <code>skip</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The current question is skipped and next question will be displayed.<br></p>
@@ -233,6 +271,7 @@ Format: <code>skip</code></p>
 <div class="content">
 <img src="../images/quiz/SkipCommandResult.png" alt="SkipCommandResult">
 </div>
+<div class="title">Figure 8. The result of <code>skip</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -265,6 +304,7 @@ Format: <code>quit</code></p>
 <div class="content">
 <img src="../images/quiz/QuitQuizCommand.png" alt="QuitQuizCommand">
 </div>
+<div class="title">Figure 9. Typing <code>quit</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result shows message of exit from the quiz mode and the original questions will appear.</p>
@@ -273,6 +313,7 @@ Format: <code>quit</code></p>
 <div class="content">
 <img src="../images/quiz/QuitQuizCommandResult.png" alt="QuitQuizCommandResult">
 </div>
+<div class="title">Figure 10. The result of <code>quit</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -288,7 +329,20 @@ Format: <code>quit</code></p>
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my additions to the <strong>NUStudy Developer Guide</strong> for the quiz features.</p>
+<p>We also updated the Developer Guide so that the style and architecture fits our project. The following parts shows my
+contribution to the modification of <strong>NUStudy Developer Guide</strong> for quiz feature.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In this sections, <code>monospace</code> indicates both user command and class objects and methods.
+</td>
+</tr>
+</table>
 </div>
 <hr>
 <div class="sect2">
@@ -322,9 +376,8 @@ The commands include:</p>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#getQuizQuestions(int numOfQuestions, Subject subject
 Difficulty difficulty)</code>, <code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>,
-<code>Model#showQuizAnswer(int index)</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#getFilteredQuizResultList()</code>,
-<code>Model#checkQuizAnswer(int index, Answer answer)</code>, <code>Model#addQuizResult(QuizResult quizResult)</code>,
-<code>Model#getFilteredQuizResultList()</code> and <code>Model#clearQuizQuestionList()</code> respectively.</p>
+<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>
+and <code>Model#clearQuizQuestionList()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
@@ -339,13 +392,12 @@ The <code>quiz</code> command calls <code>Model#getQuizQuestions(int numOfQuesti
 a list of specific question selected by user for quiz.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>INDEX:ANSWER</code> to answer the question. It calls <code>Model#checkQuizAnswer(int index,
-Answer answer)</code> and <code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result
-of the answer.</p>
+<p>Step 3. The user types answer to answer the question. It calls <code>Model#checkQuizAnswer(Answer answer)</code> and
+<code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result of the answer.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The user executes <code>show 2</code> command to show the answer of 2nd quiz question in the app. The <code>show</code> command calls
-<code>Model#showQuizAnswer(int index)</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
+<p>Step 4. The user executes <code>show</code> command to show the answer of current quiz question in the app. The <code>show</code> command calls
+<code>Model#showQuizAnswer()</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
 </div>
 <div class="paragraph">
 <p>Step 5. The user executes <code>quit</code> command to exit from the quiz mode. The <code>quit</code> command calls
@@ -358,6 +410,7 @@ of the answer.</p>
 <div class="content">
 <img src="../images/QuizModeSequenceDiagram.png" alt="QuizModeSequenceDiagram">
 </div>
+<div class="title">Figure 11. QuizModeSequenceDiagram</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command for quiz:</p>
@@ -366,6 +419,7 @@ of the answer.</p>
 <div class="content">
 <img src="../images/QuizModeActivityDiagram.png" alt="QuizModeActivityDiagram" width="400">
 </div>
+<div class="title">Figure 12. QuizModeActivityDiagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -608,4 +662,4 @@ list operations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:27:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:33:22 UTC</div></div></div></body></html>
