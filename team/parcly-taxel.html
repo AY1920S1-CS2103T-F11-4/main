@@ -111,6 +111,10 @@ for examples.</p>
 <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/70">#70</a>.</p>
 </li>
 <li>
+<p>Whenever I could, I fixed bugs assigned to teammates other than me, e.g.
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/issues/141">#141</a>.</p>
+</li>
+<li>
 <p>A detailed exposition of all code I contributed to NUStudy can be found
 <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#=undefined&amp;search=Parcly-Taxel">here</a>.</p>
 </li>
@@ -148,8 +152,9 @@ will pop up, and you can select the image from your file system. Once done, you 
 </div>
 </div>
 <div class="paragraph">
-<p>Your images are copied into the local application data folder of NUStudy, so don&#8217;t worry about losing track of
-your images – you can always take them along with the application.</p>
+<p>It is fine to back out of the image selection dialog; an image can always be added later using <code>editnote</code>.
+Your images are copied into the application&#8217;s data folder, so don&#8217;t worry about losing them –
+you can always take them along.</p>
 </div>
 </div>
 <div class="sect3">
@@ -243,7 +248,8 @@ I contributed in code and my proficiency in using diagrams to explain my work.</
 <p>Usually, we do not learn best from just text; we rely on images that our minds can process more easily.
 As such, implementing images in lecture notes was considered very important. Although some lecture notes
 have multiple images, it is always possible to combine them using basic image editing software like the
-GNU Image Manipulation Program (GIMP) and Paint, so the implementation was limited to at most image per note.</p>
+GNU Image Manipulation Program (GIMP) and Paint, so the implementation was limited to at most one
+image per note.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
@@ -254,17 +260,36 @@ an <code>Image</code> object, not just a <code>String</code> path to the image. 
 by this choice because <code>Image</code> objects can exist without a GUI to display them.</p>
 </div>
 <div class="paragraph">
-<p>The dialog brought up to let the user choose a file returns <code>null</code> if the dialog is closed
-<em>without</em> choosing a file (i.e. clicking the close button). Treating <code>null</code> as "no image" would surprise the user who
-decides to edit a lecture note&#8217;s image but then decides not to – the image would simply disappear without
-warning. Therefore the value <code>i/none</code> has to be explicitly provided to remove the image, and <code>EditNoteDescriptor</code>
-has an additional field <code>isImageRemoved</code> to track this. If the image comes out as <code>null</code> but <code>i/none</code> was
-not provided, the image is unchanged.</p>
-</div>
-<div class="paragraph">
 <p>The static method <code>selectImage()</code> in <code>AppUtil</code> opens up a dialog allowing the user to choose the necessary image.
 This is possible because <code>FileChooser#showOpenDialog()</code>, which shows the dialog, can be fed an argument of <code>null</code>
 instead of having to rely on a <code>Window</code> object, which is the domain of the <code>UI</code> module.</p>
+</div>
+<div class="paragraph">
+<p>The aforementioned dialog returns <code>null</code> if it is closed
+without choosing a file (i.e. clicking the close button). We interpret this as "no change"
+rather than "no image", i.e. <code>addnote</code> and <code>editnote</code> proceed as if <code>i/</code> was not provided.
+If the "no image" interpretation was used, the user who decides to edit a lecture note&#8217;s image
+but then decides not to would be surprised to see the image disappear without warning.
+Therefore the value <code>i/none</code> has to be explicitly provided in <code>editnote</code> to remove the image; <code>EditNoteDescriptor</code>
+has the field <code>isImageRemoved</code> to track this.</p>
+</div>
+<div class="paragraph">
+<p>We also defer image selection until after the title has been checked against existing lecture notes,
+which saves time that would otherwise be wasted in navigating to the desired image.
+This is accomplished using</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <code>finalizeImage()</code> method of the <code>Note</code> class, calling <code>selectImage()</code></p>
+</li>
+<li>
+<p>the <code>needsImage</code> field of <code>Note</code>, which allows a one-time execution of <code>finalizeImage()</code></p>
+</li>
+<li>
+<p>the <code>isImageReplaced</code> field of <code>EditNoteDescriptor</code></p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -276,17 +301,14 @@ instead of having to rely on a <code>Window</code> object, which is the domain o
 <p>The diagram above shows how <code>EditNoteCommandParser</code> creates an <code>EditNoteCommand</code>. It first
 creates an <code>EditNoteDescriptor</code> to hold details of what changes in the note, setting the new
 title (provided by the <code>t/</code> argument) and content (<code>c/</code>) as necessary. If <code>i/none</code> is present,
-the <code>EditNoteDescriptor</code> is set to remove the image and no dialog is shown. If <code>i/</code> is
-otherwise provided, <code>EditNoteCommandParser</code> calls the static method <code>AppUtil#selectImage()</code>,
-opening up the image selection dialog; the returned <code>Image</code> object is then set in the <code>EditNoteDescriptor</code>.
-An <code>EditNoteCommand</code> containing the <code>EditNoteDescriptor</code> is finally returned for execution.</p>
+the <code>EditNoteDescriptor</code> is set to remove the image. If <code>i/</code> is provided, it is set to replace
+the image. An <code>EditNoteCommand</code> containing the <code>EditNoteDescriptor</code> is finally returned for execution.</p>
 </div>
 <div class="paragraph">
 <p>Images are only referenced, not embedded, in the JSON file holding application data. These references are
 Uniform Resource Identifiers (URIs) of system files, e.g. <code>file:data/picture.png</code>. Since NUStudy is meant to be portable,
 we cannot use absolute paths, since they would break when the images are moved or deleted. Instead we copy images
-into its data folder, side-by-side with the JSON file, upon execution of any <code>addnote</code> or <code>editnote</code> command with
-an image. The references are then changed to point to these local copies, becoming relative URIs.</p>
+into application data using <code>finalizeImage()</code>, which points references to these local copies.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -516,4 +538,4 @@ It is not quizzable.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 01:45:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 05:54:26 UTC</div></div></div></body></html>
