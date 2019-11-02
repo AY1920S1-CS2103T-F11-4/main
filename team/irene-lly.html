@@ -3,24 +3,697 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy project portfolio for Irene Lee (irene-lly)</h1></div><div id="content"><div class="sect1">
 <h2 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>This portfolio documents my contributions to NUStudy, a learning application.
+Our team of 5 software engineering students were tasked with
+enhancing a basic command line interface desktop Addressbook application
+as part of our Software Engineering project in CS2103T.
+We were asked to conceptualize and implement enhancements to the existing application
+and do it in a manner such that future developers can continue working on it.
+After some deliberation, we decided to morph it into an application to facilitate learning for students.
+The morphed application, NUStudy, enables students to add and manage notes;
+test their knowledge with questions that they have added;
+get statistics of how well they have answered these questions;
+and set tasks to plan their revision schedule.</p>
+</div>
+<div class="paragraph">
+<p>I contributed to this project by implementing the statistics feature as documented below.
+In particular, I have implemented the <code>stats</code>, <code>questions</code>, <code>report</code> and <code>overview</code> commands.
+The following sections illustrate the enhancements in more detail,
+as well as the relevant documentation I have added to the user and developer guides in
+relation to these enhancements.</p>
+</div>
+<div class="paragraph">
+<p>Note the following symbols and formatting used in this document:<br>
+<code>stats</code>: A grey highlight indicates that this is a command that can be inputted
+into the command line and executed by the application.<br>
+<strong>Bold</strong>: A bolded word indicates an action to be taken by the user.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>This section shows the enhancements I have added to the project as well as my other contributions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Enhancement added</strong>: I added the ability to get statistics of the questions done in the quizzes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The different commands allow users to filter the quiz results
+and return an overview of how well they have done the questions.</p>
+</li>
+<li>
+<p>Justification: The <code>questions</code> and <code>report</code> commands help users to get an
+idea of what subjects they are weaker in and see the common mistakes that they have made.
+The <code>stats</code> and <code>overview</code> commands gives users an idea of which questions they
+should attempt more of and what subjects they have been neglecting.
+Overall, the purpose of the statistics feature is to provide users with a rough
+outline of their progress in mastering the foundations of the subject.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future.
+An in-depth analysis of design alternatives is required in the future.
+The implementation was also challenging as it required changes to existing models
+and logic classes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: Please click this link to see a sample of my code:
+<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#=undefined&amp;search=irene-lly">here</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Other Contributions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Role:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I was in charge of code quality.
+My job includes making sure that the code follows a consistent style,
+is easy to understand and that the code is well-documented.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed pull requests (with non-trivial review comments):
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a>,
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/97">#97</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions:
+<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/71">#71</a></p>
+</li>
+<li>
+<p>Reported bugs found from other team&#8217;s applications:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI so that different panels can be stacked:
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/56">#56</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User guide contributions</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>We have modified the existing Addressbook User Guide to include commands for the enhancements
+that we have added as well as remove the old commands that are not relevant to our project.
+The following is an excerpt from our User Guide,
+showing additions that I have made for the statistics features.</p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">Get statistics for subjects : <code>stats</code></a></h4>
+<div class="paragraph">
+<p>Returns a panel containing a break down of the questions by its results.
+You can choose to get the statistics for a difficulty level by adding <code>d/</code> or
+get the statistics of different subjects by adding <code>s/</code>.
+Typing any other non-statistics command will close this panel.<br>
+Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+Let&#8217;s say you have answered some questions from CS2103T previously
+and you would like a ballpark figure to estimate how well you know the subject.</p>
+</div>
+<div class="paragraph">
+<p>To get this figure:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>stats s/CS2103T</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here are the statistics:"</p>
+</li>
+<li>
+<p>And you can see a pie chart of the number of correctly and incorrectly answered questions.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="questions"><a class="link" href="#questions">Questions</a></h3>
+<div class="paragraph">
+<p>NUStudy can also store different sets of questions and answers;
+at your command, the system will prompt you to answer those questions.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-questions-code-addq-code"><a class="link" href="#adding-questions-code-addq-code">Adding Questions : <code>addq</code></a></h4>
+<div class="paragraph">
+<p>You can add a question and its answer together with the necessary fields to the app.<br>
+Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can define any type of difficulty level that is customized to your understanding of the question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addq q/How to represent 85 in binary? a/1010101 s/CS2100 d/medium</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/addqcommand.png" alt="addqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The new question will be added to your question bank.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/addqresult.png" alt="addqresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">Listing all questions: <code>listq</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to view the list of all questions.<br>
+Format: <code>listq</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/listqcommand.png" alt="listqcommand" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/listqresult.png" alt="listqresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-question-code-editq-code"><a class="link" href="#editing-a-question-code-editq-code">Editing a question: <code>editq</code></a></h4>
+<div class="paragraph">
+<p>You can edit the fields of an existing question by providing the fields you want to change.<br>
+Format: <code>editq INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the question at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed
+question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editq 7 a/16 d/easy</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/editqcommand.png" alt="editqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Edits the answer and difficulty of the 2nd question to be <code>16</code> and <code>easy</code> respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/editqresult.png" alt="editqresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">Locating questions by keyword: <code>findq</code></a></h4>
+<div class="paragraph">
+<p>This command will give you a list of questions containing the keyword(s) you specified.<br>
+Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter.</p>
+</li>
+<li>
+<p>Only full words will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findq UDP</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/findqcommand.png" alt="findqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Finds the question whose body contains the keyword <code>UDP</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/findqresult.png" alt="findqresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">Deleting a question: <code>deleteq</code></a></h4>
+<div class="paragraph">
+<p>You can delete a question at its specified INDEX together with its relevant fields from the list.<br>
+Format: <code>deleteq INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the question at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed question list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listq</code><br>
+<code>deleteq 3</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/deleteqcommand.png" alt="deleteqcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Deletes the 2nd question from the question list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/deleteqresult.png" alt="deleteqresult" width="600">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findq character</code><br>
+<code>deleteq 1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deletes the 1st question in the results of <code>findq</code> command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-by-difficulty-code-difficulty-code"><a class="link" href="#filter-by-difficulty-code-difficulty-code">Filter by difficulty: <code>difficulty</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of all questions filtered by the specific difficulty.<br>
+Format: <code>difficulty DIFFICULTY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>Only full difficulty will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>difficulty hard</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/difficultycommand.png" alt="difficultycommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Returns a list of <code>hard</code> questions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/difficultyresult.png" alt="difficultyresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-by-subject-code-subject-code"><a class="link" href="#filter-by-subject-code-subject-code">Filter by subject: <code>subject</code></a></h4>
+<div class="paragraph">
+<p>You can view the list of all questions from a specific subject.<br>
+Format: <code>subject SUBJECT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.</p>
+</li>
+<li>
+<p>Only full subject will be matched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>subject CS2103T</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/subjectcommand.png" alt="subjectcommand" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Returns a list of questions of <code>CS2103T</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/subjectresult.png" alt="subjectresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-questions-code-clearq-code"><a class="link" href="#clear-all-questions-code-clearq-code">Clear all questions: <code>clearq</code></a></h4>
+<div class="paragraph">
+<p>You can delete all questions from the app.<br>
+Format: <code>clearq</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/clearcommand.png" alt="clearcommand" width="600">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/questionCommandsDemo/clearresult.png" alt="clearresult" width="600">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-question-code">Get questions with correct/incorrect answers: <code>question</code></a></h4>
+<div class="paragraph">
+<p>Get a panel containing all questions that have been answered correctly/incorrectly by using <code>-c/-i</code> respectively.
+Either one of <code>-c</code> or <code>-i</code> must be used. You can also filter by subjects by adding <code>s/</code>.
+Typing any other non-statistics command will close this panel.<br>
+Format: <code>question [-c] [-i] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+Now that you have gotten the number of correct to incorrect answers, you want to see what questions
+you have done wrong to decide on how you can further improve.</p>
+</div>
+<div class="paragraph">
+<p>To see the questions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>question -i s/CS2103T</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here are the questions:"</p>
+</li>
+<li>
+<p>And you can see a list of all your incorrectly answered questions for CS2103T and
+your past answers to it as well as a break down of the number of questions by difficulty level.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">Get a report for individual questions: <code>report</code></a></h4>
+<div class="paragraph">
+<p>Returns a panel containing a report of how well you have answered a particular question,
+the number of times the question has been attempted and the past answers to the question.
+Typing any other non-statistics command will close this panel.<br>
+Format: <code>report INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+After getting the questions that you have done wrong, you noticed that there is one particular
+question that you have answered wrong numerous times. This just so happened to be the third
+question in the question list. You decided to investigate further.</p>
+</div>
+<div class="paragraph">
+<p>To see a report of the question:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>report 3</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here is a report of the question:"</p>
+</li>
+<li>
+<p>And you can see all your attempts at the question as well as a pie chart of your results.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-overview-of-questions-attempted-code-overview-code"><a class="link" href="#get-overview-of-questions-attempted-code-overview-code">Get overview of questions attempted: <code>overview</code></a></h4>
+<div class="paragraph">
+<p>Get an overview of the types of questions that have been attempted overall.
+A panel containing a stacked bar graph, sorted by subjects will be returned.
+You can also add a <code>dt/</code> field to get questions that you have done within that time period.
+The format for date is dd/MM/yyyy.
+Typing any other non-statistics command will close this panel.<br>
+Format: <code>overview [dt/START_DATE dt/END_DATE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+You are finally done viewing your quiz results and want to know what
+questions you should attempt next. To be a well-rounded individual, you decided to check
+if you have been neglecting any subjects during this period of time.</p>
+</div>
+<div class="paragraph">
+<p>To see an overview of your results:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>overview dt/20/10/2019 dt/30/10/2019</code> into the command box,
+and press <strong>Enter</strong> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here is an overview of the questions:"</p>
+</li>
+<li>
+<p>And you can see a stack bar chart of all questions that you have attempted
+from 20/10/2019 to 30/10/2019</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>We have also modified the existing addressBook developer guide to include implementation of
+our features as well as remove the old documentation of the addressBook features.
+Given below shows my additions to the NUStudy developer guide for the statistics feature.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 06:46:49 UTC</div></div></div></body></html>
+<hr>
+<div class="sect2">
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The statistics feature gathers data stored from quizzes done in NUStudy to analyse and return an output.
+The different commands supported by the statistics feature are used to filter the type of statistics the user wants.
+These commands include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GetQnsCommand</code>&#8201;&#8212;&#8201;Gets all questions answered correctly/incorrectly.</p>
+</li>
+<li>
+<p><code>GetReportCommand</code>&#8201;&#8212;&#8201;Returns a report of the specified question.</p>
+</li>
+<li>
+<p><code>GetStatisticsCommand</code>&#8201;&#8212;&#8201;Returns a general overview of how well the user has answered quiz questions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the statistics mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.
+The app will attempt to read past data from any quizzes done and store it internally to a <code>quizResults</code> list.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>stats s/CS2103T</code> command to get the statistics of all quiz questions done for CS2103T.
+The <code>stats</code> command creates a new <code>commandResult</code> setting the type of command to <code>CHART</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows how the <code>GetStatisticsCommand</code> and <code>CommandResult</code> class are related.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>commandResult</code> will call the relevant methods to filter the <code>quizResults</code> list and create the relevant outputs.
+It will then show a statistics panel, hiding all notes and tasks.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the statistics operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides to stop viewing statistics and decides to view all notes and tasks again using the <code>listnote</code> command.
+The statistics panel will now be hidden.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the statistics command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-statistics-are-shown"><a class="link" href="#aspect-how-statistics-are-shown">Aspect: How statistics are shown</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Hide all other panels and only show statistics.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less scrolling needed, more information can be shown in one panel.</p>
+</li>
+<li>
+<p>Cons: More methods are needed to deal with hiding and showing the different panels leading to more room for errors.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Place statistics in the main window with notes and tasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: The number of notes and tasks that can be seen without scrolling will be decreased.
+The charts will be small and condensed making it difficult to see the data at first glance.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:24:03 UTC</div></div></div></body></html>
