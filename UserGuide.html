@@ -1,32 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy user guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy user guide</h1></div><div id="content"><div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>By: <code>AY1920S1-CS2103T-F11-4</code>  Since: <code>September 2019</code>  Licence: <code>MIT</code></p>
-</div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle"></div>
-<ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quickstart">2. Quickstart</a></li>
-<li><a href="#Features">3. Features</a>
-<ul class="sectlevel2">
-<li><a href="#lecture-notes">3.1. Lecture notes</a></li>
-<li><a href="#questions">3.2. Questions</a></li>
-<li><a href="#quiz-mode">3.3. Quiz mode</a></li>
-<li><a href="#get-statistics">3.4. Get statistics</a></li>
-<li><a href="#revision-tasks">3.5. Revision tasks</a></li>
-<li><a href="#other-features-coming-in-v2-0">3.6. Other features coming in v2.0</a></li>
-</ul>
-</li>
-<li><a href="#command-summary">4. Command summary</a></li>
-<li><a href="#faq">5. FAQ</a></li>
-</ul>
-</div>
-</div>
-<div class="sect1">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy user guide</h1></div><div id="content"><div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -141,7 +115,8 @@ will pop up, and you can select the image from your file system. Once done, you 
 <div class="paragraph">
 <p>It is fine to back out of the image selection dialog; an image can always be added later using <code>editnote</code>.
 Your images are copied into the application&#8217;s data folder, so don&#8217;t worry about losing them –
-you can always take them along.</p>
+you can always take them along. Images resize according to the window, but if an image is small enough that it can fit at its
+natural resolution, it is left that way.</p>
 </div>
 </div>
 <div class="sect3">
@@ -802,9 +777,9 @@ we disassociate the task from notes and questions once created.
 <div class="sect3">
 <h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.5.1. Add a revision task for a note: <code>rn</code></a></h4>
 <div class="paragraph">
-<p>You can add a revision task for a note to the current revision task list with this command.<br>
-The heading will copy the title.<br>
-The GUI will display all tasks upon completing the command.<br>
+<p>You can add a revision task for a note to the current revision task list with this command.
+The heading will copy the title and the GUI will display all tasks upon completing the command.
+An invalid date will be interpreted as the nearest valid date.<br>
 Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br>
 Example:<br></p>
 </div>
@@ -991,4 +966,4 @@ eg. <code>rdone 1</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 08:33:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 15:37:51 UTC</div></div></div></body></html>
