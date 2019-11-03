@@ -790,6 +790,20 @@ we disassociate the task from notes and questions once created.
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Revision tasks with the same heading, same date and same time are considered duplicate tasks and cannot co-exist
+in the revision task list. Tasks with the same heading, same date, same time, but different status are cannot co-exist
+because it does not make sense to have same tasks but different status.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="add-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#add-a-revision-task-for-a-note-code-rn-code">3.5.1. Add a revision task for a note: <code>rn</code></a></h4>
 <div class="paragraph">
@@ -864,51 +878,103 @@ Format: <code>rdone INDEX</code><br>
 Example:<br>
 <code>rdone 1</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You cannot use "undone" (marking a task as not done) feature as we believe that the chance of accidentally marking
+an unfinished task as done is fairly low by command line input. So the app should not support a "undo" action for <code>rdone</code>.
+People usually "undone" a task because they realise that some parts of the task are not fully completed. In this case, you
+should create a new task with a new date or time (same as "re-scheduling" in the real world).
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="view-all-revision-tasks-code-rlist-code"><a class="link" href="#view-all-revision-tasks-code-rlist-code">3.5.5. View all revision tasks: <code>rlist</code></a></h4>
+<h4 id="edit-a-revision-task-code-redit-code"><a class="link" href="#edit-a-revision-task-code-redit-code">3.5.5. Edit a revision task: <code>redit</code></a></h4>
+<div class="paragraph">
+<p>You can edit a revision task with this command. You need to provide arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code> (at least one)
+as you would do with <code>rn</code>, but only those arguments you want to change.<br>
+Format: <code>redit INDEX [h/HEADING] [dt/DATE] [tm/TIME]</code><br>
+Example:<br>
+<code>redit 1 h/CS2100 Logic Circuit dt/15/08/2019 tm/1200</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Please note that the prefix for the heading of a task is no longer <code>t/</code> (for note task) or <code>i/</code> (for question task).
+Instead, the prefix becomes <code>h/</code> for both types of tasks. <code>HEADING</code> is the title of a note or the question body of a question.
+The edited <code>HEADING</code> must be an existing title or question body.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You cannot edit the status of a task with this command. Instead, you may want to use <code>rdone</code> if you want to mark a
+task as done. You cannot do "undone" operation as explained in <code>rdone</code> feature.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-all-revision-tasks-code-rlist-code"><a class="link" href="#view-all-revision-tasks-code-rlist-code">3.5.6. View all revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
 <p>This command displays the whole revision task list.<br>
 Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.6. Clear current revision plan: <code>rclear</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.7. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
 <p>You can remove all revision tasks with this command.<br>
 Format: <code>rclear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.7. View completed revision tasks: <code>finished</code></a></h4>
+<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.8. View completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have completed.<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.8. View uncompleted revision task: <code>unfinished</code></a></h4>
+<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.9. View uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have not completed.<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
+<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.10. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
 <p>This task displays the revision tasks which you have not done but having passed the start time.<br>
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.5.10. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.5.11. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
 Format: <code>notify -e [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.5.11. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.5.12. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>You can disable the push notification with this command.<br>
 Format: <code>notify -d [-A]</code></p>
@@ -982,4 +1048,4 @@ eg. <code>rdone 1</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 08:56:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 23:33:13 UTC</div></div></div></body></html>
