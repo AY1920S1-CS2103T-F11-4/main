@@ -736,20 +736,22 @@ The charts will be small and condensed making it difficult to see the data at fi
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>radd</code>. It extends <code>Command</code> class and adds a
-<code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data.</p>
+<p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>rn</code>. It extends <code>Command</code> class and adds a
+<code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data. Similarly,
+<code>AddTaskForQuestionCommand</code> is implemented to add a task for question notes.</p>
 </div>
 <div class="paragraph">
 <p>The <code>TaskList</code> is essentially a list of <code>Task</code>. <code>TaskList</code> supports the <code>add(Task)</code> operation and this operation is
 exposed to <code>AppData#addTask(Task)</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how <code>radd</code> command is executed:</p>
+<p>The following sequence diagram illustrates how <code>rn</code> command is executed (adding a task for question is similar, but with different user command):</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddTaskSequenceDiagram.png" alt="AddTaskSequenceDiagram">
+<img src="images/task/AddTaskForNoteSequenceDiagram.png" alt="AddTaskForNoteSequenceDiagram">
 </div>
+<div class="title">Figure 13. Sequence diagram for adding a task for note</div>
 </div>
 </div>
 <div class="sect3">
@@ -759,16 +761,17 @@ exposed to <code>AppData#addTask(Task)</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current implementation):</strong> implement <code>Task</code> as abstract class with two subclasses to support task for
+<p><strong>Alternative 1 (current implementation):</strong> implement <code>Task</code> as a concrete class with two subclasses to support task for
 notes and questions respectively.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It allows polymorphism to support different behaviours of task for <code>Note</code> and task for <code>Question</code>. Fields and
-methods in common are concretely implemented to reduce duplicate code snippets.</p>
+<p>Pros: It supports different behaviours of task for <code>Note</code> and task for <code>Question</code> by polymorphism. The concrete <code>Task</code>
+class will also allow adding of general tasks in <strong>v2.0</strong>.</p>
 </li>
 <li>
-<p>Cons: We need to implement two different <code>AddTask</code> commands to support addition of the two different types of tasks.</p>
+<p>Cons: We need to implement two different <code>AddTask</code> commands to support addition of the two different types of tasks.
+Hence we need to write more pieces of code.</p>
 </li>
 </ul>
 </div>
@@ -780,8 +783,9 @@ methods in common are concretely implemented to reduce duplicate code snippets.<
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskClassDiagram.png" alt="TaskClassDiagram">
+<img src="images/task/TaskClassDiagram.png" alt="TaskClassDiagram">
 </div>
+<div class="title">Figure 14. Design for <code>Task</code> class</div>
 </div>
 <div class="ulist">
 <ul>
@@ -939,7 +943,7 @@ compared to a typical note-taking app</p>
 <p>Medium (nice to have) – <code>* *</code></p>
 </li>
 <li>
-<p>Low (unlikely to have) – <code>*</code></p>
+<p>Low (will be implemented in <strong>v2.0</strong>) – <code>*</code></p>
 </li>
 </ul>
 </div>
@@ -999,14 +1003,7 @@ compared to a typical note-taking app</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view my revision plan</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be more clear on the big picture of my revision and check whatever is left to do when I forget</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set a revision plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a revision plan and add tasks to my plan</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can be more organised in my revision and will not lose my focus</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
@@ -1018,10 +1015,10 @@ compared to a typical note-taking app</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit the revision task</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I can modify the details of a particular revision task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can modify the details of a particular revision task in case I messed up some information</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
@@ -1032,6 +1029,13 @@ compared to a typical note-taking app</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my revision plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be more clear on the big picture of my revision and check whatever is left to do when I forget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view unfinished tasks</p></td>
@@ -1039,21 +1043,21 @@ compared to a typical note-taking app</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view overdue tasks</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can re-schedule my revision and be more careful with the workload in my next planning</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">get notified when a revision task is about to start</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can finish up whatever stuff at hand and get ready for revision</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shui Yao</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">disable notification</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I will not be bothered in some important events</p></td>
@@ -2097,4 +2101,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 04:57:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 01:35:48 UTC</div></div></div></body></html>

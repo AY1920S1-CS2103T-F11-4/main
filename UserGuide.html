@@ -152,7 +152,7 @@ each lecture note:</p>
 <h4 id="viewing-lecture-notes-code-findnote-code"><a class="link" href="#viewing-lecture-notes-code-findnote-code">3.1.3. Viewing lecture notes: <code>findnote</code></a></h4>
 <div class="paragraph">
 <p>Of course, what use are virtual lecture notes if you can&#8217;t search through them? This command
-displays those notes whose titles contain every word (space-separated, ignoring case) you provide
+displays those notes whose titles contain any one of the words (space-separated, ignoring case) you provide
 as arguments.<br>
 Format: <code>findnote WORD [WORD]…</code></p>
 </div>
@@ -733,6 +733,32 @@ get the statistics of different subjects by adding <code>s/</code>.
 Typing any other non-statistics command will close this panel.<br>
 Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
+<div class="paragraph">
+<p>Example:
+Let&#8217;s say you have answered some questions from CS2103T previously and would like
+a ballpark figure to estimate how well you have grasp the basic foundations of the subject.</p>
+</div>
+<div class="paragraph">
+<p>To get this figure:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>stats d/easy s/cs2103t</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here are the statistics: [easy] [cs2103t]"</p>
+</li>
+<li>
+<p>And you can see a pie chart of the number of correctly and incorrectly answered questions.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/statistics/stats.png" alt="stats">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="get-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-question-code">3.4.2. Get questions with correct/incorrect answers: <code>question</code></a></h4>
@@ -742,14 +768,68 @@ Either one of <code>-c</code> or <code>-i</code> must be used. You can also filt
 Typing any other non-statistics command will close this panel.<br>
 Format: <code>question [-c] [-i] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
+<div class="paragraph">
+<p>Example:
+Now that you have gotten the number of correct to incorrect answers, you want to see what questions
+you have done wrong to decide on how you can further improve.</p>
+</div>
+<div class="paragraph">
+<p>To see the questions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>question -i s/cs2103t</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here are the incorrect questions for [cs2103t]:"</p>
+</li>
+<li>
+<p>You will be able to see a list of all your incorrectly answered questions for CS2103T and
+your past answers to it as well as a break down of the number of questions by difficulty level.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/statistics/question.png" alt="question">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">3.4.3. Get a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
-<p>Returns a panel containing a report of how well you have answered a particular question,
-the number of times the question has been attempted and the past answers to the question.
+<p>Returns a panel containing a report of how well you have answered a particular question
+and shows all your past answers to the question.
 Typing any other non-statistics command will close this panel.<br>
 Format: <code>report INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+After getting the questions that you have done wrong, you noticed that there is one particular
+question that you have answered wrong numerous times. This just so happened to be the third
+question in the question list. You decided to investigate further.</p>
+</div>
+<div class="paragraph">
+<p>To see a report of the question:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>report 7</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here is a report of question 7:"</p>
+</li>
+<li>
+<p>And you can see all your attempts at the question as well as a pie chart of your results.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/statistics/report.png" alt="report">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -761,6 +841,46 @@ You can also add two <code>dt/</code> fields representing a time period to get q
 within that time period. The format for date is dd/MM/yyyy. Typing any other non-statistics
 command will close this panel.<br>
 Format: <code>overview [dt/START_DATE dt/END_DATE]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you have more than 8 different difficulty levels, the stack bar chart may repeat
+colors for the difficulties. To differentiate between the different bars in the chart,
+you can use your mouse to hover above them.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:
+You are finally done viewing your quiz results and want to know what questions you should attempt next.
+To be a well-rounded individual, you decided to check if you have been neglecting any subjects recently.</p>
+</div>
+<div class="paragraph">
+<p>To see an overview of your results:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>overview dt/20/10/2019 dt/05/11/2019</code> into the command box, and press <code>Enter</code> to execute it.</p>
+</li>
+<li>
+<p>The result box will display the message "Here is an overview of the questions: (20/10/2019 to 05/11/2019)"</p>
+</li>
+<li>
+<p>And you can see a stack bar chart of all questions that you have attempted from 20/10/2019 to 05/11/2019.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/statistics/overview.png" alt="overview">
+</div>
 </div>
 </div>
 </div>
@@ -901,7 +1021,7 @@ should create a new task with a new date or time (same as "re-scheduling" in the
 <div class="sect3">
 <h4 id="edit-a-revision-task-code-redit-code"><a class="link" href="#edit-a-revision-task-code-redit-code">3.5.5. Edit a revision task: <code>redit</code></a></h4>
 <div class="paragraph">
-<p>You can edit a revision task with this command. You need to provide arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code> (at least one)
+<p>You can edit a revision task with this command. You need to provide non-empty arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code> (at least one)
 as you would do with <code>rn</code>, but only those arguments you want to change.<br>
 Format: <code>redit INDEX [h/HEADING] [dt/DATE] [tm/TIME]</code><br>
 Example:<br>
@@ -915,7 +1035,7 @@ Example:<br>
 </td>
 <td class="content">
 Please note that the prefix for the heading of a task is no longer <code>t/</code> (for note task) or <code>i/</code> (for question task).
-Instead, the prefix becomes <code>h/</code> for both types of tasks. <code>HEADING</code> is the title of a note or the question body of a question.
+Instead, the prefix becomes <code>h/</code> for both types of tasks. <code>HEADING</code> can be the title of a note or the question body of a question.
 The edited <code>HEADING</code> must be an existing title or question body.<br>
 </td>
 </tr>
@@ -928,7 +1048,7 @@ The edited <code>HEADING</code> must be an existing title or question body.<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You cannot edit the status of a task with this command. Instead, you may want to use <code>rdone</code> if you want to mark a
+You cannot edit the status (done or not done) of a task with this command. Instead, you may want to use <code>rdone</code> if you want to mark a
 task as done. You cannot do "undone" operation as explained in <code>rdone</code> feature.
 </td>
 </tr>
@@ -943,76 +1063,120 @@ Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.7. Clear current revision plan: <code>rclear</code></a></h4>
-<div class="paragraph">
-<p>You can remove all revision tasks with this command.<br>
-Format: <code>rclear</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.8. View completed revision tasks: <code>finished</code></a></h4>
+<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.7. View completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have completed.<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.9. View uncompleted revision task: <code>unfinished</code></a></h4>
+<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.8. View uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have not completed.<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.10. View overdue revision tasks: <code>overdue</code></a></h4>
+<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
-<p>This task displays the revision tasks which you have not done but having passed the start time.<br>
+<p>This command displays the revision tasks which you have not done but having passed the start time.<br>
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code"><a class="link" href="#enable-push-notification-code-notify-e-code-code-coming-in-v2-0-code">3.5.11. Enable push notification: <code>notify -e</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="find-tasks-with-specified-details-code-rfind-code"><a class="link" href="#find-tasks-with-specified-details-code-rfind-code">3.5.10. Find tasks with specified details: <code>rfind</code></a></h4>
 <div class="paragraph">
-<p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
-Format: <code>notify -e [-A]</code></p>
+<p>You may use this command to search for tasks with specified details. You may key in keyword(s) of the heading, or the date, or the time,
+with prefix <code>h/</code> <code>dt/</code> <code>tm/</code> respectively.
+The GUI will display a task list of all tasks with field (heading or date or time) that matches your input.<br>
+Format:
+<code>rfind h/WORD [WORD]&#8230;&#8203;</code> or <code>rfind dt/DATE</code> or <code>rfind tm/TIME</code></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code>rfind h/hello world</code> - This command gives you all tasks with headings containing "hello" or "world" or "hello world".<br>
+<code>rfind dt/01/11/2019</code> - This command gives you all tasks on 1 November 2019.<br>
+<code>rfind tm/1200</code> - This command gives you all tasks at 12:00 (12pm), regardless of date.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When searching according to keywords in the heading, NUStudy will return tasks with headings containing any one of
+the words (<strong>not characters</strong>). For example, if you search by "hello world", tasks whose headings contain "hello", "world", "hello world", "world hello",
+or "hello world blablabla&#8230;&#8203;" will all appear in the GUI. Our rationale is to provide you with as many matching tasks as
+possible in case you cannot remember every word of the headings. Please note that the minimum matching unit is a word in
+the heading. For instance, if you key in "he" or "word" while the full task list has tasks with headings "hello", "hello world",
+no task will be retrieved because "he" and "word" are not complete words contained in the headings.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code"><a class="link" href="#disable-push-notification-code-notify-d-code-code-coming-in-v2-0-code">3.5.12. Disable push notification: <code>notify -d</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.11. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
-<p>You can disable the push notification with this command.<br>
-Format: <code>notify -d [-A]</code></p>
+<p>You can remove all revision tasks with this command.<br>
+Format: <code>rclear</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="other-features-coming-in-v2-0"><a class="link" href="#other-features-coming-in-v2-0">3.6. Other features coming in v2.0</a></h3>
 <div class="sect3">
-<h4 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">3.6.1. Auto-complete feature</a></h4>
+<h4 id="auto-complete-for-command"><a class="link" href="#auto-complete-for-command">3.6.1. Auto-complete for command</a></h4>
 <div class="paragraph">
-<p>Returns suggestions when you are typing commands.</p>
+<p>NUStudy will automatically complete the command as you type, just like how it behaves in most IDEs.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-a-timer-for-test-mode"><a class="link" href="#set-a-timer-for-test-mode">3.6.2. Set a timer for test mode</a></h4>
+<h4 id="set-a-timer-for-quiz-mode"><a class="link" href="#set-a-timer-for-quiz-mode">3.6.2. Set a timer for quiz mode</a></h4>
 <div class="paragraph">
-<p>The student sets a time limit for the test mode. The app will exit test mode once the time ends.</p>
+<p>You can set a time limit before you start a quiz to train yourself under exam conditions. NUStudy will automatically end the quiz when time is up.<br>
+Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT tl/TIME_LIMIT</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="share-notes-and-questions-with-other-users"><a class="link" href="#share-notes-and-questions-with-other-users">3.6.3. Share notes and questions with other users</a></h4>
+<h4 id="enable-push-notification-code-notify-e-code"><a class="link" href="#enable-push-notification-code-notify-e-code">3.6.3. Enable push notification: <code>notify -e</code></a></h4>
 <div class="paragraph">
-<p>The student shares notes and questions with other students with Internet connection.</p>
+<p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
+Format: <code>notify -e [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="login-using-email-and-password"><a class="link" href="#login-using-email-and-password">3.6.4. Login using email and password</a></h4>
+<h4 id="disable-push-notification-code-notify-d-code"><a class="link" href="#disable-push-notification-code-notify-d-code">3.6.4. Disable push notification: <code>notify -d</code></a></h4>
 <div class="paragraph">
-<p>The student can register and login to the application using their email and password.</p>
+<p>You can disable the push notification with this command.<br>
+Format: <code>notify -d [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="lecture-note-grouping-suggestions"><a class="link" href="#lecture-note-grouping-suggestions">3.6.5. Lecture note grouping suggestions</a></h4>
+<h4 id="sort-revision-tasks-code-sort-code"><a class="link" href="#sort-revision-tasks-code-sort-code">3.6.5. Sort revision tasks: <code>sort</code></a></h4>
+<div class="paragraph">
+<p>You can sort the revision tasks based on certain fields with ascending/descending order.<br>
+Format: <code>sort o/ORDER f/FIELD</code><br>
+Example:<br>
+<code>sort o/a f/dt</code> - You can sort the tasks according to date in ascending order.<br>
+<code>sort o/d f/h</code> - You can sort the tasks according to heading in descending alphabetical order.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="share-notes-and-questions-with-other-users"><a class="link" href="#share-notes-and-questions-with-other-users">3.6.6. Share notes and questions with other users</a></h4>
+<div class="paragraph">
+<p>You can share your notes and questions with other NUStudy users with Internet connection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="login-using-email-and-password"><a class="link" href="#login-using-email-and-password">3.6.7. Login using email and password</a></h4>
+<div class="paragraph">
+<p>You can create an account in the application and login with your email and password. This allows you to access to NUStudy on other platforms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="lecture-note-grouping-suggestions"><a class="link" href="#lecture-note-grouping-suggestions">3.6.8. Lecture note grouping suggestions</a></h4>
 <div class="paragraph">
 <p>NUStudy will intelligently suggest groupings of lecture notes based on their content.</p>
 </div>
@@ -1052,4 +1216,4 @@ eg. <code>rdone 1</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 04:57:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 01:35:48 UTC</div></div></div></body></html>

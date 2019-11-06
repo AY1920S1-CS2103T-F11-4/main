@@ -97,7 +97,9 @@ is easy to understand and that the code is well-documented.</p>
 <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/71">#71</a></p>
 </li>
 <li>
-<p>Reported bugs found from other team&#8217;s applications:</p>
+<p>Reported bugs found from other team&#8217;s applications:
+<a href="https://github.com/irene-lly/ped/issues/1">#1</a>
+<a href="https://github.com/irene-lly/ped/issues/2">#2</a></p>
 </li>
 </ul>
 </div>
@@ -127,6 +129,28 @@ The following is an excerpt from our User Guide,
 showing additions that I have made for the statistics features.</p>
 </div>
 <hr>
+<div class="sect2">
+<h3 id="get-statistics"><a class="link" href="#get-statistics">Get statistics</a></h3>
+<div class="paragraph">
+<p>You can get statistics of the questions that you have done in the app.
+The statistics functions listed below are used to filter the type of statistics that you want to get.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Quiz results stored in the app are not synchronised with the questions.
+If a question has been modified by the editq command,
+the stored quiz result will still refer to the original question
+to minimise inconsistencies in the statistics. This is because a question that has been modified to a large extent
+might cause past answers to become irrelevant and distort the statistics.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="get-statistics-for-subjects-code-stats-code"><a class="link" href="#get-statistics-for-subjects-code-stats-code">Get statistics for subjects : <code>stats</code></a></h4>
 <div class="paragraph">
@@ -138,8 +162,8 @@ Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code
 </div>
 <div class="paragraph">
 <p>Example:
-Let&#8217;s say you have answered some questions from CS2103T previously
-and you would like a ballpark figure to estimate how well you know the subject.</p>
+Let&#8217;s say you have answered some questions from CS2103T previously and would like
+a ballpark figure to estimate how well you have grasp the basic foundations of the subject.</p>
 </div>
 <div class="paragraph">
 <p>To get this figure:</p>
@@ -147,337 +171,19 @@ and you would like a ballpark figure to estimate how well you know the subject.<
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>stats s/CS2103T</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+<p>Type <code>stats d/easy s/cs2103t</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message "Here are the statistics:"</p>
+<p>The result box will display the message "Here are the statistics: [easy] [cs2103t]"</p>
 </li>
 <li>
 <p>And you can see a pie chart of the number of correctly and incorrectly answered questions.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="questions"><a class="link" href="#questions">Questions</a></h3>
-<div class="paragraph">
-<p>NUStudy can also store different sets of questions and answers;
-at your command, the system will prompt you to answer those questions.</p>
-</div>
-<div class="sect3">
-<h4 id="adding-questions-code-addq-code"><a class="link" href="#adding-questions-code-addq-code">Adding Questions : <code>addq</code></a></h4>
-<div class="paragraph">
-<p>You can add a question and its answer together with the necessary fields to the app.<br>
-Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You can define any type of difficulty level that is customized to your understanding of the question.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addq q/How to represent 85 in binary? a/1010101 s/CS2100 d/medium</code></p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/questionCommandsDemo/addqcommand.png" alt="addqcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>The new question will be added to your question bank.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/addqresult.png" alt="addqresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">Listing all questions: <code>listq</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to view the list of all questions.<br>
-Format: <code>listq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/listqcommand.png" alt="listqcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/listqresult.png" alt="listqresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-question-code-editq-code"><a class="link" href="#editing-a-question-code-editq-code">Editing a question: <code>editq</code></a></h4>
-<div class="paragraph">
-<p>You can edit the fields of an existing question by providing the fields you want to change.<br>
-Format: <code>editq INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the question at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed
-question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editq 7 a/16 d/easy</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/editqcommand.png" alt="editqcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Edits the answer and difficulty of the 2nd question to be <code>16</code> and <code>easy</code> respectively.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/editqresult.png" alt="editqresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">Locating questions by keyword: <code>findq</code></a></h4>
-<div class="paragraph">
-<p>This command will give you a list of questions containing the keyword(s) you specified.<br>
-Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter.</p>
-</li>
-<li>
-<p>Only full words will be matched.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findq UDP</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/findqcommand.png" alt="findqcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Finds the question whose body contains the keyword <code>UDP</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/findqresult.png" alt="findqresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">Deleting a question: <code>deleteq</code></a></h4>
-<div class="paragraph">
-<p>You can delete a question at its specified INDEX together with its relevant fields from the list.<br>
-Format: <code>deleteq INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the question at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed question list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listq</code><br>
-<code>deleteq 3</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/deleteqcommand.png" alt="deleteqcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Deletes the 2nd question from the question list.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/deleteqresult.png" alt="deleteqresult" width="600">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findq character</code><br>
-<code>deleteq 1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Deletes the 1st question in the results of <code>findq</code> command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="filter-by-difficulty-code-difficulty-code"><a class="link" href="#filter-by-difficulty-code-difficulty-code">Filter by difficulty: <code>difficulty</code></a></h4>
-<div class="paragraph">
-<p>You can view the list of all questions filtered by the specific difficulty.<br>
-Format: <code>difficulty DIFFICULTY</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive.</p>
-</li>
-<li>
-<p>Only full difficulty will be matched.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>difficulty hard</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/difficultycommand.png" alt="difficultycommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Returns a list of <code>hard</code> questions.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/difficultyresult.png" alt="difficultyresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="filter-by-subject-code-subject-code"><a class="link" href="#filter-by-subject-code-subject-code">Filter by subject: <code>subject</code></a></h4>
-<div class="paragraph">
-<p>You can view the list of all questions from a specific subject.<br>
-Format: <code>subject SUBJECT</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive.</p>
-</li>
-<li>
-<p>Only full subject will be matched.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>subject CS2103T</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/subjectcommand.png" alt="subjectcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Returns a list of questions of <code>CS2103T</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/subjectresult.png" alt="subjectresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-all-questions-code-clearq-code"><a class="link" href="#clear-all-questions-code-clearq-code">Clear all questions: <code>clearq</code></a></h4>
-<div class="paragraph">
-<p>You can delete all questions from the app.<br>
-Format: <code>clearq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/clearcommand.png" alt="clearcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/clearresult.png" alt="clearresult" width="600">
+<img src="../images/statistics/stats.png" alt="stats">
 </div>
 </div>
 </div>
@@ -500,23 +206,28 @@ you have done wrong to decide on how you can further improve.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>question -i s/CS2103T</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+<p>Type <code>question -i s/cs2103t</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message "Here are the questions:"</p>
+<p>The result box will display the message "Here are the incorrect questions for [cs2103t]:"</p>
 </li>
 <li>
-<p>And you can see a list of all your incorrectly answered questions for CS2103T and
+<p>You will be able to see a list of all your incorrectly answered questions for CS2103T and
 your past answers to it as well as a break down of the number of questions by difficulty level.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/statistics/question.png" alt="question">
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">Get a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
-<p>Returns a panel containing a report of how well you have answered a particular question,
-the number of times the question has been attempted and the past answers to the question.
+<p>Returns a panel containing a report of how well you have answered a particular question
+and shows all your past answers to the question.
 Typing any other non-statistics command will close this panel.<br>
 Format: <code>report INDEX</code></p>
 </div>
@@ -532,15 +243,20 @@ question in the question list. You decided to investigate further.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>report 3</code> into the command box, and press <strong>Enter</strong> to execute it.</p>
+<p>Type <code>report 7</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message "Here is a report of the question:"</p>
+<p>The result box will display the message "Here is a report of question 7:"</p>
 </li>
 <li>
 <p>And you can see all your attempts at the question as well as a pie chart of your results.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/statistics/report.png" alt="report">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -553,11 +269,24 @@ within that time period. The format for date is dd/MM/yyyy. Typing any other non
 command will close this panel.<br>
 Format: <code>overview [dt/START_DATE dt/END_DATE]</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you have more than 8 different difficulty levels, the stack bar chart may repeat
+colors for the difficulties. To differentiate between the different bars in the chart,
+you can use your mouse to hover above them.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Example:
-You are finally done viewing your quiz results and want to know what
-questions you should attempt next. To be a well-rounded individual, you decided to check
-if you have been neglecting any subjects during this period of time.</p>
+You are finally done viewing your quiz results and want to know what questions you should attempt next.
+To be a well-rounded individual, you decided to check if you have been neglecting any subjects recently.</p>
 </div>
 <div class="paragraph">
 <p>To see an overview of your results:</p>
@@ -565,17 +294,20 @@ if you have been neglecting any subjects during this period of time.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>overview dt/20/10/2019 dt/30/10/2019</code> into the command box,
-and press <strong>Enter</strong> to execute it.</p>
+<p>Type <code>overview dt/20/10/2019 dt/05/11/2019</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message "Here is an overview of the questions:"</p>
+<p>The result box will display the message "Here is an overview of the questions: (20/10/2019 to 05/11/2019)"</p>
 </li>
 <li>
-<p>And you can see a stack bar chart of all questions that you have attempted
-from 20/10/2019 to 30/10/2019</p>
+<p>And you can see a stack bar chart of all questions that you have attempted from 20/10/2019 to 05/11/2019.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/statistics/overview.png" alt="overview">
+</div>
 </div>
 </div>
 </div>
@@ -696,4 +428,4 @@ The charts will be small and condensed making it difficult to see the data at fi
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 04:57:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 01:35:48 UTC</div></div></div></body></html>
