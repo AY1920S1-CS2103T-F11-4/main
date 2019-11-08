@@ -12,7 +12,7 @@ university students. NUStudy is used to manage students' lecture notes, test que
 allows students to do mock quiz and view the statistics for better revision.</p>
 </div>
 <div class="paragraph">
-<p>This is the interface of our project.</p>
+<p>This is the interface of our project：</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -25,7 +25,7 @@ allows students to do mock quiz and view the statistics for better revision.</p>
 to the feature and relevant documentations in detail.</p>
 </div>
 <div class="paragraph">
-<p>Here are some explanations of the icons and formatting used in this portfolio.</p>
+<p>Here are some explanations of the icons and formatting used in this portfolio：</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -112,6 +112,18 @@ report feature (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53"
 </ul>
 </div>
 </li>
+<li>
+<p>Identify problems in application for other teams:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I helped to discover some of the bugs in the application for another team so that they can fix them and improve the
+quality of the product (<a href="https://github.com/Auxinnn/ped/issues/2">#2</a>
+<a href="https://github.com/Auxinnn/ped/issues/6">#6</a>).</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -165,7 +177,7 @@ graph specifies how you can input the command.<br></p>
 </div>
 <div class="paragraph">
 <p>Step 2: The result will show the message of successfully entering the quiz mode. The first quiz question will appear
-on the third column. The following graph shows the result of your <code>quiz</code> command.<br></p>
+on the right column. The following graph shows the result of your <code>quiz</code> command.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -205,7 +217,7 @@ of how to answer question.<br></p>
 <div class="title">Figure 4. Typing answer in the command line</div>
 </div>
 <div class="paragraph">
-<p>Step 2: The result of your answer will reflect your correctness and the next question will be displayed. The following
+<p>Step 2: The result will show the correctness of your answer  and the next question will be displayed. The following
 graph simulates the situation after you answer the question.<br></p>
 </div>
 <div class="imageblock">
@@ -218,9 +230,20 @@ graph simulates the situation after you answer the question.<br></p>
 <div class="sect3">
 <h4 id="showing-an-answer-code-show-code"><a class="link" href="#showing-an-answer-code-show-code">Showing an answer: <code>show</code></a></h4>
 <div class="paragraph">
-<p>You can check the answer for the current quiz question using this command. You can use it as reference and please do
-not use it to cheat.<br>
+<p>You can check the answer for the current quiz question using this command.<br>
 Format: <code>show</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can use it as reference and please do not use it to cheat.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><em><strong>Example:</strong></em></p>
@@ -291,7 +314,7 @@ Format: <code>quit</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to <code>quit</code> the quiz mode every time after you finish quiz.<br>
+You need to <code>quit</code> the quiz mode every time after you finish the quiz.<br>
 You can <code>quit</code> the quiz mode anytime you want.
 </td>
 </tr>
@@ -337,7 +360,7 @@ Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT tl/TIME_LIMIT</c
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We also updated the Developer Guide so that the style and architecture fits our project. The following part shows my
+<p>We also updated the Developer Guide so that the style and architecture fit our project. The following part shows my
 contribution to the modification of <strong>NUStudy Developer Guide</strong> for quiz feature.</p>
 </div>
 <div class="admonitionblock note">
@@ -377,6 +400,9 @@ The commands include:</p>
 <p><code>QuizShowAnswerCommand</code>&#8201;&#8212;&#8201;Shows the answer for current question.</p>
 </li>
 <li>
+<p><code>QuizSkipQuestion</code>&#8201;&#8212;&#8201;Skips the current question.</p>
+</li>
+<li>
 <p><code>QuitQuizModeCommand</code>&#8201;&#8212;&#8201;Quits the quiz mode.</p>
 </li>
 </ul>
@@ -384,8 +410,8 @@ The commands include:</p>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#getQuizQuestions(int numOfQuestions, Subject subject
 Difficulty difficulty)</code>, <code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>,
-<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>
-and <code>Model#clearQuizQuestionList()</code> respectively.</p>
+<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>,
+<code>Model#removeOneQuizQuestion()</code> and <code>Model#clearQuizQuestionList()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
@@ -425,7 +451,7 @@ a list of specific question selected by user for quiz.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/QuizModeActivityDiagram.png" alt="QuizModeActivityDiagram" width="400">
+<img src="../images/QuizModeActivityDiagram.png" alt="400" width="400">
 </div>
 <div class="title">Figure 12. QuizModeActivityDiagram</div>
 </div>
@@ -610,4 +636,4 @@ list operations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 12:21:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 15:19:45 UTC</div></div></div></body></html>

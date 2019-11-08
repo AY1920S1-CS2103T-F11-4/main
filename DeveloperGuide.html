@@ -502,6 +502,9 @@ The commands include:</p>
 <p><code>QuizShowAnswerCommand</code>&#8201;&#8212;&#8201;Shows the answer for current question.</p>
 </li>
 <li>
+<p><code>QuizSkipQuestion</code>&#8201;&#8212;&#8201;Skips the current question.</p>
+</li>
+<li>
 <p><code>QuitQuizModeCommand</code>&#8201;&#8212;&#8201;Quits the quiz mode.</p>
 </li>
 </ul>
@@ -509,8 +512,8 @@ The commands include:</p>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#getQuizQuestions(int numOfQuestions, Subject subject
 Difficulty difficulty)</code>, <code>Model#setQuizQuestionList(ObservableList&lt;Question&gt; quizQuestionList)</code>,
-<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>
-and <code>Model#clearQuizQuestionList()</code> respectively.</p>
+<code>Model#showQuizAnswer()</code>, <code>Model#getFilteredQuizQuestionList()</code>, <code>Model#checkQuizAnswer(Answer answer)</code>,
+<code>Model#removeOneQuizQuestion()</code> and <code>Model#clearQuizQuestionList()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the question mechanism behaves at each step.</p>
@@ -550,7 +553,7 @@ a list of specific question selected by user for quiz.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/QuizModeActivityDiagram.png" alt="QuizModeActivityDiagram" width="400">
+<img src="images/QuizModeActivityDiagram.png" alt="400" width="400">
 </div>
 <div class="title">Figure 12. QuizModeActivityDiagram</div>
 </div>
@@ -2131,4 +2134,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 12:21:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 15:19:45 UTC</div></div></div></body></html>
