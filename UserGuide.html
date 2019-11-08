@@ -851,6 +851,18 @@ Format: <code>overview [dt/START_DATE dt/END_DATE]</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+For <code>DATE</code> input constraints, you may refer to <a href="#add-a-revision-task-for-a-note-code-rn-code">Section 3.5.1, &#8220;Add a revision task for a note: <code>rn</code>&#8221;</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 If you have more than 8 different difficulty levels, the stack bar chart may repeat
 colors for the difficulties. To differentiate between the different bars in the chart,
 you can use your mouse to hover above them.
@@ -924,7 +936,7 @@ we disassociate the task from notes and questions once created.
 </td>
 <td class="content">
 Revision tasks with the same heading, same date and same time are considered duplicate tasks and cannot co-exist
-in the revision task list. Tasks with the same heading, same date, same time, but different status are cannot co-exist
+in the revision task list. Even if they have different status, they still cannot co-exist
 because it does not make sense to have same tasks but different status.
 </td>
 </tr>
@@ -936,13 +948,27 @@ because it does not make sense to have same tasks but different status.
 <p>You can add a revision task for a note to the current revision task list with this command.
 The heading will copy the title and the GUI will display all tasks upon completing the command.
 An invalid date will be interpreted as the nearest valid date.<br>
-Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br>
-Example:<br></p>
+Format: <code>rn t/TITLE_OF_NOTE dt/START_DATE tm/START_TIME</code><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>TITLE_OF_NOTE</code> is case sensitive.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:<br></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it</p>
+<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/AddTaskForNote_command.png" alt="AddTaskForNote command">
@@ -957,8 +983,35 @@ The task is added to the task list shown in the middle panel.</p>
 <img src="images/UserGuideRes/TaskCommands/AddTaskForNote_success.png" alt="AddTaskForNote success">
 </div>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Constrains for <code>DATE</code> (yyyy : <code>YEAR</code>, MM : <code>MONTH</code>, dd : <code>DAY</code>), <code>TIME</code> (HH : <code>HOUR</code> , mm : <code>MINUTE</code>) input:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All numerical inputs must be integers.</p>
 </li>
-</ol>
+<li>
+<p><code>DATE</code> input format should follow Singapore local date convention (i.e. dd/MM/yyyy).</p>
+</li>
+<li>
+<p><code>YEAR</code> is 4-digit. 0000 &lt; yyyy &lt; 9999.</p>
+</li>
+<li>
+<p><code>MONTH</code> is 2-digit. 00 &lt; MM &lt; 13.</p>
+</li>
+<li>
+<p><code>DATE</code> is 2-digit. 00 &lt; dd &lt; 32.</p>
+</li>
+<li>
+<p><code>HOUR</code> is 2-digit and follows 24-hour format. -01 &lt; HH &lt; 24.</p>
+</li>
+<li>
+<p><code>MINUTE</code> is 2-digit. -01 &lt; mm &lt; 60.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -967,11 +1020,31 @@ The task is added to the task list shown in the middle panel.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to follow the format "dd/MM/yyyy" for START_DATE input and "HHmm" with 24-hour format for START_TIME
-input. For example: "31/12/2019" to represent "31st December 2019", "0900" to represent "9am", "1400" to represent "2pm".
+There are some days of month which are valid for some months but invalid for others, eg. <strong>31</strong> is invalid for February, April,
+June, September, November; <strong>30</strong> is invalid for February; <strong>29</strong> is invalid for February in common years. But they are valid
+for other scenarios. Sometimes you may get confused about the number of days in a month. For example, you may happen to think
+that there are 31 days in September and you key in "31/09/2019". In this case, the day of month will automatically run
+down to the last valid day of that month.
 </td>
 </tr>
 </table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+"2400" and "0000" for <code>TIME</code> are both considered valid and represent 12am on the same day.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
@@ -984,6 +1057,18 @@ Format: <code>rq i/INDEX_OF_QUESTION dt/START_DATE tm/START_TIME</code><br>
 Example:<br>
 <code>rq i/1 dt/11/11/2019 tm/1500</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For constraints on <code>DATE</code> and <code>TIME</code> input, you may refer to <a href="#add-a-revision-task-for-a-note-code-rn-code">Section 3.5.1, &#8220;Add a revision task for a note: <code>rn</code>&#8221;</a>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="remove-revision-task-code-rdelete-code"><a class="link" href="#remove-revision-task-code-rdelete-code">3.5.3. Remove revision task: <code>rdelete</code></a></h4>
@@ -991,18 +1076,54 @@ Example:<br>
 <p>You can remove a particular revision task from current list with this command.<br>
 The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
 Format: <code>rdelete INDEX_OF_TASK</code><br>
-Example:<br>
-<code>rdelete 2</code></p>
+Example:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>rdelete 2</code> in the command input box, and press <code>Enter</code> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/DeleteTaskCommand.png" alt="DeleteTaskCommand">
 </div>
 </div>
-<div class="sect3">
-<h4 id="mark-the-revision-task-as-done-code-rdone-code"><a class="link" href="#mark-the-revision-task-as-done-code-rdone-code">3.5.4. Mark the revision task as done: <code>rdone</code></a></h4>
+</li>
+<li>
+<p>The result box will display the message "Deleted task: &#8230;&#8203;" with the task details. The deleted task will be removed from the task list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/DeleteTaskCommand_success.png" alt="DeleteTaskCommand success">
+</div>
+</div>
 <div class="paragraph">
-<p>You can mark a task as done once you finished it.
+<p>==== Mark the revision task as done: <code>rdone</code>
+You can mark a task as done once you finished it.
 The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
-Format: <code>rdone INDEX</code><br>
-Example:<br>
-<code>rdone 1</code></p>
+Format: <code>rdone INDEX</code><br></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Example:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>rdone 1</code> in the command input box, and press <code>Enter</code> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/DoneTaskCommand.png" alt="DoneTaskCommand">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message "Revision task marked as done: [Y] &#8230;&#8203;" with the task details. The status icon
+of the task turns from "[N]" (not done) to "[Y]" (done).</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuideRes/TaskCommands/DoneTaskCommand_success.png" alt="DoneTaskCommand success">
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1019,12 +1140,15 @@ should create a new task with a new date or time (same as "re-scheduling" in the
 </tr>
 </table>
 </div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-revision-task-code-redit-code"><a class="link" href="#edit-a-revision-task-code-redit-code">3.5.5. Edit a revision task: <code>redit</code></a></h4>
+<h4 id="edit-a-revision-task-code-redit-code"><a class="link" href="#edit-a-revision-task-code-redit-code">3.5.4. Edit a revision task: <code>redit</code></a></h4>
 <div class="paragraph">
-<p>You can edit a revision task with this command. You need to provide non-empty arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code> (at least one)
-as you would do with <code>rn</code>, but only those arguments you want to change.<br>
+<p>You can edit a revision task with this command. You need to provide non-empty arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code>
+as you would do with <code>rn</code>, but only those fields you want to change. + Please take note that <strong>at least one field</strong> must be provided.<br>
 Format: <code>redit INDEX [h/HEADING] [dt/DATE] [tm/TIME]</code><br>
 Example:<br>
 <code>redit 1 h/CS2100 Logic Circuit dt/15/08/2019 tm/1200</code></p>
@@ -1038,7 +1162,7 @@ Example:<br>
 <td class="content">
 Please note that the prefix for the heading of a task is no longer <code>t/</code> (for note task) or <code>i/</code> (for question task).
 Instead, the prefix becomes <code>h/</code> for both types of tasks. <code>HEADING</code> can be the title of a note or the question body of a question.
-The edited <code>HEADING</code> must be an existing title or question body.<br>
+The edited <code>HEADING</code> must be an existing title or question body. + <code>HEADING</code> is case sensitive.
 </td>
 </tr>
 </table>
@@ -1058,35 +1182,35 @@ task as done. You cannot do "undone" operation as explained in <code>rdone</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-all-revision-tasks-code-rlist-code"><a class="link" href="#view-all-revision-tasks-code-rlist-code">3.5.6. View all revision tasks: <code>rlist</code></a></h4>
+<h4 id="view-all-revision-tasks-code-rlist-code"><a class="link" href="#view-all-revision-tasks-code-rlist-code">3.5.5. View all revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
 <p>This command displays the whole revision task list.<br>
 Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.7. View completed revision tasks: <code>finished</code></a></h4>
+<h4 id="view-completed-revision-tasks-code-finished-code"><a class="link" href="#view-completed-revision-tasks-code-finished-code">3.5.6. View completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have completed.<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.8. View uncompleted revision task: <code>unfinished</code></a></h4>
+<h4 id="view-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#view-uncompleted-revision-task-code-unfinished-code">3.5.7. View uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
 <p>This command displays the list of revision tasks that you have not completed.<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.9. View overdue revision tasks: <code>overdue</code></a></h4>
+<h4 id="view-overdue-revision-tasks-code-overdue-code"><a class="link" href="#view-overdue-revision-tasks-code-overdue-code">3.5.8. View overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
 <p>This command displays the revision tasks which you have not done but having passed the start time.<br>
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-tasks-with-specified-details-code-rfind-code"><a class="link" href="#find-tasks-with-specified-details-code-rfind-code">3.5.10. Find tasks with specified details: <code>rfind</code></a></h4>
+<h4 id="find-tasks-with-specified-details-code-rfind-code"><a class="link" href="#find-tasks-with-specified-details-code-rfind-code">3.5.9. Find tasks with specified details: <code>rfind</code></a></h4>
 <div class="paragraph">
 <p>You may use this command to search for tasks with specified details. You may key in keyword(s) of the heading, or the date, or the time,
 with prefix <code>h/</code> <code>dt/</code> <code>tm/</code> respectively.
@@ -1094,11 +1218,36 @@ The GUI will display a task list of all tasks with field (heading or date or tim
 Format:
 <code>rfind h/WORD [WORD]&#8230;&#8203;</code> or <code>rfind dt/DATE</code> or <code>rfind tm/TIME</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Words for headings are case insensitive for <code>rfind</code>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Example:<br>
 <code>rfind h/hello world</code> - This command gives you all tasks with headings containing "hello" or "world" or "hello world".<br>
 <code>rfind dt/01/11/2019</code> - This command gives you all tasks on 1 November 2019.<br>
 <code>rfind tm/1200</code> - This command gives you all tasks at 12:00 (12pm), regardless of date.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The priority of the fields are <code>h/</code> &gt; <code>dt/</code> &gt; <code>tm/</code>. When multiple prefixes (fields) are provided for search, only
+the field with the highest priority will be considered. The rest will be ignored.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1119,7 +1268,7 @@ no task will be retrieved because "he" and "word" are not complete words contain
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.11. Clear current revision plan: <code>rclear</code></a></h4>
+<h4 id="clear-current-revision-plan-code-rclear-code"><a class="link" href="#clear-current-revision-plan-code-rclear-code">3.5.10. Clear current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
 <p>You can remove all revision tasks with this command.<br>
 Format: <code>rclear</code></p>
@@ -1218,4 +1367,4 @@ eg. <code>rdone 1</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 03:13:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 03:18:56 UTC</div></div></div></body></html>
