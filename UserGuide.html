@@ -705,7 +705,7 @@ explains what would happen after you <code>quit</code> from the quiz mode.<br></
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-statistics"><a class="link" href="#get-statistics">3.4. Get statistics</a></h3>
+<h3 id="statistics"><a class="link" href="#statistics">3.4. Statistics</a></h3>
 <div class="paragraph">
 <p>You can get statistics of the questions that you have done in the app.
 The statistics functions listed below are used to filter the type of statistics that you want to get.</p>
@@ -717,10 +717,23 @@ The statistics functions listed below are used to filter the type of statistics 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+To close any statistics panel, you can simply type any of the commands from the Lecture notes,
+Questions and Revision tasks features. E.g. <code>rlist</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 Quiz results stored in the app are not synchronised with the questions.
-If a question has been modified by the editq command,
-the stored quiz result will still refer to the original question
-to minimise inconsistencies in the statistics. This is because a question that has been modified to a large extent
+If a question has been modified by the <code>editq</code> command,
+the stored quiz result will still refer to the original question to minimise inconsistencies in the statistics.
+This is because a question that has been modified to a large extent
 might cause past answers to become irrelevant and distort the statistics.
 </td>
 </tr>
@@ -731,8 +744,7 @@ might cause past answers to become irrelevant and distort the statistics.
 <div class="paragraph">
 <p>Returns a panel containing a break down of the questions by its results.
 You can choose to get the statistics for a difficulty level by adding <code>d/</code> or
-get the statistics of different subjects by adding <code>s/</code>.
-Typing any other non-statistics command will close this panel.<br>
+get the statistics of different subjects by adding <code>s/</code>.<br>
 Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
@@ -758,16 +770,16 @@ a ballpark figure to estimate how well you have grasp the basic foundations of t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/statistics/stats.png" alt="stats">
+<img src="images/statistics/stats.PNG" alt="600" width="600">
 </div>
+<div class="title">Figure 10. The result of <code>stats d/easy s/cs2103t</code> command</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="get-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#get-questions-with-correct-incorrect-answers-code-question-code">3.4.2. Get questions with correct/incorrect answers: <code>question</code></a></h4>
 <div class="paragraph">
 <p>Get a panel containing all questions that have been answered correctly/incorrectly by using <code>-c/-i</code> respectively.
-Either one of <code>-c</code> or <code>-i</code> must be used. You can also filter by subjects by adding <code>s/</code>.
-Typing any other non-statistics command will close this panel.<br>
+Either one of <code>-c</code> or <code>-i</code> must be used. You can also filter by subjects by adding <code>s/</code>.<br>
 Format: <code>question [-c] [-i] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
@@ -794,17 +806,31 @@ your past answers to it as well as a break down of the number of questions by di
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/statistics/question.png" alt="question">
+<img src="images/statistics/question.PNG" alt="600" width="600">
 </div>
+<div class="title">Figure 11. The result of <code>question -i s/cs2103t</code></div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="get-a-report-for-individual-questions-code-report-code"><a class="link" href="#get-a-report-for-individual-questions-code-report-code">3.4.3. Get a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
 <p>Returns a panel containing a report of how well you have answered a particular question
-and shows all your past answers to the question.
-Typing any other non-statistics command will close this panel.<br>
+and shows all your past answers to the question.<br>
 Format: <code>report INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the question number in the displayed question list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Example:
@@ -830,8 +856,9 @@ question in the question list. You decided to investigate further.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/statistics/report.png" alt="report">
+<img src="images/statistics/report.PNG" alt="600" width="600">
 </div>
+<div class="title">Figure 12. The result of <code>report 7</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -840,8 +867,7 @@ question in the question list. You decided to investigate further.</p>
 <p>Get an overview of the types of questions that have been attempted overall.
 A panel containing a stacked bar graph, sorted by subjects will be returned.
 You can also add two <code>dt/</code> fields representing a time period to get questions you did
-within that time period. The format for date is dd/MM/yyyy. Typing any other non-statistics
-command will close this panel.<br>
+within that time period. The format for date is dd/MM/yyyy.<br>
 Format: <code>overview [dt/START_DATE dt/END_DATE]</code></p>
 </div>
 <div class="admonitionblock note">
@@ -870,6 +896,19 @@ you can use your mouse to hover above them.
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The date in the dt field must be a valid date, if an invalid date is used i.e. 31/11/2019 it will
+be run down to the nearest valid date i.e. 30/11/2019.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Example:
 You are finally done viewing your quiz results and want to know what questions you should attempt next.
@@ -881,7 +920,7 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>overview dt/20/10/2019 dt/05/11/2019</code> into the command box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>overview dt/20/10/2019 dt/06/11/2019</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
 <p>The result box will display the message "Here is an overview of the questions: (20/10/2019 to 05/11/2019)"</p>
@@ -893,8 +932,9 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/statistics/overview.png" alt="overview">
+<img src="images/statistics/overview.PNG" alt="600" width="600">
 </div>
+<div class="title">Figure 13. The result of <code>overview dt/20/10/2019 dt/06/11/2019</code> command</div>
 </div>
 </div>
 </div>
@@ -1367,4 +1407,4 @@ eg. <code>rdone 1</code></p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 03:18:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 03:33:38 UTC</div></div></div></body></html>
