@@ -144,7 +144,7 @@ issues the command <code>deletenote 1</code>.</p>
 <p>Given below is the sequence diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.
 The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker × but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
 </div>
-<div class="imageblock">
+<div id="DeleteSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
@@ -788,13 +788,17 @@ This is also more difficult to implement.</p>
 exposed to <code>AppData#addTask(Task)</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how <code>rn</code> command is executed (adding a task for question is similar, but with different user command):</p>
+<p>The following process illustrates the mechanism of adding a revision task to the task list.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/task/AddTaskForNoteSequenceDiagram.png" alt="AddTaskForNoteSequenceDiagram">
+<div class="paragraph">
+<p>Step 1. The user enters command <code>rn t/UML diagram dt/01/01/2019 tm/1200</code> for adding a task for note. The command will be parsed by <code>AddTaskForNoteCommandParser</code>.
+<code>AddTaskForNoteParser</code> then creates an <code>AddTaskForNoteCommand</code>. The high-level logic of <strong>parsing</strong> and <strong>creating the command</strong>
+is similar to the process of deleting a note from the note list as illustrated by the <a href="#DeleteSequenceDiagram"><strong>sequence diagram for deleting a note</strong></a>.
+However, the execution stage of <code>AddTaskForNoteCommand</code> differs from that of deleting a note.</p>
 </div>
-<div class="title">Figure 15. Sequence diagram for adding a task for note</div>
+<div class="paragraph">
+<p>Step 2. The <code>Logic Manager</code> calls <code>Command#execute(Model)</code> which essentially calls <code>AddTaskForNoteCommand#execute(Model)</code>
+because of polymorphism.</p>
 </div>
 </div>
 <div class="sect3">
@@ -828,7 +832,7 @@ Hence we need to write more pieces of code.</p>
 <div class="content">
 <img src="images/task/TaskClassDiagram.png" alt="TaskClassDiagram">
 </div>
-<div class="title">Figure 16. Design for <code>Task</code> class</div>
+<div class="title">Figure 15. Design for <code>Task</code> class</div>
 </div>
 <div class="ulist">
 <ul>
@@ -2134,4 +2138,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 15:19:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 00:40:40 UTC</div></div></div></body></html>
