@@ -1,7 +1,48 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy developer guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy developer guide</h1></div><div id="content"><div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NUStudy is an application for managing three kinds of informational material: lecture notes, quizzes and revision tasks.
+It helps users to prepare for exams and tests in university by facilitating their learning.</p>
+</div>
+<div class="paragraph">
+<p>As a developer of NUStudy, this guide can help you understand the basic software architecture and design considerations
+for its implementation so that you can start contributing in no time.</p>
+</div>
+<div class="paragraph">
+<p>You can refer to this guide for the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#setting-up">Setting up</a></p>
+</li>
+<li>
+<p><a href="#design">Design</a></p>
+</li>
+<li>
+<p><a href="#implementation">Implementation</a></p>
+</li>
+<li>
+<p><a href="#documentation">Documentation</a></p>
+</li>
+<li>
+<p><a href="#testing">Testing</a></p>
+</li>
+<li>
+<p><a href="#devops">DevOps</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For any queries, simply <a href="ContactUs.html">contact us</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -9,10 +50,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="paragraph">
 <p>The architecture diagram below gives an overall view of NUStudy&#8217;s structure. Each component
 will be explained in more detail in the coming sections.</p>
@@ -72,7 +113,7 @@ issues the command <code>deletenote 1</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. <code>UI</code></a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. <code>UI</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -111,7 +152,7 @@ issues the command <code>deletenote 1</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. <code>Logic</code></a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. <code>Logic</code></a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -152,7 +193,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. <code>Model</code></a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. <code>Model</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -170,7 +211,7 @@ so any data changes are immediately user-visible.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. <code>Storage</code></a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. <code>Storage</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -187,13 +228,13 @@ so any data changes are immediately user-visible.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some finer details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="image-support-for-lecture-notes"><a class="link" href="#image-support-for-lecture-notes">3.1. Image support for lecture notes</a></h3>
+<h3 id="image-support-for-lecture-notes"><a class="link" href="#image-support-for-lecture-notes">4.1. Image support for lecture notes</a></h3>
 <div class="paragraph">
 <p>Usually, we do not learn best from just text; we rely on images that our minds can process more easily.
 As such, implementing images in lecture notes was considered very important. Although some lecture notes
@@ -202,7 +243,7 @@ GNU Image Manipulation Program (GIMP) and Paint, so the implementation was limit
 image per note.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Instead of a custom class to represent an image, JavaFX&#8217;s <code>scene.image.Image</code> is used instead.
 This is out of necessity, since an <code>ImageView</code> is needed to display an image in the GUI and it requires
@@ -262,7 +303,7 @@ into application data using <code>finalizeImage()</code>, which points reference
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-where-to-place-the-image"><a class="link" href="#design-considerations-where-to-place-the-image">3.1.2. Design considerations: where to place the image?</a></h4>
+<h4 id="design-considerations-where-to-place-the-image"><a class="link" href="#design-considerations-where-to-place-the-image">4.1.2. Design considerations: where to place the image?</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -299,7 +340,7 @@ in the second column</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-when-to-copy-images-into-the-local-folder"><a class="link" href="#design-considerations-when-to-copy-images-into-the-local-folder">3.1.3. Design considerations: when to copy images into the local folder</a></h4>
+<h4 id="design-considerations-when-to-copy-images-into-the-local-folder"><a class="link" href="#design-considerations-when-to-copy-images-into-the-local-folder">4.1.3. Design considerations: when to copy images into the local folder</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -336,9 +377,9 @@ impossible to take into account user preferences for where the application data 
 </div>
 </div>
 <div class="sect2">
-<h3 id="question-management-feature"><a class="link" href="#question-management-feature">3.2. Question management feature</a></h3>
+<h3 id="question-management-feature"><a class="link" href="#question-management-feature">4.2. Question management feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The question management feature is facilitated by <code>Model</code>.
 The question-related commands extend <code>Command</code> with the question object if necessary.
@@ -479,9 +520,9 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="quiz-mode-for-revision"><a class="link" href="#quiz-mode-for-revision">3.3. Quiz mode for revision</a></h3>
+<h3 id="quiz-mode-for-revision"><a class="link" href="#quiz-mode-for-revision">4.3. Quiz mode for revision</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The quiz mode feature is facilitated by <code>Model</code>.
 The quiz-related commands extend <code>Command</code> with specific question object.
@@ -559,7 +600,7 @@ a list of specific question selected by user for quiz.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-store-the-quiz-results"><a class="link" href="#aspect-how-to-store-the-quiz-results">Aspect: How to store the quiz results</a></h5>
 <div class="ulist">
@@ -631,9 +672,9 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.4. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.4. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The statistics feature gathers data stored from quizzes done in NUStudy to analyse and return an output.
 The different commands supported by the statistics feature are used to filter the type of statistics the user wants.
@@ -685,7 +726,7 @@ create a pie chart. It will then show a statistics panel, hiding all notes, task
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
+<img src="images/statistics/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
 </div>
 <div class="title">Figure 14. UI sequence diagram for <code>GetStatisticsCommand</code></div>
 </div>
@@ -704,7 +745,7 @@ again using the <code>listnote</code> command. The statistics panel will now be 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-statistics-are-shown"><a class="link" href="#aspect-where-statistics-are-shown">Aspect: Where statistics are shown</a></h5>
 <div class="ulist">
@@ -776,9 +817,9 @@ This is also more difficult to implement.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-revision-task"><a class="link" href="#add-revision-task">3.5. Add revision task</a></h3>
+<h3 id="add-revision-task"><a class="link" href="#add-revision-task">4.5. Add revision task</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>rn</code>. It extends <code>Command</code> class and adds a
 <code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data. Similarly,
@@ -803,7 +844,7 @@ because of polymorphism.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-design-of-code-task-code"><a class="link" href="#aspect-design-of-code-task-code">Aspect: Design of <code>Task</code></a></h5>
 <div class="ulist">
@@ -871,14 +912,14 @@ tasks are needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We use <code>java.util.logging</code> for logging. The <code>LogsCenter</code> class is used to manage the logging levels and destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>).</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>,
@@ -910,7 +951,7 @@ which will log messages according to the specified logging level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>The user preferences file location and logging level can be set through the configuration file,
 by default <code>config.json</code>.</p>
@@ -919,7 +960,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -927,7 +968,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -935,7 +976,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="devops"><a class="link" href="#devops">6. DevOps</a></h2>
+<h2 id="devops"><a class="link" href="#devops">7. DevOps</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -2139,4 +2180,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 02:35:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 03:55:01 UTC</div></div></div></body></html>
