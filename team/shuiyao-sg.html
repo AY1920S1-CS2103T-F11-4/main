@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Shui Yao - Project Portfolio for NUStudy</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Shui Yao (shuiyao-sg) - Project Portfolio for NUStudy</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Shui Yao - Project Portfolio for NUStudy</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Shui Yao (shuiyao-sg) - Project Portfolio for NUStudy</h1></div><div id="content"><div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -10,12 +10,24 @@ to morph an existing Java application <a href="https://github.com/nus-cs2103-AY1
 NUStudy, which is a desktop application with command line for user input and a JavaFX GUI for display. NUStudy supports
 notes management, quiz practice, revision task records, and usage statistics to help with revision.</p>
 </div>
-<div class="paragraph">
-<p>You may take note of the following symbols and formatting used in this portfolio:<br>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may take note of the following symbols and formatting used in this portfolio <strong>unless otherwise specified</strong>:<br>
 <code>overdue</code> - The monospaced text indicates that it is a user input.<br>
 <em>Task</em> - An italicised word indicates that it is a class name.<br>
 #11 - A number with # sign indicates the Pull Request or Issue number.<br>
-PR - Abbreviation for "Pull Request".</p>
+PR - Abbreviation for "Pull Request".<br>
+<code>monospaced</code> text in Developer Guide has different meanings. If the first letter
+of each word is capitalized, then the <code>monospaced</code> text refers to a class or interface name. If
+the text comes with a bracket () at the end, then the text refers to a method name. Otherwise, the text refers to user command.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -23,43 +35,87 @@ PR - Abbreviation for "Pull Request".</p>
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section is to summarise my contributions to the project, including feature enhancements, documentation and project
+<p>This section summarises my contributions to the project, including feature enhancements, documentation and project
 management.</p>
+</div>
+<div class="paragraph">
+<p><strong>Enhancement added</strong>: I implemented revision task management features
+(starting from PR <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/37">#37</a>).</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Major Enhancement: I implemented revision tasks, which have attributes of a heading, a starting date and time
-(starting from PR <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/37">#37</a>).</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: This feature supports tasks for revision of a note or a question at a particular point of time. It is
-implemented as <em>Task</em> class stored in a revision list which is implemented as <em>TaskList</em> class. I also implemented
-commands (<em>AddTaskForNoteCommand</em>, <em>DoneTaskCommand</em> etc.) to support operations on tasks.</p>
+<p>What it does: These features support tasks for revising a note or a question at a particular point of time. Users can perform operations
+such as addition, deletion, searching, editing, marking done etc. on revision tasks.</p>
 </li>
 <li>
 <p>Justification: This feature allows users to set their revision plans and goals. It makes the revision more structured
-and organised. It helps to stop procrastination to some extent. In the future release <strong>v2.0</strong>, this feature will also
-support desktop push notification to remind the users to start their revision.</p>
+and organised. The task is designed in a way that each task only supports revision of one note or question. Having this
+"one tiny easy revision task at a time" approach, users would find it easier to start the revision.
+This helps to stop procrastination to some extent.</p>
 </li>
 <li>
 <p>Highlights: This enhancement is dependent on <em>Note</em> and <em>Question</em> classes implemented by my teammates. There might
-be regressions of my task features if my teammates decide to change their implementations of <em>Note</em> or <em>Question</em>.
+be regressions of my task features if my teammates decide to change their implementations.
 Therefore, I did a thorough analysis of the design pattern and the project architecture to use as least information as
-possible from their classes in order to reduce coupling.</p>
+possible from their classes in order to reduce coupling. The task management features require a decent amount of effort
+because they need to support a wide range of operations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: You may feel free to check my code <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shuiyao-sg&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=shuiyao-sg&amp;tabRepo=AY1920S1-CS2103T-F11-4%2Fmain%5Bmaster%5D">here</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Other contributions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I was the <strong>project leader</strong> for NUStudy.</p>
+</li>
+<li>
+<p>I was in charge of overall team coordination, scheduling, facilitating discussion during weekly team meetings
+and communicating with the tutor.</p>
+</li>
+<li>
+<p>I issued the first version of project plan (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/issues/26">#26</a>).</p>
+</li>
+<li>
+<p>I did the pre-release of <strong>mid-v1.3</strong> on GitHub (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/releases/tag/mid-v1.3">mid-v1.3</a>).</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Minor Enhancement</p>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Redesigned class diagrams for UI and Model components in Developer Guide (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/75">#75</a>).</p>
 </li>
 <li>
-<p>Code Contributed: You may feel free to check my code <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shuiyao-sg&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=shuiyao-sg&amp;tabRepo=AY1920S1-CS2103T-F11-4%2Fmain%5Bmaster%5D">here</a></p>
+<p>Added command summary to User Guide (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/171">171</a>).</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Other Contributions</p>
+<p>Team work and community contribution:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs of teammate&#8217;s feature (<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/issues/165">#165</a>, <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/issues/166">166</a>).</p>
+</li>
+<li>
+<p>Reviewed other teams' PRs (<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/14">#14</a>, <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/97">#97</a>).</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -68,12 +124,580 @@ possible from their classes in order to reduce coupling.</p>
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p><strong>This section summarises my contributions to the User Guide.</strong></p>
+</div>
+<div class="sect2">
+<h3 id="revision-tasks"><a class="link" href="#revision-tasks">Revision tasks</a></h3>
+<div class="paragraph">
+<p>You will know more about how to work with revision tasks in this section. The revision tasks help you plan your revision of notes
+and questions. You can do various operations on tasks, including addition, deletion, searching etc.</p>
+</div>
+<div class="paragraph">
+<p>The revision tasks are not synchronised with the note or the question. Once created, the task content will not
+change if you modify the corresponding note or question.<br>
+Revision tasks with the same heading, date <strong>and</strong> time are considered duplicate tasks and cannot co-exist.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#adding-a-revision-task-for-a-note-code-rn-code">Adding a revision task for a note: <code>rn</code></a></h4>
+<div class="paragraph">
+<p>You can add a revision task for a note to the current revision task list with this command.
+The heading will copy the title.
+The GUI will display all tasks upon completing the command.<br>
+Format: <code>rn t/TITLE_OF_NOTE dt/DATE tm/TIME</code><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>TITLE_OF_NOTE</code> is case sensitive.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it, as
+shown in the diagram below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideRes/TaskCommands/AddTaskForNote_command.png" alt="600" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message "Revision task added: [N] NOTE : CS2103T UML diagram by: 01 November 2019 09:00".
+The task is added to the task list shown in the middle panel, as shown in the diagram below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideRes/TaskCommands/AddTaskForNote_success.png" alt="600" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#adding-a-revision-task-for-a-question-code-rq-code">Adding a revision task for a question: <code>rq</code></a></h4>
+<div class="paragraph">
+<p>You can add a revision task for a question to the current revision task list with this command.
+The heading will copy the question body.
+The GUI will display all tasks upon completing the command.<br>
+Format: <code>rq i/INDEX_OF_QUESTION dt/DATE tm/TIME</code><br>
+Example:<br>
+<code>rq i/1 dt/11/11/2019 tm/1500</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For constraints on <code>DATE</code> and <code>TIME</code> input, you may refer to <a href="#adding-a-revision-task-for-a-note-code-rn-code">Adding a revision task for a note: <code>rn</code></a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-revision-task-code-rdelete-code"><a class="link" href="#removing-revision-task-code-rdelete-code">Removing revision task: <code>rdelete</code></a></h4>
+<div class="paragraph">
+<p>You can remove a particular revision task from current list with this command.
+The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
+Format: <code>rdelete INDEX_OF_TASK</code><br>
+Example: <code>rdelete 2</code><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-the-revision-task-as-done-code-rdone-code"><a class="link" href="#marking-the-revision-task-as-done-code-rdone-code">Marking the revision task as done: <code>rdone</code></a></h4>
+<div class="paragraph">
+<p>You can mark a task as done once you finished it.
+The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
+Format: <code>rdone INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>rdone 1</code> in the command input box, and press <code>Enter</code> to execute it, as shown by the diagram below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideRes/TaskCommands/DoneTaskCommand.png" alt="600" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>The result box will display the message "Revision task marked as done: [Y] &#8230;&#8203;" with the task details. The status icon
+of the task turns from "[N]" (not done) to "[Y]" (done). You may refer to the diagram below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuideRes/TaskCommands/DoneTaskCommand_success.png" alt="600" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You cannot use "undone" (marking a task as not done) feature.
+People usually "undone" a task because they realise that some parts of the task are not fully completed. In this case, you
+should create a new task with a new date or time (same as "re-scheduling" in the real world).
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-revision-task-code-redit-code"><a class="link" href="#editing-a-revision-task-code-redit-code">Editing a revision task: <code>redit</code></a></h4>
+<div class="paragraph">
+<p>You can edit a revision task with this command. You need to provide non-empty arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code>
+as you would do with <code>rn</code>, but only those fields you want to change. Please take note that <strong>at least one field</strong> must be provided.<br>
+Format: <code>redit INDEX [h/HEADING] [dt/DATE] [tm/TIME]</code><br>
+Example:<br>
+<code>redit 1 h/CS2100 Logic Circuit dt/15/08/2019 tm/1200</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>HEADING</code> can be the title of a note or the question body of a question.
+The edited <code>HEADING</code> must be an existing title or question body.<br>
+<code>HEADING</code> is case sensitive.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-revision-tasks-code-rlist-code"><a class="link" href="#viewing-all-revision-tasks-code-rlist-code">Viewing all revision tasks: <code>rlist</code></a></h4>
+<div class="paragraph">
+<p>You may view the whole revision task list using this command.<br>
+Format: <code>rlist</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-completed-revision-tasks-code-finished-code"><a class="link" href="#viewing-completed-revision-tasks-code-finished-code">Viewing completed revision tasks: <code>finished</code></a></h4>
+<div class="paragraph">
+<p>You may use this command to view the list of revision tasks that you have completed.<br>
+Format: <code>finished</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#viewing-uncompleted-revision-task-code-unfinished-code">Viewing uncompleted revision task: <code>unfinished</code></a></h4>
+<div class="paragraph">
+<p>You may use this command to the list of revision tasks that you have not completed.<br>
+Format: <code>unfinished</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-overdue-revision-tasks-code-overdue-code"><a class="link" href="#viewing-overdue-revision-tasks-code-overdue-code">Viewing overdue revision tasks: <code>overdue</code></a></h4>
+<div class="paragraph">
+<p>You may use this command to view the revision tasks which you have not done but having passed the scheduled time.<br>
+Format: <code>overdue</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-tasks-with-specified-details-code-rfind-code"><a class="link" href="#finding-tasks-with-specified-details-code-rfind-code">Finding tasks with specified details: <code>rfind</code></a></h4>
+<div class="paragraph">
+<p>You may use this command to search for tasks with specified details. You may key in keyword(s) of the heading, or the date, or the time,
+with prefix <code>h/</code> <code>dt/</code> <code>tm/</code> respectively.
+The GUI will display a task list of all tasks with the field (heading or date or time) that matches your input.<br>
+Format:
+<code>rfind h/WORD [WORD]&#8230;&#8203;</code> or <code>rfind dt/DATE</code> or <code>rfind tm/TIME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Words for headings are case insensitive for <code>rfind</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code>rfind h/hello world</code> - This command gives you all tasks with headings containing "hello" or "world" or "hello world".<br>
+<code>rfind dt/01/11/2019</code> - This command gives you all tasks on 1 November 2019.<br>
+<code>rfind tm/1200</code> - This command gives you all tasks at 12:00 (12pm), regardless of date.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The priority of the fields are <code>h/</code> &gt; <code>dt/</code> &gt; <code>tm/</code>. When multiple prefixes (fields) are provided for search, only
+the field with the highest priority will be considered. The rest will be ignored.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A heading is considered matching with the keywords as long as one of the words in the heading is the same as one of the words in the input keywords.
+Please note that the minimum matching unit is a word (<strong>not characters</strong>) in the heading. Words in the headings are separated by a space.<br>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-current-revision-plan-code-rclear-code"><a class="link" href="#clearing-current-revision-plan-code-rclear-code">Clearing current revision plan: <code>rclear</code></a></h4>
+<div class="paragraph">
+<p>You can remove all revision tasks with this command.<br>
+Format: <code>rclear</code></p>
+</div>
+<div class="paragraph">
+<p>Apart from the documentation of my individual feature, I also helped the team by adding a command summary of everyone&#8217;s feature.
+You may refer to the Command Summary section in the User Guide.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>This section summarises my contributions to the Developer Guide.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:27:42 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="revision-task-management"><a class="link" href="#revision-task-management">Revision task management</a></h3>
+<div class="paragraph">
+<p>Revision task management involves addition, deletion, editing, searching and many other operations on tasks. This section
+explains how task management features are implemented.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>Revision task management is facilitated by <code>Model</code>.
+Commands related to task manipulation extend <code>Command</code> class.
+The commands update the <code>Model</code> interface which is implemented by <code>ModelManager</code> class.
+The <code>ModelManager</code> then updates <code>AppData</code> which stores all the revision tasks in an internal data structure <code>TaskList</code>.
+<code>TaskList</code> is essentially an <code>ObservableList</code> of <code>Task</code>.
+Local data will be updated in the end by <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Taking <code>AddTaskForNoteCommand</code> as an example, the following process illustrates the mechanism of adding a revision task for note to the task list (adding a revision task
+for question has a similar command but different parameters).</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters command <code>rn t/UML diagram dt/01/01/2019 tm/1200</code> for adding a task for note. The command is parsed by <code>AddTaskForNoteCommandParser</code>.
+<code>AddTaskForNoteParser</code> then creates an <code>AddTaskForNoteCommand</code>. The high-level logic of <strong>parsing</strong> and <strong>creating the command</strong>
+is similar to the process of deleting a note from the note list as illustrated by the <a href="#DeleteSequenceDiagram"><strong>sequence diagram for deleting a note</strong></a>.
+However, the execution stage of <code>AddTaskForNoteCommand</code> differs from that of deleting a note.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>Logic Manager</code> calls <code>Command#execute(Model)</code> which essentially calls <code>AddTaskForNoteCommand#execute(Model)</code>
+because of polymorphism.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>AddTaskForNoteCommand</code> calls its own private method <code>hasValidNote(Model)</code> which checks if
+the <code>Note</code> with <code>Title</code> "UML diagram" exists in <code>Model</code>. If not, a <code>CommandException</code> will be thrown and <code>execute(Model)</code> stops because non-existing note
+title is not allowed to be the heading of any tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>AddTaskForNoteCommand</code> calls <code>Model#hasTask(Task)</code> to check whether the <code>Model</code> has a task identical to the one
+the user is adding. If there is an existing identical task, a <code>CommandException</code> will be thrown and <code>execute(Model)</code> stops to avoid duplicate tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>AddTaskForNoteCommand</code> calls <code>Model#addTask(Task)</code> to add the new task to the <code>Model</code>. <code>Model</code> calls
+<code>AppData#addTask(Task)</code> to add the task to <code>AppData</code> which keeps track of all data of the app. <code>AppData</code> then calls <code>TaskList#add(Task)</code>
+to add the task to <code>TaskList</code>, which is the underlying data structure storing tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A <code>CommandResult</code> is created and returned to the <code>LogicManager</code> to inform the user of successful addition of a new
+task to the revision plan.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates the interaction between classes when calling <code>AddTaskForNoteCommand#execute(Model)</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/task/AddTaskForNoteCommandExecuteSequenceDiagram.png" alt="AddTaskForNoteCommandExecuteSequenceDiagram">
+</div>
+<div class="title">Figure 1. Sequence diagram for <code>execute(Model)</code> of <code>AddTaskForNoteCommand</code></div>
+</div>
+<div class="paragraph">
+<p>Zooming in to <strong>Step 3</strong>, when calling <code>hasValidNoteForTask(Model)</code>, <code>AddTaskForNoteCommand</code> creates a new <code>Note</code> with a <code>Title</code> "UML diagram" and a <code>Content</code> "dummy entry".
+The entry of <code>Content</code> is not important because <code>AddTaskForNoteCommand</code> only records the <code>Title</code> of a <code>Note</code> and the existence
+of a <code>Note</code> is checked against its <code>Title</code> only (if the title is in the note list, then the note exists in the list).
+The detailed process is illustrated by the sequence diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/task/HasValidNoteSequenceDiagram.png" alt="HasValidNoteSequenceDiagram">
+</div>
+<div class="title">Figure 2. Sequence diagram for checking existence of a <code>Note</code> in the model when <code>AddTaskForNoteCommand</code> calls its own <code>hasValidNoteForTask(Model)</code></div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes the whole process of adding a task for note.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/task/AddTaskForNoteActivityDiagram.png" alt="AddTaskForNoteActivityDiagram">
+</div>
+<div class="title">Figure 3. Activity diagram for adding a task for note</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-design-of-code-task-code"><a class="link" href="#aspect-design-of-code-task-code">Aspect: Design of <code>Task</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> We implement <code>Task</code> as a concrete class with two subclasses to support task for
+notes and questions respectively.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It supports different behaviours of task for <code>Note</code> and task for <code>Question</code> by polymorphism. The concrete <code>Task</code>
+class will also allow adding of general tasks in <strong>v2.0</strong>.</p>
+</li>
+<li>
+<p>Cons: We need to implement two different <code>AddTask</code> commands to support addition of the two different types of tasks.
+Hence we need to write more pieces of code.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below illustrates how <code>Task</code> class is designed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/task/TaskClassDiagram.png" alt="TaskClassDiagram">
+</div>
+<div class="title">Figure 4. Design of <code>Task</code> class</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> We design <code>Task</code> as an interface to be implemented by two different classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This approach is better in data hiding. The client classes know less information about internal properties of <code>Task</code>.</p>
+</li>
+<li>
+<p>Cons: We need to implement all methods in the interface and hence more code snippets are needed. Both implementing
+classes have to include the field in common such as <code>isDone</code>, which results in duplicate code snippets.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> We wrap everything in one concrete <code>Task</code> class to support both lecture notes and questions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We need to write less code.</p>
+</li>
+<li>
+<p>Cons: It violates the principle of Separation of Concern, making it hard to maintain or extend in the future if more types of
+tasks are needed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-design-of-command-for-adding-a-task"><a class="link" href="#aspect-design-of-command-for-adding-a-task">Aspect: Design of command for adding a task</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> We implement the command as two independent classes, namely <code>AddTaskForNoteCommand</code> and
+<code>AddTaskForQuestionCommand</code> to support adding <code>TaskForNote</code> and <code>TaskForQuestion</code> respectively.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The two types of commands, although similar in logic, receive different parameters and interact with different
+classes (one interacting with <code>TaskForNote</code> while another one interacting with <code>TaskForQuestion</code>). Therefore, it is better to separate the
+concerns by implementing the commands as two separate classes. If <code>TaskForNote</code> and <code>TaskForQuestion</code> classes deviate more
+significantly in the future in terms of their behaviour, this approach makes it easier to maintain the adding commands.</p>
+</li>
+<li>
+<p>Cons: We need to write more code. There might be some duplicate code snippets involving the logic shared by both commands.
+We also need to implement different parsers for the two commands, which involes some extra work.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> We implement only one class of adding command to support both <code>TaskForNote</code> and <code>TaskForQuestion</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We can write less code as there would be fewer duplicate code snippets and we do not need to implement separate
+command parsers.</p>
+</li>
+<li>
+<p>Cons: This approach leads to lower level of abstraction as all concerns of <code>Task</code>, regardless of <code>TaskForNote</code> or <code>TaskForQuestion</code>,
+are wrapped into the same class. It could be difficult to maintain if the behaviors of <code>TaskForNote</code> and <code>TaskForQuestion</code>
+get more complex and diverse.</p>
+<h3 id="use-case-add-a-revision-task-for-note-to-revision-plan-shui-yao" class="discrete">Use case: Add a revision task for note to revision plan (Shui Yao)</h3>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Preconditions:</strong> lecture note list is not empty</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student keys in revision task command and specifies the title of the note he/she wants to add to revision plan, with starting date and starting time</p>
+</li>
+<li>
+<p>NUStudy adds the task to revision plan</p>
+</li>
+<li>
+<p>NUStudy informs the Student about successful addition of the task</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. NUStudy detects missing entry for note title</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. NUStudy requests for input of note title</p>
+</li>
+<li>
+<p>1a2. Student enters correct input</p>
+</li>
+<li>
+<p>Steps 1a1 - 1a2 are repeated until the input is valid</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from Step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. NUStudy detects a note title entry that is non-existent in the note list</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. NUStudy requests for a valid input of note title (a note that exists in the note list)</p>
+</li>
+<li>
+<p>1b2. Student enters valid note title</p>
+</li>
+<li>
+<p>Steps 1b1 - 1b2 are repeated until the input is valid</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from Step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. NUStudy detects missing starting date or time</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. NUStudy requests for correct input with starting date and time</p>
+</li>
+<li>
+<p>1c2. Student enters correct input following the format</p>
+</li>
+<li>
+<p>Steps 1c1 - 1c2 are repeated until getting a correct input with valid starting date and time</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from Step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. NUStudy detects invalid date or time</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. NUStudy requests for valid date and time</p>
+</li>
+<li>
+<p>1d2. Student enters correct input with valid date and time</p>
+</li>
+<li>
+<p>Steps 1d1 - 1d2 are repeated until getting a correct input with valid date and time</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from Step 2</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Apart from addition to my individual features, I also modified the diagrams of the UI and Model components. You may refer
+to Figure 4. Class diagram of the UI component, Figure 5. Detailed class diagram for Panels package and Figure 8. Class diagram of the Model component
+in the Developer Guide.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:41:48 UTC</div></div></div></body></html>

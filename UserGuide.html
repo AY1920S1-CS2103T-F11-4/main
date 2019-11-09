@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy user guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy user guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>AY1920S1-CS2103T-F11-4</code>      Since: <code>September 2019</code>      Licence: <code>MIT</code></p>
@@ -965,8 +965,13 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <div class="sect2">
 <h3 id="revision-tasks"><a class="link" href="#revision-tasks">3.5. Revision tasks</a></h3>
 <div class="paragraph">
-<p>This section provides instructions to manipulate revision tasks. The revision tasks help you plan your revision of notes
-and questions.</p>
+<p>You will know more about how to work with revision tasks in this section. The revision tasks help you plan your revision of notes
+and questions. You can do various operations on tasks, including addition, deletion, searching etc.</p>
+</div>
+<div class="paragraph">
+<p>The revision tasks are not synchronised with the note or the question. Once created, the task content will not
+change if you modify the corresponding note or question.<br>
+Revision tasks with the same heading, date <strong>and</strong> time are considered duplicate tasks and cannot co-exist.</p>
 </div>
 <div class="paragraph">
 <p>The diagram below shows how a revision task looks like:</p>
@@ -976,39 +981,11 @@ and questions.</p>
 <img src="images/UserGuideRes/TaskUI.png" alt="600" width="600">
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The revision tasks are not synchronised with the note or the question. Once created, the task content will not
-change if you modify the corresponding note or question. We deliberately disassociate the task from notes and questions once created
-because we would like to allow you to customise the task headings in <strong>version v2.0</strong> of the app.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Revision tasks with the same heading, date <strong>and</strong> time are considered duplicate tasks and cannot co-exist
-in the revision task list. Even if they have different status, they still cannot co-exist
-because it does not make sense to have same tasks but different status.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect3">
 <h4 id="adding-a-revision-task-for-a-note-code-rn-code"><a class="link" href="#adding-a-revision-task-for-a-note-code-rn-code">3.5.1. Adding a revision task for a note: <code>rn</code></a></h4>
 <div class="paragraph">
 <p>You can add a revision task for a note to the current revision task list with this command.
-The heading will copy the title.<br>
+The heading will copy the title.
 The GUI will display all tasks upon completing the command.<br>
 Format: <code>rn t/TITLE_OF_NOTE dt/DATE tm/TIME</code><br></p>
 </div>
@@ -1030,7 +1007,8 @@ Format: <code>rn t/TITLE_OF_NOTE dt/DATE tm/TIME</code><br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>rn t/CS2103T UML diagram dt/01/11/2019 tm/0900</code> in the command input box, and press <code>Enter</code> to execute it, as
+shown in the diagram below.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/AddTaskForNote_command.png" alt="600" width="600">
@@ -1039,11 +1017,14 @@ Format: <code>rn t/TITLE_OF_NOTE dt/DATE tm/TIME</code><br></p>
 </li>
 <li>
 <p>The result box will display the message "Revision task added: [N] NOTE : CS2103T UML diagram by: 01 November 2019 09:00".
-The task is added to the task list shown in the middle panel.</p>
+The task is added to the task list shown in the middle panel, as shown in the diagram below.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/AddTaskForNote_success.png" alt="600" width="600">
 </div>
+</div>
+</li>
+</ol>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1059,19 +1040,13 @@ The task is added to the task list shown in the middle panel.</p>
 <p><code>DATE</code> input format should follow Singapore local date convention (i.e. dd/MM/yyyy).</p>
 </li>
 <li>
-<p><code>YEAR</code> is 4-digit. 0000 &lt; yyyy &lt; 9999.</p>
+<p><code>YEAR</code> is 4-digit, 0000 &lt; yyyy &lt; 9999. <code>MONTH</code> is 2-digit, 00 &lt; MM &lt; 13. <code>DAY</code> is 2-digit, 00 &lt; dd &lt; 32.</p>
 </li>
 <li>
-<p><code>MONTH</code> is 2-digit. 00 &lt; MM &lt; 13.</p>
+<p><code>HOUR</code> is 2-digit and follows 24-hour format, -01 &lt; HH &lt; 24. <code>MINUTE</code> is 2-digit, -01 &lt; mm &lt; 60.</p>
 </li>
 <li>
-<p><code>DATE</code> is 2-digit. 00 &lt; dd &lt; 32.</p>
-</li>
-<li>
-<p><code>HOUR</code> is 2-digit and follows 24-hour format. -01 &lt; HH &lt; 24.</p>
-</li>
-<li>
-<p><code>MINUTE</code> is 2-digit. -01 &lt; mm &lt; 60.</p>
+<p>"2400" and "0000" for <code>TIME</code> are both valid and represent 12am on the same day.</p>
 </li>
 </ul>
 </div>
@@ -1082,38 +1057,22 @@ The task is added to the task list shown in the middle panel.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are some days of month which are valid for some months but invalid for others, eg. <strong>31</strong> is invalid for February, April,
+Some days of month are valid for some months but invalid for others, eg. <strong>31</strong> is invalid for February, April,
 June, September, November; <strong>30</strong> is invalid for February; <strong>29</strong> is invalid for February in common years. But they are valid
-for other scenarios. Sometimes you may get confused about the number of days in a month. For example, you may happen to think
-that there are 31 days in September and you key in "31/09/2019". In this case, the day of month will automatically run
-down to the last valid day of that month.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-"2400" and "0000" for <code>TIME</code> are both considered valid and represent 12am on the same day.
+for other scenarios. The day of month will automatically run down to the last valid day of that month in case you remember
+the number of days of a month wrongly.
 </td>
 </tr>
 </table>
 </div>
 </div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="adding-a-revision-task-for-a-question-code-rq-code"><a class="link" href="#adding-a-revision-task-for-a-question-code-rq-code">3.5.2. Adding a revision task for a question: <code>rq</code></a></h4>
 <div class="paragraph">
 <p>You can add a revision task for a question to the current revision task list with this command.
-The heading will copy the question body.<br>
+The heading will copy the question body.
 The GUI will display all tasks upon completing the command.<br>
 Format: <code>rq i/INDEX_OF_QUESTION dt/DATE tm/TIME</code><br>
 Example:<br>
@@ -1135,15 +1094,18 @@ For constraints on <code>DATE</code> and <code>TIME</code> input, you may refer 
 <div class="sect3">
 <h4 id="removing-revision-task-code-rdelete-code"><a class="link" href="#removing-revision-task-code-rdelete-code">3.5.3. Removing revision task: <code>rdelete</code></a></h4>
 <div class="paragraph">
-<p>You can remove a particular revision task from current list with this command.<br>
+<p>You can remove a particular revision task from current list with this command.
 The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
 Format: <code>rdelete INDEX_OF_TASK</code><br>
-Example:<br></p>
+Example: <code>rdelete 2</code><br></p>
+</div>
+<div class="paragraph">
+<p>Detailed steps:<br></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>rdelete 2</code> in the command input box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>rdelete 2</code> in the command input box, and press <code>Enter</code> to execute it. You can refer to the diagram below for a visual guide.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/DeleteTaskCommand.png" alt="600" width="600">
@@ -1151,20 +1113,22 @@ Example:<br></p>
 </div>
 </li>
 <li>
-<p>The result box will display the message "Deleted task: &#8230;&#8203;" with the task details. The deleted task will be removed from the task list.</p>
+<p>The result box will display the message "Deleted task: &#8230;&#8203;" with the task details. The deleted task will be removed from the task list, as shown by the diagram below.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/DeleteTaskCommand_success.png" alt="600" width="600">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Marking the revision task as done: <code>rdone</code>
-You can mark a task as done once you finished it.<br>
-The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
-Format: <code>rdone INDEX</code><br></p>
-</div>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-the-revision-task-as-done-code-rdone-code"><a class="link" href="#marking-the-revision-task-as-done-code-rdone-code">3.5.4. Marking the revision task as done: <code>rdone</code></a></h4>
+<div class="paragraph">
+<p>You can mark a task as done once you finished it.
+The GUI will display the current list (all-task, done-task, not-done-task or overdue-task) view.<br>
+Format: <code>rdone INDEX</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br></p>
@@ -1172,7 +1136,7 @@ Format: <code>rdone INDEX</code><br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>rdone 1</code> in the command input box, and press <code>Enter</code> to execute it.</p>
+<p>Type <code>rdone 1</code> in the command input box, and press <code>Enter</code> to execute it, as shown by the diagram below.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/DoneTaskCommand.png" alt="600" width="600">
@@ -1181,7 +1145,7 @@ Format: <code>rdone INDEX</code><br></p>
 </li>
 <li>
 <p>The result box will display the message "Revision task marked as done: [Y] &#8230;&#8203;" with the task details. The status icon
-of the task turns from "[N]" (not done) to "[Y]" (done).</p>
+of the task turns from "[N]" (not done) to "[Y]" (done). You may refer to the diagram below.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/UserGuideRes/TaskCommands/DoneTaskCommand_success.png" alt="600" width="600">
@@ -1206,7 +1170,7 @@ should create a new task with a new date or time (same as "re-scheduling" in the
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-revision-task-code-redit-code"><a class="link" href="#editing-a-revision-task-code-redit-code">3.5.4. Editing a revision task: <code>redit</code></a></h4>
+<h4 id="editing-a-revision-task-code-redit-code"><a class="link" href="#editing-a-revision-task-code-redit-code">3.5.5. Editing a revision task: <code>redit</code></a></h4>
 <div class="paragraph">
 <p>You can edit a revision task with this command. You need to provide non-empty arguments with prefix <code>h/</code>, <code>dt/</code> and <code>tm/</code>
 as you would do with <code>rn</code>, but only those fields you want to change. Please take note that <strong>at least one field</strong> must be provided.<br>
@@ -1221,72 +1185,47 @@ Example:<br>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Please note that the prefix for the heading of a task is no longer <code>t/</code> (for note task) or <code>i/</code> (for question task).
-Instead, the prefix becomes <code>h/</code> for both types of tasks. <code>HEADING</code> can be the title of a note or the question body of a question.
-The edited <code>HEADING</code> must be an existing title or question body.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<code>HEADING</code> can be the title of a note or the question body of a question.
+The edited <code>HEADING</code> must be an existing title or question body.<br>
 <code>HEADING</code> is case sensitive.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You cannot edit the status (done or not done) of a task with this command. Instead, you may use <code>rdone</code>.
-You cannot do "undone" operation as explained in <code>rdone</code> feature.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-all-revision-tasks-code-rlist-code"><a class="link" href="#viewing-all-revision-tasks-code-rlist-code">3.5.5. Viewing all revision tasks: <code>rlist</code></a></h4>
+<h4 id="viewing-all-revision-tasks-code-rlist-code"><a class="link" href="#viewing-all-revision-tasks-code-rlist-code">3.5.6. Viewing all revision tasks: <code>rlist</code></a></h4>
 <div class="paragraph">
 <p>You may view the whole revision task list using this command.<br>
 Format: <code>rlist</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-completed-revision-tasks-code-finished-code"><a class="link" href="#viewing-completed-revision-tasks-code-finished-code">3.5.6. Viewing completed revision tasks: <code>finished</code></a></h4>
+<h4 id="viewing-completed-revision-tasks-code-finished-code"><a class="link" href="#viewing-completed-revision-tasks-code-finished-code">3.5.7. Viewing completed revision tasks: <code>finished</code></a></h4>
 <div class="paragraph">
 <p>You may use this command to view the list of revision tasks that you have completed.<br>
 Format: <code>finished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#viewing-uncompleted-revision-task-code-unfinished-code">3.5.7. Viewing uncompleted revision task: <code>unfinished</code></a></h4>
+<h4 id="viewing-uncompleted-revision-task-code-unfinished-code"><a class="link" href="#viewing-uncompleted-revision-task-code-unfinished-code">3.5.8. Viewing uncompleted revision task: <code>unfinished</code></a></h4>
 <div class="paragraph">
 <p>You may use this command to the list of revision tasks that you have not completed.<br>
 Format: <code>unfinished</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-overdue-revision-tasks-code-overdue-code"><a class="link" href="#viewing-overdue-revision-tasks-code-overdue-code">3.5.8. Viewing overdue revision tasks: <code>overdue</code></a></h4>
+<h4 id="viewing-overdue-revision-tasks-code-overdue-code"><a class="link" href="#viewing-overdue-revision-tasks-code-overdue-code">3.5.9. Viewing overdue revision tasks: <code>overdue</code></a></h4>
 <div class="paragraph">
 <p>You may use this command to view the revision tasks which you have not done but having passed the scheduled time.<br>
 Format: <code>overdue</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-tasks-with-specified-details-code-rfind-code"><a class="link" href="#finding-tasks-with-specified-details-code-rfind-code">3.5.9. Finding tasks with specified details: <code>rfind</code></a></h4>
+<h4 id="finding-tasks-with-specified-details-code-rfind-code"><a class="link" href="#finding-tasks-with-specified-details-code-rfind-code">3.5.10. Finding tasks with specified details: <code>rfind</code></a></h4>
 <div class="paragraph">
 <p>You may use this command to search for tasks with specified details. You may key in keyword(s) of the heading, or the date, or the time,
-with prefix <code>h/</code> <code>dt/</code> <code>tm/</code> respectively.<br>
+with prefix <code>h/</code> <code>dt/</code> <code>tm/</code> respectively.
 The GUI will display a task list of all tasks with the field (heading or date or time) that matches your input.<br>
 Format:
 <code>rfind h/WORD [WORD]&#8230;&#8203;</code> or <code>rfind dt/DATE</code> or <code>rfind tm/TIME</code></p>
@@ -1379,7 +1318,7 @@ here are the use cases:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-current-revision-plan-code-rclear-code"><a class="link" href="#clearing-current-revision-plan-code-rclear-code">3.5.10. Clearing current revision plan: <code>rclear</code></a></h4>
+<h4 id="clearing-current-revision-plan-code-rclear-code"><a class="link" href="#clearing-current-revision-plan-code-rclear-code">3.5.11. Clearing current revision plan: <code>rclear</code></a></h4>
 <div class="paragraph">
 <p>You can remove all revision tasks with this command.<br>
 Format: <code>rclear</code></p>
@@ -1588,4 +1527,4 @@ eg. <code>rfind h/hello world</code> or <code>rfind dt/01/11/2019</code> or <cod
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:41:48 UTC</div></div></div></body></html>

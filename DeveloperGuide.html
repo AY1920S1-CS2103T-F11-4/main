@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy developer guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy developer guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>AY1920S1-CS2103T-F11-4</code>      Since: <code>September 2019</code>      Licence: <code>MIT</code></p>
+</div>
 <div class="paragraph">
 <p>NUStudy is an application for managing three kinds of informational material: lecture notes, quizzes and revision tasks.
 It helps users to prepare for exams and tests in university by facilitating their learning.</p>
@@ -33,7 +36,7 @@ for its implementation so that you can start contributing in no time.</p>
 <li><a href="#question-management-feature">3.2. Question management feature</a></li>
 <li><a href="#quiz-mode-for-revision">3.3. Quiz mode for revision</a></li>
 <li><a href="#statistics-feature">3.4. Statistics feature</a></li>
-<li><a href="#add-revision-task">3.5. Add revision task</a></li>
+<li><a href="#revision-task-management">3.5. Revision task management</a></li>
 <li><a href="#logging">3.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
@@ -842,23 +845,72 @@ This is also more difficult to implement.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-revision-task"><a class="link" href="#add-revision-task">3.5. Add revision task</a></h3>
+<h3 id="revision-task-management"><a class="link" href="#revision-task-management">3.5. Revision task management</a></h3>
+<div class="paragraph">
+<p>Revision task management involves addition, deletion, editing, searching and many other operations on tasks. This section
+explains how task management features are implemented.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>rn</code>. It extends <code>Command</code> class and adds a
-<code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data. Similarly,
-<code>AddTaskForQuestionCommand</code> is implemented to add a task for question notes.</p>
+<p>Revision task management is facilitated by <code>Model</code>.
+Commands related to task manipulation extend <code>Command</code> class.
+The commands update the <code>Model</code> interface which is implemented by <code>ModelManager</code> class.
+The <code>ModelManager</code> then updates <code>AppData</code> which stores all the revision tasks in an internal data structure <code>TaskList</code>.
+<code>TaskList</code> is essentially an <code>ObservableList</code> of <code>Task</code>.
+Local data will be updated in the end by <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>TaskList</code> is essentially a list of <code>Task</code>. <code>TaskList</code> supports the <code>add(Task)</code> operation and this operation is
-exposed to <code>AppData#addTask(Task)</code>.</p>
+<p>The revision task management commands include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddTaskForNoteCommand</code>&#8201;&#8212;&#8201;Adds a new task for revising note to the app.</p>
+</li>
+<li>
+<p><code>AddTaskForQuestionCommand</code>&#8201;&#8212;&#8201;Adds a new task for revising question to the app.</p>
+</li>
+<li>
+<p><code>ClearTaskCommand</code>&#8201;&#8212;&#8201;Clears all tasks in the app.</p>
+</li>
+<li>
+<p><code>DeleteTaskCommand</code>&#8201;&#8212;&#8201;Deletes a task from the app.</p>
+</li>
+<li>
+<p><code>DoneTaskCommand</code>&#8201;&#8212;&#8201;Marks a task as done.</p>
+</li>
+<li>
+<p><code>EditTaskCommand</code>&#8201;&#8212;&#8201;Edits fields of a task.</p>
+</li>
+<li>
+<p><code>FindTaskCommand</code>&#8201;&#8212;&#8201;Searches for a task with given information.</p>
+</li>
+<li>
+<p><code>ListAllTaskCommand</code>&#8201;&#8212;&#8201;Displays all tasks to the user.</p>
+</li>
+<li>
+<p><code>ListDoneTaskTaskCommand</code>&#8201;&#8212;&#8201;Displays tasks that have been done to the user.</p>
+</li>
+<li>
+<p><code>ListNotDoneTaskCommand</code>&#8201;&#8212;&#8201;Displays tasks that have not been done to the user.</p>
+</li>
+<li>
+<p><code>ListOverdueTaskCommand</code>&#8201;&#8212;&#8201;Displays tasks that have passed the scheduled time to the user.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>The following process illustrates the mechanism of adding a revision task to the task list.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addTask(Task task)</code>, <code>Model#hasTask(Task task)</code>, <code>Model#clearTaskList()</code>,
+<code>Model#deleteTask(Task target)</code>, <code>Model#markTaskAsDone(Task taskDone)</code>, <code>Model#setTask(Task target, Task editedTask)</code>,
+<code>Model#updateFilteredTaskList(Predicate&lt;Task&gt; predicate)</code> and <code>Model#getFilteredTaskList()</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters command <code>rn t/UML diagram dt/01/01/2019 tm/1200</code> for adding a task for note. The command will be parsed by <code>AddTaskForNoteCommandParser</code>.
+<p>Taking <code>AddTaskForNoteCommand</code> as an example, the following process illustrates the mechanism of adding a revision task for note to the task list (adding a revision task
+for question has a similar command but different parameters).</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters command <code>rn t/UML diagram dt/01/01/2019 tm/1200</code> for adding a task for note. The command is parsed by <code>AddTaskForNoteCommandParser</code>.
 <code>AddTaskForNoteParser</code> then creates an <code>AddTaskForNoteCommand</code>. The high-level logic of <strong>parsing</strong> and <strong>creating the command</strong>
 is similar to the process of deleting a note from the note list as illustrated by the <a href="#DeleteSequenceDiagram"><strong>sequence diagram for deleting a note</strong></a>.
 However, the execution stage of <code>AddTaskForNoteCommand</code> differs from that of deleting a note.</p>
@@ -866,6 +918,54 @@ However, the execution stage of <code>AddTaskForNoteCommand</code> differs from 
 <div class="paragraph">
 <p>Step 2. The <code>Logic Manager</code> calls <code>Command#execute(Model)</code> which essentially calls <code>AddTaskForNoteCommand#execute(Model)</code>
 because of polymorphism.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>AddTaskForNoteCommand</code> calls its own private method <code>hasValidNote(Model)</code> which checks if
+the <code>Note</code> with <code>Title</code> "UML diagram" exists in <code>Model</code>. If not, a <code>CommandException</code> will be thrown and <code>execute(Model)</code> stops because non-existing note
+title is not allowed to be the heading of any tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>AddTaskForNoteCommand</code> calls <code>Model#hasTask(Task)</code> to check whether the <code>Model</code> has a task identical to the one
+the user is adding. If there is an existing identical task, a <code>CommandException</code> will be thrown and <code>execute(Model)</code> stops to avoid duplicate tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>AddTaskForNoteCommand</code> calls <code>Model#addTask(Task)</code> to add the new task to the <code>Model</code>. <code>Model</code> calls
+<code>AppData#addTask(Task)</code> to add the task to <code>AppData</code> which keeps track of all data of the app. <code>AppData</code> then calls <code>TaskList#add(Task)</code>
+to add the task to <code>TaskList</code>, which is the underlying data structure storing tasks.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A <code>CommandResult</code> is created and returned to the <code>LogicManager</code> to inform the user of successful addition of a new
+task to the revision plan.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates the interaction between classes when calling <code>AddTaskForNoteCommand#execute(Model)</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/task/AddTaskForNoteCommandExecuteSequenceDiagram.png" alt="AddTaskForNoteCommandExecuteSequenceDiagram">
+</div>
+<div class="title">Figure 16. Sequence diagram for <code>execute(Model)</code> of <code>AddTaskForNoteCommand</code></div>
+</div>
+<div class="paragraph">
+<p>Zooming in to <strong>Step 3</strong>, when calling <code>hasValidNoteForTask(Model)</code>, <code>AddTaskForNoteCommand</code> creates a new <code>Note</code> with a <code>Title</code> "UML diagram" and a <code>Content</code> "dummy entry".
+The entry of <code>Content</code> is not important because <code>AddTaskForNoteCommand</code> only records the <code>Title</code> of a <code>Note</code> and the existence
+of a <code>Note</code> is checked against its <code>Title</code> only (if the title is in the note list, then the note exists in the list).
+The detailed process is illustrated by the sequence diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/task/HasValidNoteSequenceDiagram.png" alt="HasValidNoteSequenceDiagram">
+</div>
+<div class="title">Figure 17. Sequence diagram for checking existence of a <code>Note</code> in the model when <code>AddTaskForNoteCommand</code> calls its own <code>hasValidNoteForTask(Model)</code></div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes the whole process of adding a task for note.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/task/AddTaskForNoteActivityDiagram.png" alt="AddTaskForNoteActivityDiagram">
+</div>
+<div class="title">Figure 18. Activity diagram for adding a task for note</div>
 </div>
 </div>
 <div class="sect3">
@@ -875,7 +975,7 @@ because of polymorphism.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current implementation):</strong> implement <code>Task</code> as a concrete class with two subclasses to support task for
+<p><strong>Alternative 1 (current implementation):</strong> We implement <code>Task</code> as a concrete class with two subclasses to support task for
 notes and questions respectively.</p>
 <div class="ulist">
 <ul>
@@ -899,16 +999,16 @@ Hence we need to write more pieces of code.</p>
 <div class="content">
 <img src="images/task/TaskClassDiagram.png" alt="TaskClassDiagram">
 </div>
-<div class="title">Figure 16. Design for <code>Task</code> class</div>
+<div class="title">Figure 19. Design of <code>Task</code> class</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 2:</strong> design <code>Task</code> as an interface to be implemented by two different classes.</p>
+<p><strong>Alternative 2:</strong> We design <code>Task</code> as an interface to be implemented by two different classes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More flexible design. Less exposure of internal properties of Task to client.</p>
+<p>Pros: This approach is better in data hiding. The client classes know less information about internal properties of <code>Task</code>.</p>
 </li>
 <li>
 <p>Cons: We need to implement all methods in the interface and hence more code snippets are needed. Both implementing
@@ -918,15 +1018,56 @@ classes have to include the field in common such as <code>isDone</code>, which r
 </div>
 </li>
 <li>
-<p><strong>Alternative 3:</strong> wrap everything in one concrete <code>Task</code> class to support both lecture notes and questions.</p>
+<p><strong>Alternative 3:</strong> We wrap everything in one concrete <code>Task</code> class to support both lecture notes and questions.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Less code to write.</p>
+<p>Pros: We need to write less code.</p>
 </li>
 <li>
-<p>Cons: It violates the principle of Separation of Concern. Hard to maintain or extend in the future if more types of
+<p>Cons: It violates the principle of Separation of Concern, making it hard to maintain or extend in the future if more types of
 tasks are needed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-design-of-command-for-adding-a-task"><a class="link" href="#aspect-design-of-command-for-adding-a-task">Aspect: Design of command for adding a task</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current implementation):</strong> We implement the command as two independent classes, namely <code>AddTaskForNoteCommand</code> and
+<code>AddTaskForQuestionCommand</code> to support adding <code>TaskForNote</code> and <code>TaskForQuestion</code> respectively.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The two types of commands, although similar in logic, receive different parameters and interact with different
+classes (one interacting with <code>TaskForNote</code> while another one interacting with <code>TaskForQuestion</code>). Therefore, it is better to separate the
+concerns by implementing the commands as two separate classes. If <code>TaskForNote</code> and <code>TaskForQuestion</code> classes deviate more
+significantly in the future in terms of their behaviour, this approach makes it easier to maintain the adding commands.</p>
+</li>
+<li>
+<p>Cons: We need to write more code. There might be some duplicate code snippets involving the logic shared by both commands.
+We also need to implement different parsers for the two commands, which involes some extra work.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> We implement only one class of adding command to support both <code>TaskForNote</code> and <code>TaskForQuestion</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We can write less code as there would be fewer duplicate code snippets and we do not need to implement separate
+command parsers.</p>
+</li>
+<li>
+<p>Cons: This approach leads to lower level of abstraction as all concerns of <code>Task</code>, regardless of <code>TaskForNote</code> or <code>TaskForQuestion</code>,
+are wrapped into the same class. It could be difficult to maintain if the behaviors of <code>TaskForNote</code> and <code>TaskForQuestion</code>
+get more complex and diverse.</p>
 </li>
 </ul>
 </div>
@@ -1407,9 +1548,9 @@ compared to a typical note-taking app</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-add-a-revision-task-to-revision-plan-shui-yao" class="discrete">Use case: Add a revision task to revision plan (Shui Yao)</h3>
+<h3 id="use-case-add-a-revision-task-for-note-to-revision-plan-shui-yao" class="discrete">Use case: Add a revision task for note to revision plan (Shui Yao)</h3>
 <div class="paragraph">
-<p><strong>Preconditions:</strong> notes collections and question collections are not both empty</p>
+<p><strong>Preconditions:</strong> lecture note list is not empty</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1417,7 +1558,7 @@ compared to a typical note-taking app</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Student keys in revision task command and specifies the note set name or question set name he/she wants to add to revision plan, with starting date and starting time</p>
+<p>Student keys in revision task command and specifies the title of the note he/she wants to add to revision plan, with starting date and starting time</p>
 </li>
 <li>
 <p>NUStudy adds the task to revision plan</p>
@@ -1436,17 +1577,17 @@ compared to a typical note-taking app</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. NUStudy detects that neither a note set or a question set is entered by Student</p>
+<p>1a. NUStudy detects missing entry for note title</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. NUStudy requests for the correct input with a note set name or a question set name</p>
+<p>1a1. NUStudy requests for input of note title</p>
 </li>
 <li>
 <p>1a2. Student enters correct input</p>
 </li>
 <li>
-<p>Steps 1a1 - 1a2 are repeated until the input is correct</p>
+<p>Steps 1a1 - 1a2 are repeated until the input is valid</p>
 </li>
 </ul>
 </div>
@@ -1459,17 +1600,17 @@ compared to a typical note-taking app</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. NUStudy detects missing starting date or time</p>
+<p>1b. NUStudy detects a note title entry that is non-existent in the note list</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. NUStudy requests for correct input with starting date and time</p>
+<p>1b1. NUStudy requests for a valid input of note title (a note that exists in the note list)</p>
 </li>
 <li>
-<p>1b2. Student enters correct input following the format</p>
+<p>1b2. Student enters valid note title</p>
 </li>
 <li>
-<p>Steps 1b1 - 1b2 are repeated until getting a correct input with valid starting date and time</p>
+<p>Steps 1b1 - 1b2 are repeated until the input is valid</p>
 </li>
 </ul>
 </div>
@@ -1482,17 +1623,40 @@ compared to a typical note-taking app</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c. NUStudy detects invalid date or time</p>
+<p>1c. NUStudy detects missing starting date or time</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. NUStudy requests for valid date and time</p>
+<p>1c1. NUStudy requests for correct input with starting date and time</p>
 </li>
 <li>
-<p>1c2. Student enters correct input with valid date and time</p>
+<p>1c2. Student enters correct input following the format</p>
 </li>
 <li>
-<p>Steps 1c1 - 1c2 are repeated until getting a correct input with valid date and time</p>
+<p>Steps 1c1 - 1c2 are repeated until getting a correct input with valid starting date and time</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from Step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. NUStudy detects invalid date or time</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. NUStudy requests for valid date and time</p>
+</li>
+<li>
+<p>1d2. Student enters correct input with valid date and time</p>
+</li>
+<li>
+<p>Steps 1d1 - 1d2 are repeated until getting a correct input with valid date and time</p>
 </li>
 </ul>
 </div>
@@ -1581,12 +1745,6 @@ compared to a typical note-taking app</p>
 <p>Student clears the revision plan</p>
 </li>
 <li>
-<p>NUStudy requests for confirmation</p>
-</li>
-<li>
-<p>Student confirms the clear operation</p>
-</li>
-<li>
 <p>NUStudy clears the revision plan</p>
 </li>
 <li>
@@ -1596,26 +1754,6 @@ compared to a typical note-taking app</p>
 </div>
 <div class="paragraph">
 <p>Use case ends.</p>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. Student disapprove the clear operation</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. NUStudy informs the Student of the cancellation of clear operation</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case ends</p>
-</li>
-</ul>
 </div>
 <h3 id="use-case-get-statistics-for-subjects-irene" class="discrete">Use case: get statistics for subjects (Irene)</h3>
 <div class="paragraph">
@@ -2205,4 +2343,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:41:48 UTC</div></div></div></body></html>
