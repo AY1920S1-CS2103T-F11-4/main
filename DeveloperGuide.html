@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy developer guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy developer guide</h1></div><div id="content"><div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy developer guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>NUStudy is an application for managing three kinds of informational material: lecture notes, quizzes and revision tasks.
@@ -12,37 +11,52 @@ It helps users to prepare for exams and tests in university by facilitating thei
 for its implementation so that you can start contributing in no time.</p>
 </div>
 <div class="paragraph">
-<p>You can refer to this guide for the following information:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#setting-up">Setting up</a></p>
-</li>
-<li>
-<p><a href="#design">Design</a></p>
-</li>
-<li>
-<p><a href="#implementation">Implementation</a></p>
-</li>
-<li>
-<p><a href="#documentation">Documentation</a></p>
-</li>
-<li>
-<p><a href="#testing">Testing</a></p>
-</li>
-<li>
-<p><a href="#devops">DevOps</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>For any queries, simply <a href="ContactUs.html">contact us</a>.</p>
 </div>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#setting-up">1. Setting up</a></li>
+<li><a href="#design">2. Design</a>
+<ul class="sectlevel2">
+<li><a href="#Design-Architecture">2.1. Architecture</a></li>
+<li><a href="#Design-Ui">2.2. <code>UI</code></a></li>
+<li><a href="#Design-Logic">2.3. <code>Logic</code></a></li>
+<li><a href="#Design-Model">2.4. <code>Model</code></a></li>
+<li><a href="#Design-Storage">2.5. <code>Storage</code></a></li>
+</ul>
+</li>
+<li><a href="#implementation">3. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#image-support-for-lecture-notes">3.1. Image support for lecture notes</a></li>
+<li><a href="#question-management-feature">3.2. Question management feature</a></li>
+<li><a href="#quiz-mode-for-revision">3.3. Quiz mode for revision</a></li>
+<li><a href="#statistics-feature">3.4. Statistics feature</a></li>
+<li><a href="#add-revision-task">3.5. Add revision task</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">4. Documentation</a></li>
+<li><a href="#testing">5. Testing</a></li>
+<li><a href="#devops">6. DevOps</a></li>
+<li><a href="#product-scope">Appendix A: Product Scope</a></li>
+<li><a href="#user-stories">Appendix B: User Stories</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#non-functional-requirements">Appendix D: Non-functional requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#manual-testing">Appendix F: Manual testing</a>
+<ul class="sectlevel2">
+<li><a href="#opening-and-closing">F.1. Opening and closing</a></li>
+<li><a href="#image-support">F.2. Image support</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
+<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -50,10 +64,10 @@ for its implementation so that you can start contributing in no time.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
 <div class="paragraph">
 <p>The architecture diagram below gives an overall view of NUStudy&#8217;s structure. Each component
 will be explained in more detail in the coming sections.</p>
@@ -113,7 +127,7 @@ issues the command <code>deletenote 1</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. <code>UI</code></a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. <code>UI</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -152,7 +166,7 @@ issues the command <code>deletenote 1</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. <code>Logic</code></a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. <code>Logic</code></a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -193,7 +207,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. <code>Model</code></a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. <code>Model</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -211,7 +225,7 @@ so any data changes are immediately user-visible.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. <code>Storage</code></a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. <code>Storage</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -228,22 +242,25 @@ so any data changes are immediately user-visible.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some finer details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="image-support-for-lecture-notes"><a class="link" href="#image-support-for-lecture-notes">4.1. Image support for lecture notes</a></h3>
+<h3 id="image-support-for-lecture-notes"><a class="link" href="#image-support-for-lecture-notes">3.1. Image support for lecture notes</a></h3>
 <div class="paragraph">
 <p>Usually, we do not learn best from just text; we rely on images that our minds can process more easily.
-As such, implementing images in lecture notes was considered very important. Although some lecture notes
-have multiple images, it is always possible to combine them using basic image editing software like the
-GNU Image Manipulation Program (GIMP) and Paint, so the implementation was limited to at most one
-image per note.</p>
+As such, implementing images in lecture notes is a very important feature for NUStudy.</p>
+</div>
+<div class="paragraph">
+<p>Although some lecture notes have multiple images, it is always possible to combine them using
+basic image editing software like the GNU Image Manipulation Program (GIMP) and Paint, so the implementation is
+limited to at most one image per note. Having a common format for notes facilitates their retrieval through
+the <code>findnote</code> command and aids a human user in remembering what the notes say.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Instead of a custom class to represent an image, JavaFX&#8217;s <code>scene.image.Image</code> is used instead.
 This is out of necessity, since an <code>ImageView</code> is needed to display an image in the GUI and it requires
@@ -267,7 +284,7 @@ has the field <code>isImageRemoved</code> to track this.</p>
 <div class="paragraph">
 <p>We also defer image selection until after the title has been checked against existing lecture notes,
 which saves time that would otherwise be wasted in navigating to the desired image.
-This is accomplished using</p>
+This is accomplished using three things:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -303,35 +320,39 @@ into application data using <code>finalizeImage()</code>, which points reference
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-where-to-place-the-image"><a class="link" href="#design-considerations-where-to-place-the-image">4.1.2. Design considerations: where to place the image?</a></h4>
+<h4 id="design-considerations-where-to-place-the-image"><a class="link" href="#design-considerations-where-to-place-the-image">3.1.2. Design considerations: where to place the image?</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Alternative 1 (current choice):</em> Images are shown within each lecture note in the first column, and each lecture note
-shows all of its title, content and image</p>
+<p><em>Alternative 1 (current choice):</em> We show the images associated to each and every lecture note
+in the first column, together with the title and content.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement (FXML does not have to reach into other places)</p>
+<p>Pros: This is easier to implement, for the code interfacing with FXML does not have to be written in places other
+than those directly pertaining to notes. It also makes the note "card" (object representing the note)
+self-contained.</p>
 </li>
 <li>
 <p>Cons: Scrolling through lecture notes, all with images, takes time, but this downside is alleviated
-by the <code>findnote</code> command</p>
+by the <code>findnote</code> command.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Alternative 2:</em> Place the images in the second column, below their corresponding title and content</p>
+<p><em>Alternative 2:</em> We place <strong>one</strong> full note in the second column and only show a preview (the title and first words
+of the content) in the first column.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More visually appealing, since by keeping just one note in the second column it becomes a kind of flash card</p>
+<p>Pros: This behaviour is closer to notepad applications on mobile devices which show a list of notes.
+It saves space in the list and gives more prominence to a selected note, turning it into a flash card.</p>
 </li>
 <li>
-<p>Cons: Harder to implement (FXML must reach into the object representing the second column),
-need to have a separate <code>NotePreview</code> JavaFX object since images are only going to be displayed
-in the second column</p>
+<p>Cons: The second column, normally housing revision tasks, requires extra code to handle the display
+of full notes. This may include a separate <code>NotePreview</code> class, or <code>Note</code> may have a variable toggling
+between preview and full modes.</p>
 </li>
 </ul>
 </div>
@@ -340,34 +361,38 @@ in the second column</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-when-to-copy-images-into-the-local-folder"><a class="link" href="#design-considerations-when-to-copy-images-into-the-local-folder">4.1.3. Design considerations: when to copy images into the local folder</a></h4>
+<h4 id="design-considerations-when-to-copy-images-into-the-local-folder"><a class="link" href="#design-considerations-when-to-copy-images-into-the-local-folder">3.1.3. Design considerations: when to copy images into the local folder</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Alternative 1 (current choice):</em> Images are copied when the command is executed, i.e. <code>Command#execute()</code></p>
+<p><em>Alternative 1 (current choice):</em> We copy images when the command is executed, i.e. in <code>Command#execute()</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Effects a better separation of concerns (image selection is not execution of the command, image
-copying may be thought of as a side effect of command execution)</p>
+<p>Pros: This effects a better separation of concerns – image selection is not execution of the command, while
+copying can be a side effect of command execution. Individual command effects can be fine-tuned.</p>
 </li>
 <li>
-<p>Cons: Need to adapt the file copying code to each command</p>
+<p>Cons: Each command that copies images needs to have its own code implementing the copy. To reduce code
+duplication, that common code can be written as a method of the <code>Note</code> class requiring a <code>Path</code> object representing
+the destination folder for the copy.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Alternative 2:</em> Images are copied when the image is selected, i.e. <code>AppUtil#selectImage()</code></p>
+<p><em>Alternative 2:</em> We copy images when the image is selected, i.e. in <code>AppUtil#selectImage()</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Compared to alternative 1, has less time between initial image selection and the copy into
-application data. There is a potential application risk if</p>
+<p>Pros: Compared to alternative 1, this takes less time between image selection and writing into
+application data, minimising the chance of exceptions due to changes in the file system (permissions,
+existence of the file at the specified path, etc.) being raised.</p>
 </li>
 <li>
-<p>Cons: <code>selectImage()</code> has two only loosely related responsibilities (worse separation of concerns),
-impossible to take into account user preferences for where the application data is stored</p>
+<p>Cons: <code>selectImage()</code> has two only loosely related responsibilities in this alternative, which is
+a worse separation of concerns. It is impossible to take into account user preferences at the point of image
+selection, since it requires a <code>Model</code> object which is not available to <code>AppUtil#selectImage()</code>.</p>
 </li>
 </ul>
 </div>
@@ -377,9 +402,9 @@ impossible to take into account user preferences for where the application data 
 </div>
 </div>
 <div class="sect2">
-<h3 id="question-management-feature"><a class="link" href="#question-management-feature">4.2. Question management feature</a></h3>
+<h3 id="question-management-feature"><a class="link" href="#question-management-feature">3.2. Question management feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The question management feature is facilitated by <code>Model</code>.
 The question-related commands extend <code>Command</code> with the question object if necessary.
@@ -520,9 +545,9 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="quiz-mode-for-revision"><a class="link" href="#quiz-mode-for-revision">4.3. Quiz mode for revision</a></h3>
+<h3 id="quiz-mode-for-revision"><a class="link" href="#quiz-mode-for-revision">3.3. Quiz mode for revision</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The quiz mode feature is facilitated by <code>Model</code>.
 The quiz-related commands extend <code>Command</code> with specific question object.
@@ -600,7 +625,7 @@ a list of specific question selected by user for quiz.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-store-the-quiz-results"><a class="link" href="#aspect-how-to-store-the-quiz-results">Aspect: How to store the quiz results</a></h5>
 <div class="ulist">
@@ -672,9 +697,9 @@ list operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.4. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.4. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.4.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The statistics feature gathers data stored from quizzes done in NUStudy to analyse and return an output.
 The different commands supported by the statistics feature are used to filter the type of statistics the user wants.
@@ -745,7 +770,7 @@ again using the <code>listnote</code> command. The statistics panel will now be 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-statistics-are-shown"><a class="link" href="#aspect-where-statistics-are-shown">Aspect: Where statistics are shown</a></h5>
 <div class="ulist">
@@ -817,9 +842,9 @@ This is also more difficult to implement.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-revision-task"><a class="link" href="#add-revision-task">4.5. Add revision task</a></h3>
+<h3 id="add-revision-task"><a class="link" href="#add-revision-task">3.5. Add revision task</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p><code>AddTaskForNoteCommand</code> is implemented to add a task for lecture notes revision with the command <code>rn</code>. It extends <code>Command</code> class and adds a
 <code>Task</code> for lecture notes revision to the <code>TaskList</code> kept in <code>AppData</code> model, which wraps all application data. Similarly,
@@ -844,7 +869,7 @@ because of polymorphism.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-design-of-code-task-code"><a class="link" href="#aspect-design-of-code-task-code">Aspect: Design of <code>Task</code></a></h5>
 <div class="ulist">
@@ -912,14 +937,14 @@ tasks are needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We use <code>java.util.logging</code> for logging. The <code>LogsCenter</code> class is used to manage the logging levels and destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (see <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>).</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>,
@@ -951,7 +976,7 @@ which will log messages according to the specified logging level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>The user preferences file location and logging level can be set through the configuration file,
 by default <code>config.json</code>.</p>
@@ -960,7 +985,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -968,7 +993,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -976,7 +1001,7 @@ by default <code>config.json</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="devops"><a class="link" href="#devops">7. DevOps</a></h2>
+<h2 id="devops"><a class="link" href="#devops">6. DevOps</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -2180,4 +2205,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 03:55:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:07:05 UTC</div></div></div></body></html>

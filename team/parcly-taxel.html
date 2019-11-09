@@ -258,10 +258,13 @@ I contributed in code and my proficiency in using diagrams to explain my work.</
 <h3 id="image-support-for-lecture-notes"><a class="link" href="#image-support-for-lecture-notes">Image support for lecture notes</a></h3>
 <div class="paragraph">
 <p>Usually, we do not learn best from just text; we rely on images that our minds can process more easily.
-As such, implementing images in lecture notes was considered very important. Although some lecture notes
-have multiple images, it is always possible to combine them using basic image editing software like the
-GNU Image Manipulation Program (GIMP) and Paint, so the implementation was limited to at most one
-image per note.</p>
+As such, implementing images in lecture notes is a very important feature for NUStudy.</p>
+</div>
+<div class="paragraph">
+<p>Although some lecture notes have multiple images, it is always possible to combine them using
+basic image editing software like the GNU Image Manipulation Program (GIMP) and Paint, so the implementation is
+limited to at most one image per note. Having a common format for notes facilitates their retrieval through
+the <code>findnote</code> command and aids a human user in remembering what the notes say.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
@@ -288,7 +291,7 @@ has the field <code>isImageRemoved</code> to track this.</p>
 <div class="paragraph">
 <p>We also defer image selection until after the title has been checked against existing lecture notes,
 which saves time that would otherwise be wasted in navigating to the desired image.
-This is accomplished using</p>
+This is accomplished using three things:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -325,7 +328,7 @@ into application data using <code>finalizeImage()</code>, which points reference
 <hr>
 <div class="paragraph">
 <p>Both the use of a JavaFX built-in object for images and the system-dependent implementation of
-graphics-related objects required me to make certain critical decisions on the implementation of image support.</p>
+graphical objects required me to make certain critical decisions regarding image support in lecture notes.</p>
 </div>
 <hr>
 </div>
@@ -334,31 +337,35 @@ graphics-related objects required me to make certain critical decisions on the i
 <div class="ulist">
 <ul>
 <li>
-<p><em>Alternative 1 (current choice):</em> Images are shown within each lecture note in the first column, and each lecture note
-shows all of its title, content and image</p>
+<p><em>Alternative 1 (current choice):</em> We show the images associated to each and every lecture note
+in the first column, together with the title and content.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement (FXML does not have to reach into other places)</p>
+<p>Pros: This is easier to implement, for the code interfacing with FXML does not have to be written in places other
+than those directly pertaining to notes. It also makes the note "card" (object representing the note)
+self-contained.</p>
 </li>
 <li>
 <p>Cons: Scrolling through lecture notes, all with images, takes time, but this downside is alleviated
-by the <code>findnote</code> command</p>
+by the <code>findnote</code> command.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Alternative 2:</em> Place the images in the second column, below their corresponding title and content</p>
+<p><em>Alternative 2:</em> We place <strong>one</strong> full note in the second column and only show a preview (the title and first words
+of the content) in the first column.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More visually appealing, since by keeping just one note in the second column it becomes a kind of flash card</p>
+<p>Pros: This behaviour is closer to notepad applications on mobile devices which show a list of notes.
+It saves space in the list and gives more prominence to a selected note, turning it into a flash card.</p>
 </li>
 <li>
-<p>Cons: Harder to implement (FXML must reach into the object representing the second column),
-need to have a separate <code>NotePreview</code> JavaFX object since images are only going to be displayed
-in the second column</p>
+<p>Cons: The second column, normally housing revision tasks, requires extra code to handle the display
+of full notes. This may include a separate <code>NotePreview</code> class, or <code>Note</code> may have a variable toggling
+between preview and full modes.</p>
 </li>
 </ul>
 </div>
@@ -371,30 +378,34 @@ in the second column</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Alternative 1 (current choice):</em> Images are copied when the command is executed, i.e. <code>Command#execute()</code></p>
+<p><em>Alternative 1 (current choice):</em> We copy images when the command is executed, i.e. in <code>Command#execute()</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Effects a better separation of concerns (image selection is not execution of the command, image
-copying may be thought of as a side effect of command execution)</p>
+<p>Pros: This effects a better separation of concerns – image selection is not execution of the command, while
+copying can be a side effect of command execution. Individual command effects can be fine-tuned.</p>
 </li>
 <li>
-<p>Cons: Need to adapt the file copying code to each command</p>
+<p>Cons: Each command that copies images needs to have its own code implementing the copy. To reduce code
+duplication, that common code can be written as a method of the <code>Note</code> class requiring a <code>Path</code> object representing
+the destination folder for the copy.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Alternative 2:</em> Images are copied when the image is selected, i.e. <code>AppUtil#selectImage()</code></p>
+<p><em>Alternative 2:</em> We copy images when the image is selected, i.e. in <code>AppUtil#selectImage()</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Compared to alternative 1, has less time between initial image selection and the copy into
-application data. There is a potential application risk if</p>
+<p>Pros: Compared to alternative 1, this takes less time between image selection and writing into
+application data, minimising the chance of exceptions due to changes in the file system (permissions,
+existence of the file at the specified path, etc.) being raised.</p>
 </li>
 <li>
-<p>Cons: <code>selectImage()</code> has two only loosely related responsibilities (worse separation of concerns),
-impossible to take into account user preferences for where the application data is stored</p>
+<p>Cons: <code>selectImage()</code> has two only loosely related responsibilities in this alternative, which is
+a worse separation of concerns. It is impossible to take into account user preferences at the point of image
+selection, since it requires a <code>Model</code> object which is not available to <code>AppUtil#selectImage()</code>.</p>
 </li>
 </ul>
 </div>
@@ -550,4 +561,4 @@ It is not quizzable.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 03:55:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:07:05 UTC</div></div></div></body></html>
