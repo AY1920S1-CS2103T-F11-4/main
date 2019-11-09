@@ -1,14 +1,14 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy project portfolio for Irene Lee (irene-lly)</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>NUStudy Project Portfolio for Irene Lee</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy project portfolio for Irene Lee (irene-lly)</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">NUStudy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F11-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>NUStudy Project Portfolio for Irene Lee</h1></div><div id="content"><div class="sect1">
 <h2 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This portfolio documents my contributions to NUStudy, a learning application.
-Our team of 5 software engineering students were tasked with
-enhancing a basic command line interface desktop Addressbook application
-as part of our Software Engineering project in CS2103T.
-We were asked to conceptualize and implement enhancements to the existing application
+Our team of 5 software engineering students from the National University of Singapore (NUS)
+were asked to enhance an Addressbook application with Command Line Interface (CLI)
+as the primary mode of input as part of our Software Engineering project in CS2103T.
+We had to conceptualize and implement enhancements to the existing Addressbook application
 and do it in a manner such that future developers can continue working on it.
 After some deliberation, we decided to morph it into an application to facilitate learning for students.
 The morphed application, NUStudy, enables students to add and manage notes;
@@ -19,15 +19,15 @@ and set tasks to plan their revision schedule.</p>
 <div class="paragraph">
 <p>I contributed to this project by implementing the statistics feature as documented below.
 In particular, I have implemented the <code>stats</code>, <code>questions</code>, <code>report</code> and <code>overview</code> commands.
-The following sections illustrate the enhancements in more detail,
-as well as the relevant documentation I have added to the user and developer guides in
+The following sections will elaborate more on these enhancements
+and showcase some documentations that I have added to the user and developer guides in
 relation to these enhancements.</p>
 </div>
 <div class="paragraph">
-<p>Note the following symbols and formatting used in this document:<br>
+<p>Key to symbols and formatting used:<br>
 <code>stats</code>: A grey highlight indicates that this is a command that can be inputted
 into the command line and executed by the application.<br>
-<strong>Bold</strong>: A bolded word indicates an action to be taken by the user.</p>
+(#1): A hash followed by a number indicates a pull request or an issue.</p>
 </div>
 </div>
 </div>
@@ -47,18 +47,18 @@ into the command line and executed by the application.<br>
 and return an overview of how well they have done the questions.</p>
 </li>
 <li>
-<p>Justification: The <code>questions</code> and <code>report</code> commands help users to get an
+<p>Justification: The <code>question</code> and <code>report</code> commands help users to get an
 idea of what subjects they are weaker in and see the common mistakes that they have made.
 The <code>stats</code> and <code>overview</code> commands gives users an idea of which questions they
 should attempt more of and what subjects they have been neglecting.
-Overall, the purpose of the statistics feature is to provide users with a rough
-outline of their progress in mastering the foundations of the subject.</p>
+Overall, the statistics feature helps to provide users with a rough
+outline of their progress in mastering the subject.</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future.
 An in-depth analysis of design alternatives is required in the future.
-The implementation was also challenging as it required changes to existing models
-and logic classes.</p>
+The implementation was also challenging as it required many changes to existing models,
+logic classes and the UI.</p>
 </li>
 </ul>
 </div>
@@ -88,7 +88,7 @@ is easy to understand and that the code is well-documented.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed pull requests (with non-trivial review comments):
+<p>Reviewed pull requests:
 <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a>,
 <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/97">#97</a></p>
 </li>
@@ -125,14 +125,13 @@ is easy to understand and that the code is well-documented.</p>
 <div class="paragraph">
 <p>We have modified the existing Addressbook User Guide to include commands for the enhancements
 that we have added as well as remove the old commands that are not relevant to our project.
-The following is an excerpt from our User Guide,
-showing additions that I have made for the statistics features.</p>
+Given below shows my additions to the NUStudy User Guide for the statistics feature.</p>
 </div>
 <hr>
 <div class="sect2">
 <h3 id="statistics"><a class="link" href="#statistics">Statistics</a></h3>
 <div class="paragraph">
-<p>You can get statistics of the questions that you have done in the app.
+<p>After doing some quizzes, you can get statistics of the questions that you have done in the app.
 The statistics functions listed below are used to filter the type of statistics that you want to get.</p>
 </div>
 <div class="admonitionblock note">
@@ -156,7 +155,7 @@ Questions and Revision tasks features. E.g. <code>rlist</code>.
 </td>
 <td class="content">
 Quiz results stored in the app are not synchronised with the questions.
-If a question has been modified by the <code>editq</code> command,
+If you have modified a question using the <code>editq</code> command,
 the stored quiz result will still refer to the original question to minimise inconsistencies in the statistics.
 This is because a question that has been modified to a large extent
 might cause past answers to become irrelevant and distort the statistics.
@@ -165,15 +164,15 @@ might cause past answers to become irrelevant and distort the statistics.
 </table>
 </div>
 <div class="sect3">
-<h4 id="getting-statistics-for-subjects-code-stats-code"><a class="link" href="#getting-statistics-for-subjects-code-stats-code">Getting statistics for subjects: <code>stats</code></a></h4>
+<h4 id="getting-statistics-for-subjects-code-stats-code"><a class="link" href="#getting-statistics-for-subjects-code-stats-code">Getting statistics for subjects : <code>stats</code></a></h4>
 <div class="paragraph">
-<p>Returns a panel containing a break down of the questions by its results.
-You can choose to get the statistics for a difficulty level by adding <code>d/</code> or
-get the statistics of different subjects by adding <code>s/</code>.<br>
+<p>You can get a breakdown of the questions that you have done by its results.
+If you want to narrow the results down, you can also choose to get the statistics for a difficulty
+level by adding <code>d/</code> or get the statistics of different subjects by adding <code>s/</code>.<br>
 Format: <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Example:
+<p>Example:<br>
 Let&#8217;s say you have answered some questions from CS2103T previously and would like
 a ballpark figure to estimate how well you have grasp the basic foundations of the subject.</p>
 </div>
@@ -203,14 +202,14 @@ a ballpark figure to estimate how well you have grasp the basic foundations of t
 <div class="sect3">
 <h4 id="getting-questions-with-correct-incorrect-answers-code-question-code"><a class="link" href="#getting-questions-with-correct-incorrect-answers-code-question-code">Getting questions with correct/incorrect answers: <code>question</code></a></h4>
 <div class="paragraph">
-<p>Get a panel containing all questions that have been answered correctly/incorrectly by using <code>-c/-i</code> respectively.
+<p>You can get all questions that have been answered correctly/incorrectly by using <code>-c/-i</code> respectively.
 Either one of <code>-c</code> or <code>-i</code> must be used. You can also filter by subjects by adding <code>s/</code>.<br>
 Format: <code>question [-c] [-i] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Example:
+<p>Example:<br>
 Now that you have gotten the number of correct to incorrect answers, you want to see what questions
-you have done wrong to decide on how you can further improve.</p>
+you have done incorrectly to decide on how you can further improve.</p>
 </div>
 <div class="paragraph">
 <p>To see the questions:</p>
@@ -225,7 +224,7 @@ you have done wrong to decide on how you can further improve.</p>
 </li>
 <li>
 <p>You will be able to see a list of all your incorrectly answered questions for CS2103T and
-your past answers to it as well as a break down of the number of questions by difficulty level.</p>
+your past answers to it as well as a breakdown of the number of questions by difficulty level.</p>
 </li>
 </ol>
 </div>
@@ -239,8 +238,8 @@ your past answers to it as well as a break down of the number of questions by di
 <div class="sect3">
 <h4 id="getting-a-report-for-individual-questions-code-report-code"><a class="link" href="#getting-a-report-for-individual-questions-code-report-code">Getting a report for individual questions: <code>report</code></a></h4>
 <div class="paragraph">
-<p>Returns a panel containing a report of how well you have answered a particular question
-and shows all your past answers to the question.<br>
+<p>You can get a report of how well you have answered a particular question
+and see all your past answers to the question.<br>
 Format: <code>report INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -258,13 +257,13 @@ Format: <code>report INDEX</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Example:
+<p>Example:<br>
 After getting the questions that you have done wrong, you noticed that there is one particular
-question that you have answered wrong numerous times. This just so happened to be the third
+question that you have answered incorrectly numerous times. This just so happened to be the seventh
 question in the question list. You decided to investigate further.</p>
 </div>
 <div class="paragraph">
-<p>To see a report of the question:</p>
+<p>To see a report of the question 7:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -289,7 +288,7 @@ question in the question list. You decided to investigate further.</p>
 <div class="sect3">
 <h4 id="getting-overview-of-questions-attempted-code-overview-code"><a class="link" href="#getting-overview-of-questions-attempted-code-overview-code">Getting overview of questions attempted: <code>overview</code></a></h4>
 <div class="paragraph">
-<p>Get an overview of the types of questions that have been attempted overall.
+<p>You can get an overview of the types of questions that you have attempted overall.
 A panel containing a stacked bar graph, sorted by subjects will be returned.
 You can also add two <code>dt/</code> fields representing a time period to get questions you did
 within that time period. The format for date is dd/MM/yyyy.<br>
@@ -321,21 +320,8 @@ you can use your mouse to hover above them.
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The date in the dt field must be a valid date, if an invalid date is used i.e. 31/11/2019 it will
-be run down to the nearest valid date i.e. 30/11/2019.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
-<p>Example:
+<p>Example:<br>
 You are finally done viewing your quiz results and want to know what questions you should attempt next.
 To be a well-rounded individual, you decided to check if you have been neglecting any subjects recently.</p>
 </div>
@@ -348,10 +334,10 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <p>Type <code>overview dt/20/10/2019 dt/06/11/2019</code> into the command box, and press <code>Enter</code> to execute it.</p>
 </li>
 <li>
-<p>The result box will display the message "Here is an overview of the questions: (20/10/2019 to 05/11/2019)"</p>
+<p>The result box will display the message "Here is an overview of the questions: (20/10/2019 to 06/11/2019)"</p>
 </li>
 <li>
-<p>And you can see a stack bar chart of all questions that you have attempted from 20/10/2019 to 05/11/2019.</p>
+<p>And you can see a stack bar chart of all questions that you have attempted from 20/10/2019 to 06/11/2019.</p>
 </li>
 </ol>
 </div>
@@ -369,9 +355,9 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We have also modified the existing addressBook developer guide to include implementation of
-our features as well as remove the old documentation of the addressBook features.
-Given below shows my additions to the NUStudy developer guide for the statistics feature.</p>
+<p>We have also modified the existing addressBook Developer Guide to include implementation of
+our features as well as remove the old documentation of the AddressBook features.
+Given below shows my additions to the NUStudy Developer Guide for the statistics feature.</p>
 </div>
 <hr>
 <div class="sect2">
@@ -392,7 +378,7 @@ These commands include:</p>
 <p><code>GetReportCommand</code>&#8201;&#8212;&#8201;Returns a report of the specified question.</p>
 </li>
 <li>
-<p><code>GetStatisticsCommand</code>&#8201;&#8212;&#8201;Returns a panel containing a break down of the questions by its results.</p>
+<p><code>GetStatisticsCommand</code>&#8201;&#8212;&#8201;Returns a pie chart containing a break down of the questions by its results.</p>
 </li>
 <li>
 <p><code>GetOverviewCommand</code>&#8201;&#8212;&#8201;Gets an overview of the types of questions that have been attempted overall.</p>
@@ -407,11 +393,12 @@ These commands include:</p>
 The app will attempt to read past data from any quizzes done and store it internally to a <code>quizResults</code> list.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>stats s/CS2103T</code> command to get the statistics of all quiz questions done for CS2103T.
-The <code>stats</code> command creates a new <code>commandResult</code> setting the type of command to <code>STATS</code>.</p>
+<p>Step 2. The user enters <code>stats s/CS2103T</code> to get the statistics of all quiz questions done for CS2103T.
+A <code>GetStatisticsCommand</code> will be created. When it is executed from the <code>MainWindow</code>,
+it returns a new <code>CommandResult</code> with command type: <code>STATS</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram shows how the <code>GetStatisticsCommand</code> and <code>CommandResult</code> class are related.</p>
+<p>The following class diagram shows how the <code>GetStatisticsCommand</code> and <code>CommandResult</code> classes are related.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -420,21 +407,21 @@ The <code>stats</code> command creates a new <code>commandResult</code> setting 
 <div class="title">Figure 5. Class diagram for <code>GetStatisticsCommand</code></div>
 </div>
 <div class="paragraph">
-<p>Step 3. When the <code>commandResult</code> is executed from the <code>MainWindow</code>, it will call a <code>showStats</code> method to filter
-the <code>quizResults</code> list by CS2103T and create the relevant outputs.
-It will then show a statistics panel, hiding all notes and tasks.</p>
+<p>Step 3. After <code>CommandResult</code> is returned to <code>MainWindow</code>, it will call a <code>showStats</code> method to
+create a pie chart. It will then show a statistics panel, hiding all notes, tasks and questions.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the statistics operation works:</p>
+<p>The following sequence diagram shows how the UI handles the <code>GetStatisticsCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
 </div>
+<div class="title">Figure 6. UI sequence diagram for <code>GetStatisticsCommand</code></div>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now wants to stop viewing statistics and decides to view all notes and tasks again using the <code>listnote</code> command.
-The statistics panel will now be hidden.</p>
+<p>Step 4. The user now wants to stop viewing statistics and decides to view all notes, tasks and questions
+again using the <code>listnote</code> command. The statistics panel will now be hidden.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes the statistics command:</p>
@@ -443,7 +430,7 @@ The statistics panel will now be hidden.</p>
 <div class="content">
 <img src="../images/statistics/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram">
 </div>
-<div class="title">Figure 6. Statistics activity diagram</div>
+<div class="title">Figure 7. Statistics activity diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -457,7 +444,7 @@ The statistics panel will now be hidden.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Less scrolling needed, more information can be shown in one panel.</p>
+<p>Pros: Less scrolling will be needed and more information can be shown in one panel.</p>
 </li>
 <li>
 <p>Cons: More methods are needed to deal with hiding and showing the different panels leading to more room for errors.</p>
@@ -470,7 +457,7 @@ The statistics panel will now be hidden.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: It is easy to implement.</p>
 </li>
 <li>
 <p>Cons: The number of notes, tasks and questions that can be seen without scrolling will be decreased.
@@ -487,11 +474,11 @@ The charts will be small and condensed making it difficult to see the data at fi
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a pie chart</p>
+<p><strong>Alternative 1 (current choice):</strong> Use a pie chart.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to read at a glance</p>
+<p>Pros: It is easy to read at a glance.</p>
 </li>
 <li>
 <p>Cons: Pie chart slices may get too small to see if there are too little correct/incorrect questions done.</p>
@@ -500,11 +487,11 @@ The charts will be small and condensed making it difficult to see the data at fi
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use a grouped bar chart</p>
+<p><strong>Alternative 2:</strong> Use a grouped bar chart.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The questions done are sorted by subjects, is more informative.</p>
+<p>Pros: The questions done are sorted by subjects, thus it is more informative.</p>
 </li>
 <li>
 <p>Cons: As the number of subjects increases, the bars get thinner making it more difficult to see the data.
@@ -516,8 +503,112 @@ This is also more difficult to implement.</p>
 </ul>
 </div>
 <hr>
+<h3 id="use-case-get-statistics-for-subjects-irene" class="discrete">Use case: get statistics for subjects (Irene)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to get the statistics for a difficulty and some subjects <code>stats [d/DIFFICULTY] [s/SUBJECT1] [s/SUBJECT2]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p>Application returns a pie chart with number of questions answered correctly and incorrectly</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student provides an invalid difficulty or invalid subjects</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application will inform students that there are no statistics for that difficulty/subject</p>
+</li>
+<li>
+<p>1a2. Student will re-enter the command with a valid difficulty/subject</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-get-report-of-individual-questions-irene" class="discrete">Use case: get report of individual questions (Irene)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Student gives the command to get report of a question <code>report INDEX</code></p>
+</li>
+<li>
+<p>Application returns past attempts of the question and statistics of how well the question has been answered</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Student gives an out-of-range index</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application displays a message indicating that the index is invalid</p>
+</li>
+<li>
+<p>1a2. Student re-enters the command</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until a valid index is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Student does not provide an index</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Application displays a message indicating that the command format is invalid</p>
+</li>
+<li>
+<p>1b2. Student re-enters the command</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<hr>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 00:44:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 02:35:55 UTC</div></div></div></body></html>
