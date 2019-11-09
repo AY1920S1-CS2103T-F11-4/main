@@ -570,10 +570,10 @@ updated appData in local storage when the command finishes executing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: It is easier to implement.</p>
 </li>
 <li>
-<p>Cons: Need the extra step to ensure that the internal list is correctly maintained.</p>
+<p>Cons: It needs the extra step to ensure that the internal list is correctly maintained.</p>
 </li>
 </ul>
 </div>
@@ -583,10 +583,10 @@ updated appData in local storage when the command finishes executing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No need to implement the internal list.</p>
+<p>Pros: There is no need to implement the internal list.</p>
 </li>
 <li>
-<p>Cons: Will access local memory more frequently. May have performance issues in terms of memory usage.</p>
+<p>Cons: The access to local memory is more frequent and it may have performance issues in terms of memory usage.</p>
 </li>
 </ul>
 </div>
@@ -595,7 +595,7 @@ updated appData in local storage when the command finishes executing.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-quiz-commands"><a class="link" href="#aspect-data-structure-to-support-the-quiz-commands">Aspect: Data structure to support the quiz commands</a></h5>
+<h5 id="aspect-what-data-structure-is-used-to-support-the-quiz-commands"><a class="link" href="#aspect-what-data-structure-is-used-to-support-the-quiz-commands">Aspect: What data structure is used to support the quiz commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -603,7 +603,7 @@ updated appData in local storage when the command finishes executing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Cater to the quiz model specifically. Quiz question and result list operations are encapsulated in one class.</p>
+<p>Pros: It is targeted to the quiz model specifically. Quiz question and result list operations are encapsulated in one class.</p>
 </li>
 <li>
 <p>Cons: Logic is duplicated as other models also implement similar list structure.</p>
@@ -616,10 +616,10 @@ updated appData in local storage when the command finishes executing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Do not need to maintain a separate list class.</p>
+<p>Pros: There is no need to maintain a separate list class.</p>
 </li>
 <li>
-<p>Cons: Violates Single Responsibility Principle and Separation of Concerns as the model needs to maintain various
+<p>Cons: It violates Single Responsibility Principle and Separation of Concerns as the model needs to maintain various
 list operations.</p>
 </li>
 </ul>
@@ -2138,4 +2138,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 00:40:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 00:44:29 UTC</div></div></div></body></html>
