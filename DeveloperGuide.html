@@ -55,6 +55,7 @@ for its implementation so that you can start contributing in no time.</p>
 <li><a href="#image-support">F.2. Image support</a></li>
 <li><a href="#question-management">F.3. Question management</a></li>
 <li><a href="#quiz-mode">F.4. Quiz mode</a></li>
+<li><a href="#revision-task-management-2">F.5. Revision task management</a></li>
 </ul>
 </li>
 </ul>
@@ -2484,5 +2485,152 @@ Ensure the application has at least one question to do the quiz.
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="revision-task-management-2"><a class="link" href="#revision-task-management-2">F.5. Revision task management</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Before adding task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Add some notes to the app to be used for tasks.</p>
+</li>
+<li>
+<p>Add notes by typing <code>addnote t/a c/a</code>, followed by <code>addnote t/b c/b</code>.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:53:52 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Adding a task for revising a note to the revision list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rn t/a dt/01/11/2019 tm/0900</code>.</p>
+</li>
+<li>
+<p>The app will display message for successful addition of the task if there is a note with title "a" in the note list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a task for revising a question to the revision list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rq i/1 dt/12/09/2019 tm/1200</code>.</p>
+</li>
+<li>
+<p>The app will display message for successful addition of the task if there is a question with index 1 in the question list.
+If the question list is empty, an error message will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>redit 1 h/b</code>.</p>
+</li>
+<li>
+<p>The heading of the first task will be changed to b if both the first task and a note with title "b" exist in the note list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Marking a task as done</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rdone 1</code></p>
+</li>
+<li>
+<p>The first task will be marked as done.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Searching for a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rfind tm/0900</code>.</p>
+</li>
+<li>
+<p>All task at 9am will be shown (if existing).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing all tasks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rlist</code>.</p>
+</li>
+<li>
+<p>All tasks will be shown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Showing finished tasks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>finished</code>.</p>
+</li>
+<li>
+<p>All finished (done) tasks will be shown.</p>
+</li>
+<li>
+<p>Similar operations can be done for unfinished tasks and overdue tasks with command <code>unfinished</code>, <code>overdue</code> respectively.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rlist</code> to display all tasks for better demo effect. (If there are more than one tasks in the current list view, you can skip this step)</p>
+</li>
+<li>
+<p>Type <code>rdelete 2</code></p>
+</li>
+<li>
+<p>The second task in the current list view will be successfully deleted (if existing).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Clearing all tasks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>rclear</code>.</p>
+</li>
+<li>
+<p>All tasks will be cleared.</p>
+</li>
+<li>
+<p>Type <code>rlist</code> and you can see no task is left in the list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:50:33 UTC</div></div></div></body></html>
