@@ -10,23 +10,40 @@ and the various skills I have acquired and utilised in the process of developmen
 <div class="sect2">
 <h3 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h3>
 <div class="paragraph">
-<p>My team of 4 software engineering students and I were tasked with enhancing a basic command line interface desktop
+<p>Our team consists of 5 software engineering students who are passionate about software development.
+We were assigned to enhance a basic command line interface desktop
 <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">address book application</a> for our Software Engineering project.
-We chose to morph it into a revision flashcard desktop application called <strong>NUStudy</strong>.
+We decided to morph it into a revision flashcard desktop application called <strong>NUStudy</strong>.
 This enhanced application enables NUS students to store and manage lecture notes,
 practice questions under exam conditions and plan revision tasks effectively.</p>
 </div>
 <div class="paragraph">
-<p>This is what our project looks like: (todo: graphical user interface)</p>
+<p>This is what our project looks like:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/full.png" alt="full" width="700">
+</div>
 </div>
 <div class="paragraph">
-<p>My role is to design and write the code for question management features. The following sections illustrate
-these enhancements in more detail, as well as the relevant documentation I have added to the user and developer guides
-in relation to these enhancements.</p>
+<p>My job is to design and write the code for question management features. Details of the enhancements and
+relevant documentation I have completed will be further explained in sections below.</p>
 </div>
 <div class="paragraph">
-<p>In this portfolio <code>monospace</code> indicates command-line input (commands, parameters, etc.)
-and <em>italics</em> mark class names.</p>
+<p>Please take note of the following symbols and formatting used in this documentaion:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>monospace</code> indicates command-line input</p>
+</li>
+<li>
+<p><em>italics</em> indicates class names</p>
+</li>
+<li>
+<p># followed by a number indicates a pull request (PR) or issue (eg. #12)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -44,9 +61,9 @@ and <em>italics</em> mark class names.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>I was responsible for <strong>implementing question management features</strong>. A question includes a question body, an answer,
+<p>I was responsible for <strong>implementing question management features</strong>.A question includes a question body, an answer,
 a subject and a difficulty level. I have modified the existing <em>Person</em> model to <em>Question</em> model, as well as
-some of its relevant fields in the original address book application.</p>
+some of its relevant fields in the original address book application. (starting from PR <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/44">#44</a>).</p>
 </li>
 <li>
 <p>The question management commands are modified by the original person management commands as well.
@@ -80,7 +97,7 @@ The question bank can also support other features such as quiz mode and various 
 <ul>
 <li>
 <p>Testing: As I am responsible for testing, I have added a significant number of test classes which increased
-coverage to a large extent.</p>
+coverage to a large extent (as seen from PR <a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/84">#84</a>).</p>
 </li>
 <li>
 <p>Documentation: I modified the user guide from a draft version to the standardised formal version. I have also
@@ -91,10 +108,14 @@ standardised the command format for most of the features.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed Pull Requests</p>
+<p>Reviewed Pull Requests
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/43">#43</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F11-4/main/pull/53">#53</a></p>
 </li>
 <li>
-<p>Reported bugs and offered suggestions for other teams in the class</p>
+<p>Reported bugs and offered suggestions for other teams in the class. Please click this link to see a list of issues
+I have created for peer reviews.
+<a href="https://github.com/ShirleyWangxt/ped/issues">link</a></p>
 </li>
 </ul>
 </div>
@@ -108,8 +129,7 @@ standardised the command format for most of the features.</p>
 <h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We had to update the original addressbook User Guide with instructions for the enhancements that we had added.
-The following is an excerpt from our NUStudy User Guide, showing additions that I have made for the
+<p>The following is a part from my NUStudy User Guide, showing enhancements that I have made for the
 question management features.</p>
 </div>
 <hr>
@@ -150,6 +170,7 @@ Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 <div class="content">
 <img src="../images/questionCommandsDemo/addqcommand.png" alt="addqcommand" width="600">
 </div>
+<div class="title">Figure 1. Add question command</div>
 </div>
 <div class="paragraph">
 <p>The new question will be added to your question bank.</p>
@@ -158,23 +179,7 @@ Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 <div class="content">
 <img src="../images/questionCommandsDemo/addqresult.png" alt="addqresult" width="600">
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">Listing all questions: <code>listq</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to view the list of all questions.<br>
-Format: <code>listq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/listqcommand.png" alt="listqcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/listqresult.png" alt="listqresult" width="600">
-</div>
+<div class="title">Figure 2. Result for add question command</div>
 </div>
 </div>
 <div class="sect3">
@@ -207,7 +212,7 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="ulist">
 <ul>
 <li>
-<p><code>editq 7 a/16 d/easy</code></p>
+<p><code>editq 6 a/16 d/easy</code></p>
 </li>
 </ul>
 </div>
@@ -215,6 +220,7 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="content">
 <img src="../images/questionCommandsDemo/editqcommand.png" alt="editqcommand" width="600">
 </div>
+<div class="title">Figure 3. Edit question command</div>
 </div>
 <div class="paragraph">
 <p>Edits the answer and difficulty of the 2nd question to be <code>16</code> and <code>easy</code> respectively.</p>
@@ -223,6 +229,7 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="content">
 <img src="../images/questionCommandsDemo/editqresult.png" alt="editqresult" width="600">
 </div>
+<div class="title">Figure 4. Result for edit question command</div>
 </div>
 </div>
 <div class="sect3">
@@ -244,6 +251,11 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <li>
 <p>Only full words will be matched.</p>
 </li>
+<li>
+<p>NUStudy will return a list of questions containing any one of the keywords you provided.
+For example, if you type the command <code>findq word1 word2</code>, questions with body or answer which contains
+"word1", "word2", "word 1 word2", "word2 word1", or "word1 word2 xxxxxx yyyy".</p>
+</li>
 </ul>
 </div>
 </div>
@@ -254,7 +266,7 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findq UDP</code></p>
+<p><code>findq coupling tcp</code></p>
 </li>
 </ul>
 </div>
@@ -262,178 +274,16 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <div class="content">
 <img src="../images/questionCommandsDemo/findqcommand.png" alt="findqcommand" width="600">
 </div>
+<div class="title">Figure 5. Find question command</div>
 </div>
 <div class="paragraph">
-<p>Finds the question whose body contains the keyword <code>UDP</code>.</p>
+<p>Finds the questions whose body or answer contains the keyword <code>coupling</code> or <code>tcp</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/questionCommandsDemo/findqresult.png" alt="findqresult" width="600">
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">Deleting a question: <code>deleteq</code></a></h4>
-<div class="paragraph">
-<p>You can delete a question at its specified INDEX together with its relevant fields from the list.<br>
-Format: <code>deleteq INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the question at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed question list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listq</code><br>
-<code>deleteq 3</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/deleteqcommand.png" alt="deleteqcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Deletes the 2nd question from the question list.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/deleteqresult.png" alt="deleteqresult" width="600">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findq character</code><br>
-<code>deleteq 1</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Deletes the 1st question in the results of <code>findq</code> command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="filtering-by-difficulty-code-difficulty-code"><a class="link" href="#filtering-by-difficulty-code-difficulty-code">Filtering by difficulty: <code>difficulty</code></a></h4>
-<div class="paragraph">
-<p>You can view the list of all questions filtered by the specific difficulty.<br>
-Format: <code>difficulty DIFFICULTY</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive.</p>
-</li>
-<li>
-<p>Only full difficulty will be matched.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>difficulty hard</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/difficultycommand.png" alt="difficultycommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Returns a list of <code>hard</code> questions.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/difficultyresult.png" alt="difficultyresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="filtering-by-subject-code-subject-code"><a class="link" href="#filtering-by-subject-code-subject-code">Filtering by subject: <code>subject</code></a></h4>
-<div class="paragraph">
-<p>You can view the list of all questions from a specific subject.<br>
-Format: <code>subject SUBJECT</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive.</p>
-</li>
-<li>
-<p>Only full subject will be matched.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>subject CS2103T</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/subjectcommand.png" alt="subjectcommand" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Returns a list of questions of <code>CS2103T</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/subjectresult.png" alt="subjectresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-questions-code-clearq-code"><a class="link" href="#clearing-all-questions-code-clearq-code">Clearing all questions: <code>clearq</code></a></h4>
-<div class="paragraph">
-<p>You can delete all questions from the app.<br>
-Format: <code>clearq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/clearcommand.png" alt="clearcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/questionCommandsDemo/clearresult.png" alt="clearresult" width="600">
-</div>
+<div class="title">Figure 6. Result for find question command</div>
 </div>
 </div>
 </div>
@@ -443,37 +293,6 @@ Format: <code>clearq</code></p>
 <h4 id="auto-complete-for-command"><a class="link" href="#auto-complete-for-command">Auto-complete for command</a></h4>
 <div class="paragraph">
 <p>NUStudy will automatically complete the command as you type, just like how it behaves in most IDEs.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-a-timer-for-quiz-mode"><a class="link" href="#setting-a-timer-for-quiz-mode">Setting a timer for quiz mode</a></h4>
-<div class="paragraph">
-<p>You can set a time limit before you start a quiz to train yourself under exam conditions. NUStudy will automatically end the quiz when time is up.<br>
-Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT tl/TIME_LIMIT</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="enabling-push-notification-code-notify-e-code"><a class="link" href="#enabling-push-notification-code-notify-e-code">Enabling push notification: <code>notify -e</code></a></h4>
-<div class="paragraph">
-<p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
-Format: <code>notify -e [-A]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="disabling-push-notification-code-notify-d-code"><a class="link" href="#disabling-push-notification-code-notify-d-code">Disabling push notification: <code>notify -d</code></a></h4>
-<div class="paragraph">
-<p>You can disable the push notification with this command.<br>
-Format: <code>notify -d [-A]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sorting-revision-tasks-code-sort-code"><a class="link" href="#sorting-revision-tasks-code-sort-code">Sorting revision tasks: <code>sort</code></a></h4>
-<div class="paragraph">
-<p>You can sort the revision tasks based on certain fields with ascending/descending order.<br>
-Format: <code>sort o/ORDER f/FIELD</code><br>
-Example:<br>
-<code>sort o/a f/dt</code> - You can sort the tasks according to date in ascending order.<br>
-<code>sort o/d f/h</code> - You can sort the tasks according to heading in descending alphabetical order.</p>
 </div>
 </div>
 <div class="sect3">
@@ -556,20 +375,35 @@ The <code>editq</code> command calls <code>Model#setQuestion(Question target, Qu
 question being replaced by the edited question.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>addq</code> operation works:</p>
+<p>The following sequence diagram shows the interaction between classes when <code>EditQuestionCommand#execute(model)</code> is called:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddQuestionSequenceDiagram.png" alt="AddQuestionSequenceDiagram">
+<img src="../images/EditQuestionCommandExecuteSequenceDiagram.png" alt="EditQuestionCommandExecuteSequenceDiagram" width="600">
 </div>
+<div class="title">Figure 7. Sequence diagram for <code>execute(Model)</code> of <code>EditQuestionCommand</code></div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>The following activity diagram summarizes what happens when a user executes a new <code>addq</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram">
+<img src="../images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram" width="300">
 </div>
+<div class="title">Figure 8. Activity diagram for <code>addq</code> command</div>
+</div>
+<div class="paragraph">
+<p>Question is implemented as a concrete class with its relevant fields consist of <code>QuestionBody</code>, <code>Answer</code>,
+<code>Subject</code>, and <code>Difficulty</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram illustrates how <code>Question</code> class is designed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/QuestionClassDiagram.png" alt="QuestionClassDiagram" width="600">
+</div>
+<div class="title">Figure 9. Class diagram for <code>Question</code></div>
 </div>
 <div class="sect4">
 <h5 id="design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute"><a class="link" href="#design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute">Design considerations: How <code>addq</code>/<code>deleteq</code>/<code>editq</code> commands execute</a></h5>
@@ -638,18 +472,20 @@ list operations.</p>
 </li>
 </ul>
 </div>
-<hr>
-<h3 id="use-case-specify-difficulty-level-of-questions-xueting" class="discrete">Use case: Specify difficulty level of questions (Xueting)</h3>
+<h3 id="use-case-add-a-question-to-question-bank-in-nustudy-xueting" class="discrete">Use case: Add a question to question bank in NUStudy (Xueting)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Student specifies the difficulty level as the last tag while adding a questions - <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
+<p>Student keys in add question and specifies the relevant fields - <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 </li>
 <li>
-<p>Application shows and stores the question with its difficulty level</p>
+<p>Application adds the question with its fields.</p>
+</li>
+<li>
+<p>Application informs the user about the success addition of question.</p>
 </li>
 </ol>
 </div>
@@ -682,17 +518,26 @@ list operations.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-edit-difficulty-level-of-a-specific-question-xueting" class="discrete">Use case: Edit difficulty level of a specific question (Xueting)</h3>
+<h3 id="use-case-delete-a-question-xueting" class="discrete">Use case: Delete a question (Xueting)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Student changes the difficulty level of a question - edit <code>-dif id/INDEX d/DIFFICULTY</code></p>
+<p>User requests to view a list of questions from another command (eg. <code>findq</code>, <code>difficulty</code>, <code>subject</code>).</p>
 </li>
 <li>
-<p>Application shows and stores the question with the updated difficulty level</p>
+<p>Application shows the list of questions retrieved from this command.</p>
+</li>
+<li>
+<p>User enters the delete command with the index of the question to be deleted.</p>
+</li>
+<li>
+<p>Application removes the question from the question bank.</p>
+</li>
+<li>
+<p>Application informs the user about the success of deletion.</p>
 </li>
 </ol>
 </div>
@@ -705,126 +550,34 @@ list operations.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. Student does not provide the updated difficulty level</p>
+<p>1a. There is no question listed from the previous command.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Application shows an error message to require difficulty level update</p>
-</li>
-<li>
-<p>1a2. Student inputs the new difficulty level</p>
-</li>
-<li>
-<p>Repeat 1a1 and 1a2 until a difficulty level is provided</p>
+<p>1a1. Application informs the user that the index is invalid since the question list is empty.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Use case resumes at step 2</p>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. Student provides the same difficulty level as the previous one</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. Application shows a warning message indicating that the difficulty level is not updated and ask whether the user would like to proceed</p>
-</li>
-<li>
-<p>1b2. Student chooses either to proceed with the original difficulty level or re-edit the difficulty level</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case resumes at step 2</p>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c. Student inputs an invalid (out of range or non-numeric) questions index</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1c1. Application displays the range of valid question indices</p>
-</li>
-<li>
-<p>1c2. Student re-enters the question index</p>
-</li>
-<li>
-<p>Repeat 1c1 and 1c2 until a valid index is provided</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case resumes at step 1</p>
-</li>
-</ul>
-</div>
-<h3 id="use-case-get-statistics-for-a-difficulty-level-xueting" class="discrete">Use case: Get statistics for a difficulty level (Xueting)</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Student gives the command to get the statistics of the number of questions attempted at the specific difficulty level for a subject stats - <code>-dif d/DIFFICULTY s/SUBJECT</code></p>
-</li>
-<li>
-<p>Application returns a bar chart which consists of the questions index and the number of attempts for this difficulty level</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
 <p>Use case ends</p>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Student does not provide the difficulty level or the subject after the -dif flag</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Application shows an error message requesting the corresponding inputs</p>
-</li>
-<li>
-<p>1a2. Student re-enter the necessary fields</p>
-</li>
-<li>
-<p>Repeat 1a1 and 1a2 until valid inputs are provided</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case resumes at step 2</p>
 </li>
 </ul>
 </div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. Student inputs invalid difficulty level or subject</p>
+<p>1b. Student inputs invalid index for a question (either negative or out of range).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. Application displays a list of difficulty levels and subjects available</p>
+<p>1b1. Application shows an error message to inform the user that the index is invalid.</p>
 </li>
 <li>
-<p>1b2. Student re-enter the necessary fields by choosing from the list</p>
+<p>1b2. Student re-enter the command by providing a valid index.</p>
 </li>
 <li>
-<p>Repeat 1b1 and 1b2 until valid inputs are provided</p>
+<p>Repeat 1b1 and 1b2 until valid index is provided</p>
 </li>
 </ul>
 </div>
@@ -838,4 +591,4 @@ list operations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 01:20:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:00:10 UTC</div></div></div></body></html>

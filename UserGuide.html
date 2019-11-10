@@ -246,6 +246,7 @@ Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/addqcommand.png" alt="addqcommand" width="600">
 </div>
+<div class="title">Figure 1. Add question command</div>
 </div>
 <div class="paragraph">
 <p>The new question will be added to your question bank.</p>
@@ -254,27 +255,11 @@ Format: <code>addq q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/addqresult.png" alt="addqresult" width="600">
 </div>
+<div class="title">Figure 2. Result for add question command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">3.2.2. Listing all questions: <code>listq</code></a></h4>
-<div class="paragraph">
-<p>This command allows you to view the list of all questions.<br>
-Format: <code>listq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/listqcommand.png" alt="listqcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/listqresult.png" alt="listqresult" width="600">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-question-code-editq-code"><a class="link" href="#editing-a-question-code-editq-code">3.2.3. Editing a question: <code>editq</code></a></h4>
+<h4 id="editing-a-question-code-editq-code"><a class="link" href="#editing-a-question-code-editq-code">3.2.2. Editing a question: <code>editq</code></a></h4>
 <div class="paragraph">
 <p>You can edit the fields of an existing question by providing the fields you want to change.<br>
 Format: <code>editq INDEX [q/QUESTION] [a/ANSWER] [d/DIFFICULTY] [s/SUBJECT]</code></p>
@@ -303,7 +288,7 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="ulist">
 <ul>
 <li>
-<p><code>editq 7 a/16 d/easy</code></p>
+<p><code>editq 6 a/16 d/easy</code></p>
 </li>
 </ul>
 </div>
@@ -311,6 +296,7 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="content">
 <img src="images/questionCommandsDemo/editqcommand.png" alt="editqcommand" width="600">
 </div>
+<div class="title">Figure 3. Edit question command</div>
 </div>
 <div class="paragraph">
 <p>Edits the answer and difficulty of the 2nd question to be <code>16</code> and <code>easy</code> respectively.</p>
@@ -319,10 +305,11 @@ question list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#
 <div class="content">
 <img src="images/questionCommandsDemo/editqresult.png" alt="editqresult" width="600">
 </div>
+<div class="title">Figure 4. Result for edit question command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">3.2.4. Locating questions by keyword: <code>findq</code></a></h4>
+<h4 id="locating-questions-by-keyword-code-findq-code"><a class="link" href="#locating-questions-by-keyword-code-findq-code">3.2.3. Locating questions by keyword: <code>findq</code></a></h4>
 <div class="paragraph">
 <p>This command will give you a list of questions whose body or answer contains the keyword(s) you specified.<br>
 Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
@@ -340,6 +327,11 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <li>
 <p>Only full words will be matched.</p>
 </li>
+<li>
+<p>NUStudy will return a list of questions containing any one of the keywords you provided.
+For example, if you type the command <code>findq word1 word2</code>, questions with body or answer which contains
+"word1", "word2", "word 1 word2", "word2 word1", or "word1 word2 xxxxxx yyyy".</p>
+</li>
 </ul>
 </div>
 </div>
@@ -350,7 +342,7 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findq UDP</code></p>
+<p><code>findq coupling tcp</code></p>
 </li>
 </ul>
 </div>
@@ -358,18 +350,20 @@ Format: <code>findq KEYWORD [MORE KEYWORDS]</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/findqcommand.png" alt="findqcommand" width="600">
 </div>
+<div class="title">Figure 5. Find question command</div>
 </div>
 <div class="paragraph">
-<p>Finds the question whose body contains the keyword <code>UDP</code>.</p>
+<p>Finds the questions whose body or answer contains the keyword <code>coupling</code> or <code>tcp</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/questionCommandsDemo/findqresult.png" alt="findqresult" width="600">
 </div>
+<div class="title">Figure 6. Result for find question command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">3.2.5. Deleting a question: <code>deleteq</code></a></h4>
+<h4 id="deleting-a-question-code-deleteq-code"><a class="link" href="#deleting-a-question-code-deleteq-code">3.2.4. Deleting a question: <code>deleteq</code></a></h4>
 <div class="paragraph">
 <p>You can delete a question at its specified INDEX together with its relevant fields from the list.<br>
 Format: <code>deleteq INDEX</code></p>
@@ -402,18 +396,8 @@ Format: <code>deleteq INDEX</code></p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/deleteqcommand.png" alt="deleteqcommand" width="600">
-</div>
-</div>
 <div class="paragraph">
 <p>Deletes the 2nd question from the question list.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/deleteqresult.png" alt="deleteqresult" width="600">
-</div>
 </div>
 <div class="ulist">
 <ul>
@@ -425,6 +409,13 @@ Format: <code>deleteq INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Deletes the 1st question in the results of <code>findq</code> command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-questions-code-listq-code"><a class="link" href="#listing-all-questions-code-listq-code">3.2.5. Listing all questions: <code>listq</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to view the list of all questions.<br>
+Format: <code>listq</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -461,6 +452,7 @@ Format: <code>difficulty DIFFICULTY</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/difficultycommand.png" alt="difficultycommand" width="600">
 </div>
+<div class="title">Figure 7. Filter by difficulty command</div>
 </div>
 <div class="paragraph">
 <p>Returns a list of <code>hard</code> questions.</p>
@@ -469,6 +461,7 @@ Format: <code>difficulty DIFFICULTY</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/difficultyresult.png" alt="difficultyresult" width="600">
 </div>
+<div class="title">Figure 8. Result for filter by difficulty command</div>
 </div>
 </div>
 <div class="sect3">
@@ -505,6 +498,7 @@ Format: <code>subject SUBJECT</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/subjectcommand.png" alt="subjectcommand" width="600">
 </div>
+<div class="title">Figure 9. Filter by subject command</div>
 </div>
 <div class="paragraph">
 <p>Returns a list of questions of <code>CS2103T</code>.</p>
@@ -513,6 +507,7 @@ Format: <code>subject SUBJECT</code></p>
 <div class="content">
 <img src="images/questionCommandsDemo/subjectresult.png" alt="subjectresult" width="600">
 </div>
+<div class="title">Figure 10. Result for filter by subject command</div>
 </div>
 </div>
 <div class="sect3">
@@ -520,16 +515,6 @@ Format: <code>subject SUBJECT</code></p>
 <div class="paragraph">
 <p>You can delete all questions from the app.<br>
 Format: <code>clearq</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/clearcommand.png" alt="clearcommand" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/questionCommandsDemo/clearresult.png" alt="clearresult" width="600">
-</div>
 </div>
 </div>
 </div>
@@ -570,7 +555,7 @@ graph specifies how you can input the command.<br></p>
 <div class="content">
 <img src="images/quiz/QuizModeCommand.png" alt="600" width="600">
 </div>
-<div class="title">Figure 1. Typing <code>quiz</code> command</div>
+<div class="title">Figure 11. Typing <code>quiz</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result will show the message of successfully entering the quiz mode. The first quiz question will appear
@@ -580,7 +565,7 @@ on the right column. The following graph shows the result of your <code>quiz</co
 <div class="content">
 <img src="images/quiz/QuizModeCommandResult.png" alt="600" width="600">
 </div>
-<div class="title">Figure 2. Result of <code>quiz</code> command</div>
+<div class="title">Figure 12. Result of <code>quiz</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -611,7 +596,7 @@ of how to answer question.<br></p>
 <div class="content">
 <img src="images/quiz/QuizAnswer.png" alt="600" width="600">
 </div>
-<div class="title">Figure 3. Typing answer in the command line</div>
+<div class="title">Figure 13. Typing answer in the command line</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result will show the correctness of your answer  and the next question will be displayed. The following
@@ -621,7 +606,7 @@ graph simulates the situation after you answer the question.<br></p>
 <div class="content">
 <img src="images/quiz/QuizAnswerResult.png" alt="600" width="600">
 </div>
-<div class="title">Figure 4. The result after answer</div>
+<div class="title">Figure 14. The result after answer</div>
 </div>
 </div>
 <div class="sect3">
@@ -655,7 +640,7 @@ You can use it as reference and please do not use it to cheat.
 <div class="content">
 <img src="images/quiz/ShowAnswerCommand.png" alt="600" width="600">
 </div>
-<div class="title">Figure 5. Typing <code>show</code> command and its result</div>
+<div class="title">Figure 15. Typing <code>show</code> command and its result</div>
 </div>
 </div>
 <div class="sect3">
@@ -686,7 +671,7 @@ The question you have skipped will be marked as false for result.
 <div class="content">
 <img src="images/quiz/SkipCommand.png" alt="600" width="600">
 </div>
-<div class="title">Figure 6. Typing <code>skip</code> command</div>
+<div class="title">Figure 16. Typing <code>skip</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The current question is skipped and next question will be displayed.<br></p>
@@ -695,7 +680,7 @@ The question you have skipped will be marked as false for result.
 <div class="content">
 <img src="images/quiz/SkipCommandResult.png" alt="600" width="600">
 </div>
-<div class="title">Figure 7. The result of <code>skip</code> command</div>
+<div class="title">Figure 17. The result of <code>skip</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -727,7 +712,7 @@ You can <code>quit</code> the quiz mode anytime you want.
 <div class="content">
 <img src="images/quiz/QuitQuizCommand.png" alt="600" width="600">
 </div>
-<div class="title">Figure 8. Typing <code>quit</code> command</div>
+<div class="title">Figure 18. Typing <code>quit</code> command</div>
 </div>
 <div class="paragraph">
 <p>Step 2: The result shows message of exit from the quiz mode and the original questions will appear. The following graph
@@ -737,7 +722,7 @@ explains what would happen after you <code>quit</code> from the quiz mode.<br></
 <div class="content">
 <img src="images/quiz/QuitQuizCommandResult.png" alt="600" width="600">
 </div>
-<div class="title">Figure 9. The result of <code>quit</code> command</div>
+<div class="title">Figure 19. The result of <code>quit</code> command</div>
 </div>
 </div>
 </div>
@@ -809,7 +794,7 @@ a ballpark figure to estimate how well you have grasp the basic foundations of t
 <div class="content">
 <img src="images/statistics/stats.PNG" alt="600" width="600">
 </div>
-<div class="title">Figure 10. The result of <code>stats d/easy s/cs2103t</code> command</div>
+<div class="title">Figure 20. The result of <code>stats d/easy s/cs2103t</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -845,7 +830,7 @@ your past answers to it as well as a breakdown of the number of questions by dif
 <div class="content">
 <img src="images/statistics/question.PNG" alt="600" width="600">
 </div>
-<div class="title">Figure 11. The result of <code>question -i s/cs2103t</code></div>
+<div class="title">Figure 21. The result of <code>question -i s/cs2103t</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -895,7 +880,7 @@ question in the question list. You decided to investigate further.</p>
 <div class="content">
 <img src="images/statistics/report.PNG" alt="600" width="600">
 </div>
-<div class="title">Figure 12. The result of <code>report 7</code> command</div>
+<div class="title">Figure 22. The result of <code>report 7</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -958,7 +943,7 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <div class="content">
 <img src="images/statistics/overview.PNG" alt="600" width="600">
 </div>
-<div class="title">Figure 13. The result of <code>overview dt/20/10/2019 dt/06/11/2019</code> command</div>
+<div class="title">Figure 23. The result of <code>overview dt/20/10/2019 dt/06/11/2019</code> command</div>
 </div>
 </div>
 </div>
@@ -1334,46 +1319,46 @@ Format: <code>rclear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-timer-for-quiz-mode"><a class="link" href="#setting-a-timer-for-quiz-mode">3.6.2. Setting a timer for quiz mode</a></h4>
+<h4 id="sharing-notes-and-questions-with-other-users"><a class="link" href="#sharing-notes-and-questions-with-other-users">3.6.2. Sharing notes and questions with other users</a></h4>
+<div class="paragraph">
+<p>You can share your notes and questions with other NUStudy users with Internet connection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="login-using-email-and-password"><a class="link" href="#login-using-email-and-password">3.6.3. Login using email and password</a></h4>
+<div class="paragraph">
+<p>You can create an account in the application and login with your email and password. This allows you to access to NUStudy on other platforms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-timer-for-quiz-mode"><a class="link" href="#setting-a-timer-for-quiz-mode">3.6.4. Setting a timer for quiz mode</a></h4>
 <div class="paragraph">
 <p>You can set a time limit before you start a quiz to train yourself under exam conditions. NUStudy will automatically end the quiz when time is up.<br>
 Format: <code>quiz n/NUMBER_OF_QUESTIONS d/DIFFICULTY s/SUBJECT tl/TIME_LIMIT</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enabling-push-notification-code-notify-e-code"><a class="link" href="#enabling-push-notification-code-notify-e-code">3.6.3. Enabling push notification: <code>notify -e</code></a></h4>
+<h4 id="enabling-push-notification-code-notify-e-code"><a class="link" href="#enabling-push-notification-code-notify-e-code">3.6.5. Enabling push notification: <code>notify -e</code></a></h4>
 <div class="paragraph">
 <p>You can enable the push notification feature to send a desktop reminder when the task is about to start.<br>
 Format: <code>notify -e [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="disabling-push-notification-code-notify-d-code"><a class="link" href="#disabling-push-notification-code-notify-d-code">3.6.4. Disabling push notification: <code>notify -d</code></a></h4>
+<h4 id="disabling-push-notification-code-notify-d-code"><a class="link" href="#disabling-push-notification-code-notify-d-code">3.6.6. Disabling push notification: <code>notify -d</code></a></h4>
 <div class="paragraph">
 <p>You can disable the push notification with this command.<br>
 Format: <code>notify -d [-A]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-revision-tasks-code-sort-code"><a class="link" href="#sorting-revision-tasks-code-sort-code">3.6.5. Sorting revision tasks: <code>sort</code></a></h4>
+<h4 id="sorting-revision-tasks-code-sort-code"><a class="link" href="#sorting-revision-tasks-code-sort-code">3.6.7. Sorting revision tasks: <code>sort</code></a></h4>
 <div class="paragraph">
 <p>You can sort the revision tasks based on certain fields with ascending/descending order.<br>
 Format: <code>sort o/ORDER f/FIELD</code><br>
 Example:<br>
 <code>sort o/a f/dt</code> - You can sort the tasks according to date in ascending order.<br>
 <code>sort o/d f/h</code> - You can sort the tasks according to heading in descending alphabetical order.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sharing-notes-and-questions-with-other-users"><a class="link" href="#sharing-notes-and-questions-with-other-users">3.6.6. Sharing notes and questions with other users</a></h4>
-<div class="paragraph">
-<p>You can share your notes and questions with other NUStudy users with Internet connection.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="login-using-email-and-password"><a class="link" href="#login-using-email-and-password">3.6.7. Login using email and password</a></h4>
-<div class="paragraph">
-<p>You can create an account in the application and login with your email and password. This allows you to access to NUStudy on other platforms.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1527,4 +1512,4 @@ eg. <code>rfind h/hello world</code> or <code>rfind dt/01/11/2019</code> or <cod
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 01:20:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:00:09 UTC</div></div></div></body></html>

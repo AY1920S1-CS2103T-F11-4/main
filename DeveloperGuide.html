@@ -462,20 +462,35 @@ The <code>editq</code> command calls <code>Model#setQuestion(Question target, Qu
 question being replaced by the edited question.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>addq</code> operation works:</p>
+<p>The following sequence diagram shows the interaction between classes when <code>EditQuestionCommand#execute(model)</code> is called:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddQuestionSequenceDiagram.png" alt="AddQuestionSequenceDiagram">
+<img src="images/EditQuestionCommandExecuteSequenceDiagram.png" alt="EditQuestionCommandExecuteSequenceDiagram" width="600">
 </div>
+<div class="title">Figure 11. Sequence diagram for <code>execute(Model)</code> of <code>EditQuestionCommand</code></div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>The following activity diagram summarizes what happens when a user executes a new <code>addq</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram">
+<img src="images/AddQuestionActivityDiagram.png" alt="AddQuestionActivityDiagram" width="300">
 </div>
+<div class="title">Figure 12. Activity diagram for <code>addq</code> command</div>
+</div>
+<div class="paragraph">
+<p>Question is implemented as a concrete class with its relevant fields consist of <code>QuestionBody</code>, <code>Answer</code>,
+<code>Subject</code>, and <code>Difficulty</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram illustrates how <code>Question</code> class is designed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/QuestionClassDiagram.png" alt="QuestionClassDiagram" width="600">
+</div>
+<div class="title">Figure 13. Class diagram for <code>Question</code></div>
 </div>
 <div class="sect4">
 <h5 id="design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute"><a class="link" href="#design-considerations-how-code-addq-code-code-deleteq-code-code-editq-code-commands-execute">Design considerations: How <code>addq</code>/<code>deleteq</code>/<code>editq</code> commands execute</a></h5>
@@ -615,7 +630,7 @@ a list of specific question selected by user for quiz.</p>
 <div class="content">
 <img src="images/QuizModeSequenceDiagram.png" alt="QuizModeSequenceDiagram">
 </div>
-<div class="title">Figure 11. QuizModeSequenceDiagram</div>
+<div class="title">Figure 14. QuizModeSequenceDiagram</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command for quiz:</p>
@@ -624,7 +639,7 @@ a list of specific question selected by user for quiz.</p>
 <div class="content">
 <img src="images/QuizModeActivityDiagram.png" alt="400" width="400">
 </div>
-<div class="title">Figure 12. QuizModeActivityDiagram</div>
+<div class="title">Figure 15. QuizModeActivityDiagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -743,7 +758,7 @@ it returns a new <code>CommandResult</code> with command type: <code>STATS</code
 <div class="content">
 <img src="images/statistics/StatisticsClassDiagram.png" alt="StatisticsClassDiagram">
 </div>
-<div class="title">Figure 13. Class diagram for <code>GetStatisticsCommand</code></div>
+<div class="title">Figure 16. Class diagram for <code>GetStatisticsCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Step 3. After <code>CommandResult</code> is returned to <code>MainWindow</code>, it will call a <code>showStats</code> method to
@@ -756,7 +771,7 @@ create a pie chart. It will then show a statistics panel, hiding all notes, task
 <div class="content">
 <img src="images/statistics/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
 </div>
-<div class="title">Figure 14. UI sequence diagram for <code>GetStatisticsCommand</code></div>
+<div class="title">Figure 17. UI sequence diagram for <code>GetStatisticsCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user now wants to stop viewing statistics and decides to view all notes, tasks and questions
@@ -769,7 +784,7 @@ again using the <code>listnote</code> command. The statistics panel will now be 
 <div class="content">
 <img src="images/statistics/StatisticsActivityDiagram.png" alt="StatisticsActivityDiagram">
 </div>
-<div class="title">Figure 15. Statistics activity diagram</div>
+<div class="title">Figure 18. Statistics activity diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -944,7 +959,7 @@ task to the revision plan.</p>
 <div class="content">
 <img src="images/task/AddTaskForNoteCommandExecuteSequenceDiagram.png" alt="AddTaskForNoteCommandExecuteSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence diagram for <code>execute(Model)</code> of <code>AddTaskForNoteCommand</code></div>
+<div class="title">Figure 19. Sequence diagram for <code>execute(Model)</code> of <code>AddTaskForNoteCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Zooming in to <strong>Step 3</strong>, when calling <code>hasValidNoteForTask(Model)</code>, <code>AddTaskForNoteCommand</code> creates a new <code>Note</code> with a <code>Title</code> "UML diagram" and a <code>Content</code> "dummy entry".
@@ -956,7 +971,7 @@ The detailed process is illustrated by the sequence diagram below.</p>
 <div class="content">
 <img src="images/task/HasValidNoteSequenceDiagram.png" alt="HasValidNoteSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence diagram for checking existence of a <code>Note</code> in the model when <code>AddTaskForNoteCommand</code> calls its own <code>hasValidNoteForTask(Model)</code></div>
+<div class="title">Figure 20. Sequence diagram for checking existence of a <code>Note</code> in the model when <code>AddTaskForNoteCommand</code> calls its own <code>hasValidNoteForTask(Model)</code></div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes the whole process of adding a task for note.</p>
@@ -965,7 +980,7 @@ The detailed process is illustrated by the sequence diagram below.</p>
 <div class="content">
 <img src="images/task/AddTaskForNoteActivityDiagram.png" alt="AddTaskForNoteActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity diagram for adding a task for note</div>
+<div class="title">Figure 21. Activity diagram for adding a task for note</div>
 </div>
 </div>
 <div class="sect3">
@@ -999,7 +1014,7 @@ Hence we need to write more pieces of code.</p>
 <div class="content">
 <img src="images/task/TaskClassDiagram.png" alt="TaskClassDiagram">
 </div>
-<div class="title">Figure 19. Design of <code>Task</code> class</div>
+<div class="title">Figure 22. Design of <code>Task</code> class</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1858,17 +1873,20 @@ compared to a typical note-taking app</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-specify-difficulty-level-of-questions-xueting" class="discrete">Use case: Specify difficulty level of questions (Xueting)</h3>
+<h3 id="use-case-add-a-question-to-question-bank-in-nustudy-xueting" class="discrete">Use case: Add a question to question bank in NUStudy (Xueting)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Student specifies the difficulty level as the last tag while adding a questions - <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
+<p>Student keys in add question and specifies the relevant fields - <code>add q/QUESTION a/ANSWER s/SUBJECT d/DIFFICULTY</code></p>
 </li>
 <li>
-<p>Application shows and stores the question with its difficulty level</p>
+<p>Application adds the question with its fields.</p>
+</li>
+<li>
+<p>Application informs the user about the success addition of question.</p>
 </li>
 </ol>
 </div>
@@ -1898,6 +1916,75 @@ compared to a typical note-taking app</p>
 </li>
 <li>
 <p>Use case resumes from step 2</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-a-question-xueting" class="discrete">Use case: Delete a question (Xueting)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view a list of questions from another command (eg. <code>findq</code>, <code>difficulty</code>, <code>subject</code>).</p>
+</li>
+<li>
+<p>Application shows the list of questions retrieved from this command.</p>
+</li>
+<li>
+<p>User enters the delete command with the index of the question to be deleted.</p>
+</li>
+<li>
+<p>Application removes the question from the question bank.</p>
+</li>
+<li>
+<p>Application informs the user about the success of deletion.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. There is no question listed from the previous command.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Application informs the user that the index is invalid since the question list is empty.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case ends</p>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Student inputs invalid index for a question (either negative or out of range).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Application shows an error message to inform the user that the index is invalid.</p>
+</li>
+<li>
+<p>1b2. Student re-enter the command by providing a valid index.</p>
+</li>
+<li>
+<p>Repeat 1b1 and 1b2 until valid index is provided</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use case resumes at step 2</p>
 </li>
 </ul>
 </div>
@@ -1984,72 +2071,6 @@ compared to a typical note-taking app</p>
 </li>
 <li>
 <p>Use case resumes at step 1</p>
-</li>
-</ul>
-</div>
-<h3 id="use-case-get-statistics-for-a-difficulty-level-xueting" class="discrete">Use case: Get statistics for a difficulty level (Xueting)</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Student gives the command to get the statistics of the number of questions attempted at the specific difficulty level for a subject stats - <code>-dif d/DIFFICULTY s/SUBJECT</code></p>
-</li>
-<li>
-<p>Application returns a bar chart which consists of the questions index and the number of attempts for this difficulty level</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Student does not provide the difficulty level or the subject after the -dif flag</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Application shows an error message requesting the corresponding inputs</p>
-</li>
-<li>
-<p>1a2. Student re-enter the necessary fields</p>
-</li>
-<li>
-<p>Repeat 1a1 and 1a2 until valid inputs are provided</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case resumes at step 2</p>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. Student inputs invalid difficulty level or subject</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. Application displays a list of difficulty levels and subjects available</p>
-</li>
-<li>
-<p>1b2. Student re-enter the necessary fields by choosing from the list</p>
-</li>
-<li>
-<p>Repeat 1b1 and 1b2 until valid inputs are provided</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use case resumes at step 2</p>
 </li>
 </ul>
 </div>
@@ -2343,4 +2364,4 @@ in its data folder.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 01:20:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:00:09 UTC</div></div></div></body></html>
