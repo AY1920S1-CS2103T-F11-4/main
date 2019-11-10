@@ -42,6 +42,18 @@ to the feature and relevant documentations in detail.</p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This symbol indicates that the following information is important.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -166,7 +178,7 @@ The <code>NUMBER_OF_QUESTIONS</code> must be a positive integer.<br>
 <p><em><strong>Example:</strong></em></p>
 </div>
 <div class="paragraph">
-<p>Step 1: Types <code>quiz n/2 d/Easy s/CS2040</code> in the command box and presses <code>Enter</code> to execute the command. The following
+<p>Step 1: Types <code>quiz n/2 d/easy s/cs2040</code> in the command box and presses <code>Enter</code> to execute the command. The following
 graph specifies how you can input the command.<br></p>
 </div>
 <div class="imageblock">
@@ -430,11 +442,24 @@ a list of specific question selected by user for quiz.</p>
 <code>Model#addQuizResult(QuizResult quizResult)</code>, causing the <code>AppData</code> to be updated with the result of the answer.</p>
 </div>
 <div class="paragraph">
+<p>The following graph explains how <code>QuizResult</code> class is designed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/QuizResultClassDiagram.png" alt="QuizResultClassDiagram">
+</div>
+<div class="title">Figure 11. QuizResultClassDiagram</div>
+</div>
+<div class="paragraph">
 <p>Step 4. The user executes <code>show</code> command to show the answer of current quiz question in the app. The <code>show</code> command calls
 <code>Model#showQuizAnswer()</code>, causing the <code>AppData</code> to display the answer on the Ui.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user executes <code>quit</code> command to exit from the quiz mode. The <code>quit</code> command calls
+<p>Step 5. The user executes <code>skip</code> command to skip the current quiz question in the app. The <code>skip</code> command calls
+<code>Model#removeOneQuizQuestion()</code>, causing the <code>AppData</code> to display the next quiz question on the Ui.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>quit</code> command to exit from the quiz mode. The <code>quit</code> command calls
 <code>Model#clearQuizQuestionList()</code>, causing the <code>AppData</code> to clear all quiz question list and return to normal mode.</p>
 </div>
 <div class="paragraph">
@@ -444,7 +469,7 @@ a list of specific question selected by user for quiz.</p>
 <div class="content">
 <img src="../images/QuizModeSequenceDiagram.png" alt="QuizModeSequenceDiagram">
 </div>
-<div class="title">Figure 11. QuizModeSequenceDiagram</div>
+<div class="title">Figure 12. QuizModeSequenceDiagram</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command for quiz:</p>
@@ -453,7 +478,7 @@ a list of specific question selected by user for quiz.</p>
 <div class="content">
 <img src="../images/QuizModeActivityDiagram.png" alt="400" width="400">
 </div>
-<div class="title">Figure 12. QuizModeActivityDiagram</div>
+<div class="title">Figure 13. QuizModeActivityDiagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -636,4 +661,4 @@ list operations.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 03:00:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 06:28:41 UTC</div></div></div></body></html>
