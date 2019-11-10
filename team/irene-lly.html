@@ -18,7 +18,7 @@ and set tasks to plan their revision schedule.</p>
 </div>
 <div class="paragraph">
 <p>I contributed to this project by implementing the statistics feature as documented below.
-In particular, I have implemented the <code>stats</code>, <code>questions</code>, <code>report</code> and <code>overview</code> commands.
+In particular, I have implemented the <code>stats</code>, <code>question</code>, <code>report</code> and <code>overview</code> commands.
 The following sections will elaborate more on these enhancements
 and showcase some documentations that I have added to the user and developer guides in
 relation to these enhancements.</p>
@@ -77,8 +77,8 @@ logic classes and the UI.</p>
 <ul>
 <li>
 <p>I was in charge of code quality.
-My job includes making sure that the code follows a consistent style,
-is easy to understand and that the code is well-documented.</p>
+My job was to make sure that the code follows a consistent style,
+is easy to understand and is well-documented.</p>
 </li>
 </ul>
 </div>
@@ -124,7 +124,7 @@ is easy to understand and that the code is well-documented.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We have modified the existing Addressbook User Guide to include commands for the enhancements
-that we have added as well as remove the old commands that are not relevant to our project.
+that we have added as well as remove the old commands that were not relevant to our project.
 Given below shows my additions to the NUStudy User Guide for the statistics feature.</p>
 </div>
 <hr>
@@ -156,9 +156,9 @@ Questions and Revision tasks features. E.g. <code>rlist</code>.
 <td class="content">
 Quiz results stored in the app are not synchronised with the questions.
 If you have modified a question using the <code>editq</code> command,
-the stored quiz result will still refer to the original question to minimise inconsistencies in the statistics.
-This is because a question that has been modified to a large extent
-might cause past answers to become irrelevant and distort the statistics.
+the stored quiz result will still refer to the original question.
+This is because a question that has been modified might cause past
+answers to become irrelevant and distort the statistics.
 </td>
 </tr>
 </table>
@@ -236,7 +236,7 @@ your past answers to it as well as a breakdown of the number of questions by dif
 </div>
 </div>
 <div class="sect3">
-<h4 id="getting-a-report-for-individual-questions-code-report-code"><a class="link" href="#getting-a-report-for-individual-questions-code-report-code">Getting a report for individual questions: <code>report</code></a></h4>
+<h4 id="getting-a-report-of-individual-questions-code-report-code"><a class="link" href="#getting-a-report-of-individual-questions-code-report-code">Getting a report of individual questions: <code>report</code></a></h4>
 <div class="paragraph">
 <p>You can get a report of how well you have answered a particular question
 and see all your past answers to the question.<br>
@@ -355,7 +355,7 @@ To be a well-rounded individual, you decided to check if you have been neglectin
 <h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer guide contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We have also modified the existing addressBook Developer Guide to include implementation of
+<p>We have also modified the existing AddressBook Developer Guide to include implementation of
 our features as well as remove the old documentation of the AddressBook features.
 Given below shows my additions to the NUStudy Developer Guide for the statistics feature.</p>
 </div>
@@ -415,7 +415,7 @@ create a pie chart. It will then show a statistics panel, hiding all notes, task
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/statistics/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram">
+<img src="../images/statistics/StatisticsSequenceDiagram.png" alt="StatisticsSequenceDiagram" height="250">
 </div>
 <div class="title">Figure 6. UI sequence diagram for <code>GetStatisticsCommand</code></div>
 </div>
@@ -503,7 +503,7 @@ This is also more difficult to implement.</p>
 </ul>
 </div>
 <hr>
-<h3 id="use-case-get-statistics-for-subjects-irene" class="discrete">Use case: get statistics for subjects (Irene)</h3>
+<h3 id="use-case-get-statistics-for-subjects-irene" class="discrete">Use case: Get statistics for subjects (Irene)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -530,10 +530,13 @@ This is also more difficult to implement.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Application will inform students that there are no statistics for that difficulty/subject</p>
+<p>1a1. Application will inform students that there are no statistics for that difficulty/subjects</p>
 </li>
 <li>
-<p>1a2. Student will re-enter the command with a valid difficulty/subject</p>
+<p>1a2. Student will re-enter the command</p>
+</li>
+<li>
+<p>Repeat 1a1 and 1a2 until valid difficulty/subjects is/are provided</p>
 </li>
 </ul>
 </div>
@@ -543,7 +546,7 @@ This is also more difficult to implement.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-get-report-of-individual-questions-irene" class="discrete">Use case: get report of individual questions (Irene)</h3>
+<h3 id="use-case-get-report-of-individual-questions-irene" class="discrete">Use case: Get report of individual questions (Irene)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -598,6 +601,9 @@ This is also more difficult to implement.</p>
 <li>
 <p>1b2. Student re-enters the command</p>
 </li>
+<li>
+<p>Repeat 1b1 and 1b2 until a valid index is provided</p>
+</li>
 </ul>
 </div>
 </li>
@@ -611,4 +617,4 @@ This is also more difficult to implement.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 16:13:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 16:16:20 UTC</div></div></div></body></html>
